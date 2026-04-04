@@ -15,7 +15,7 @@ When multiple models confidently agree on a falsehood, the risk becomes invisibl
 
 ## 🚀 The Solution: Triangulation nach Schult
 This framework treats **dissonance, disagreement, drift, and even model refusal** as primary data points.  
-It provides a **6‑phase operational protocol** to transform conflicting AI outputs into a **robust, non‑falsified human synthesis**.
+It provides a **6‑phase operational protocol** to transform conflicting AI outputs into a structured, non-falsified (within defined thresholds) human synthesis.
 
 The method is:
 - model‑agnostic  
@@ -123,7 +123,7 @@ If you use this framework in research or industry, please cite:
 ---
 
 ## 🧩 Why Divergence > Consensus
-Consensus hides risk.  
+Consensus can obscure systemic risk.  
 Divergence reveals structure.
 
 This framework helps you see what the models cannot see about themselves — and what you cannot see without them.
