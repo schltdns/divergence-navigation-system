@@ -1,0 +1,15 @@
+\section{Related Work and Distinction}
+
+The \textit{Triangulation nach Schult} operates at the intersection of Multi-Agent Systems (MAS) and Epistemic Uncertainty. To define its unique contribution, it must be distinguished from existing frameworks:
+
+\begin{itemize}
+    \item \textbf{SCOUT (Uncertainty Triangulation):} While SCOUT utilizes signals like model heterogeneity and reasoning-critique for automated error detection in clinical settings, it lacks the \textbf{Phase P6 (Meta-Reflection)} characteristic of our protocol. SCOUT aims to "fix" the AI; our method aims to "inform" the human operator through structured dissonance.
+    
+    \item \textbf{AI Council Framework:} Traditional "Councils" orchestrate multiple LLMs to reach a \textbf{consensus} through deliberation. In contrast, the Schult protocol treats \textit{divergence} as the primary informative signal. We argue that forcing consensus often masks underlying epistemic risks.
+    
+    \item \textbf{Semantic Triangulation:} This mathematical approach focuses on consistency across linguistic transformations of a single problem. Our framework, however, leverages the \textbf{diverse "identities" and training biases} of independent models (e.g., Grok vs. Claude) to expose structural blind spots.
+    
+    \item \textbf{DelphiAgent / LLM Council-Double Delphi:} These methods adapt the classical Delphi technique for iterative convergence. While they share a multi-stage structure, the \textit{Triangulation nach Schult} is explicitly designed for \textbf{Falsification (P1)} and the analysis of unresolved gaps, rather than seeking a common denominator.
+\end{itemize}
+
+In summary, the Schult protocol is not a consensus-machine but a \textbf{diagnostic framework for uncertainty}, placing the human operator in the role of a "Synthesizer" rather than a mere recipient of an averaged output.
