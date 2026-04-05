@@ -58,7 +58,12 @@ Uses syntactic variations of the same problem to measure consistency. A statisti
 Uses LLMs as a first expert round to create a problem map, followed by a human panel. Our protocol keeps the human operator involved throughout, and aims for non-falsification, not consensus.
 
 Our protocol contributes a structured, role-based, prompt-level method for epistemic divergence analysis.
+\subsection{Multi-Agent Orchestration Frameworks (AutoGen, CrewAI, OpenAI Swarm)}
+Recent years have seen the emergence of powerful software libraries for orchestrating multiple LLM agents, such as Microsoft AutoGen, CrewAI, and OpenAI Swarm. These frameworks solve a technical problem: how to coordinate parallel or sequential agent interactions, define handoffs, and achieve task completion. They typically optimize for efficiency, autonomy, and consensus – often through mechanisms like majority voting, council debates, or hierarchical routing.
 
+The \textit{Triangulation nach Schult} addresses a different, complementary problem. It is not a technical orchestration layer but an \textit{epistemic protocol}. Its goal is not to produce a single answer, but to systematically analyze divergence as a diagnostic signal. Where orchestration frameworks aim for \textit{consensus}, our protocol forces \textit{structured dissonance}. Where they automate error correction, our protocol treats model refusal and contradiction as valuable data points. Crucially, the protocol operates at a higher logical level: it can be implemented \textit{on top of} any orchestration framework that supports parallel model queries.
+
+Thus, the frameworks provide the \textit{infrastructure} for multi-agent interaction, while the Triangulation nach Schult provides the \textit{epistemic logic} for interpreting disagreement and making human‑centered decisions under uncertainty.
 \section{Method Overview}
 
 \subsection{Core Principle}
