@@ -1,142 +1,146 @@
-# Triangulation nach Schult (TNS) — v1.1-Open
+# Triangulation nach Schult (TNS)
 
-**"Divergence is a signal, not noise."** A formal multi‑agent protocol for decision‑making, AI evaluation, and uncertainty mapping using Large Language Models (LLMs).  
-**Divergence > Consensus.**
+**A structured, falsifiable, multi‑model analysis method for complex uncertainty.**
 
----
-
-## 🎯 Why TNS Exists
-
-Most AI evaluation frameworks try to **reduce** disagreement (e.g., voting, averaging, ensemble methods).  
-But because modern LLMs share training data, alignment norms, and structural biases, **consensus often hides systemic error**.
-
-When multiple models confidently agree on a falsehood, the error becomes invisible.
-
-**TNS reverses the logic:** Disagreement, drift, refusal, and contradiction are treated as **primary analytical signals**.
+> *“This repository does not show what AI says – it reveals where and why AI models disagree, and how reasoned decisions are derived from that divergence.”*
 
 ---
 
-## 🚀 What TNS Does
+## What is TNS?
 
-TNS provides a **6‑phase operational protocol** that transforms conflicting AI outputs into a structured, falsifiable, human‑led synthesis.
+TNS is a hybrid method combining:
+- **Classical triangulation** (Denzin 1978; Patton 1999)
+- **Constructivist didactics** (Reich 2008)
+- **Critical rationalism** (Popper)
+- **Multi‑model AI divergence** as an epistemic resource
 
-The method is:
-- **Model‑agnostic** & **Falsifiable** (explicit thresholds)
-- **Recursive** & **Didactically applicable**
-- **Open‑source** & **Human‑in‑the‑loop by design**
-
-TNS does **not** aim for consensus. It aims for **epistemic stability under divergence**.
-
----
-
-## 🔬 Novelty Claim
-
-TNS is distinct from classical triangulation (Denzin, Patton), Delphi methods, or ensemble learning because it:
-1. **Operationalizes divergence** as a structured data layer.
-2. Uses **role‑based model decomposition** (Signal, Structure, Boundaries, Falsification, Dynamics, Critique).
-3. Applies **explicit falsification thresholds**.
-4. Requires **mandatory human justification** for synthesis.
-5. Includes **operator self‑reflection** to detect human bias.
+It uses divergent LLMs as “resonating bodies” to surface blind spots, biases, and causal disagreements – then synthesises them into falsifiable, transparent, and critique‑ready conclusions.
 
 ---
 
-## 🛠 The 6‑Phase TNS Protocol (P1–P6)
+## Repository Structure
+tns/
+├── protocol/ # Operational guide for TNS phases (P1–P8)
+├── related works/ # Academic references (Denzin, Patton, Reich, etc.)
+├── case_study_energy/ # First case: European gas market dynamics
+├── case_study_labour_market_2030/ # Second case: AI & skills shortage (full TNS cycle)
+├── teaching/ # 90‑minute workshop for IHK / vocational schools
+├── whitepaper.tex # Draft whitepaper on multi‑agent orchestration
+├── Schult_2026_Triangulation_Protocol_v1_2.pdf # Formal protocol description
+├── CHANGELOG.md # Version history
+├── LICENSE # CC BY‑NC 4.0
+└── README.md # This file
 
-### **P1 — Hypotheses & Falsification**
-Define hypotheses and measurable falsification thresholds.  
-*Example: “If Gas Price > 50€, H1 is false.”*
-
-### **P2 — Team Architecture**
-Assign functional roles to diverse models:  
-**Signal • Structure • Boundaries • Falsification • Dynamics • Critique**
-
-### **P3 — Parallel Elicitation**
-Send the **same prompt** to all models. No cross‑contamination. No iterative debate.
-
-### **P4 — Divergence Mapping**
-Categorize contradictions: content/methodological divergence, bias signals, blind spots, or refusals.
-
-### **P5 — Weighted Human Synthesis**
-The operator integrates findings and must justify inclusions/exclusions and how divergence informed the result.
-
-### **P6 — Operator Self‑Reflection**
-A mandatory 3‑question check:
-1. Did I prefer the model that matched my prior belief?
-2. Did I ignore a divergence because it was inconvenient?
-3. Would another operator reach the same synthesis?
+text
 
 ---
 
-## 📊 Workflow Diagram
+## Key Case Study: Labour Market 2030
 
-```mermaid
-graph TD
-    classDef stage fill:#f9f9f9,stroke:#333,stroke-width:2px;
-    classDef human fill:#e1f5fe,stroke:#01579b,stroke-width:2px,font-weight:bold;
-    classDef models fill:#fff3e0,stroke:#ef6c00,stroke-width:2px;
+**Question:** How will AI automation transform the German labour market by 2030, given a persistent skills shortage?
 
-    Start((Start)) --> S1[Stage 1: Initialization]
-    S1 --> S2[Stage 2: Role Assignment]
-    
-    subgraph Parallel_Processing [Multi-Agent Layer]
-        S3[Stage 3: Parallel Multi-Agent Prompting]
-        M1(Model A: Falsifier) -.-> S3
-        M2(Model B: Historicator) -.-> S3
-        M3(Model C: Structuralist) -.-> S3
-    end
+**Method:** Six models (ChatGPT, Claude, DeepSeek, Gemini, Grok, Copilot) – identical prompts – divergence extraction – external validation (IAB, WEF, IW, McKinsey, BAuA) – operator synthesis.
 
-    S3 --> S4[Stage 4: Divergence Mapping]
-    S4 --> S5[Stage 5: Human-in-the-Loop Synthesis]
-    S5 --> S6[Stage 6: Epistemic Reflection]
-    S6 --> End((Validated Insight))
+**Core findings (consensus):**
+- Job change > job loss; 20–40% of tasks transformed
+- Productivity potential 0.3–1.2% p.a. – conditional on adaptation
+- Skill shift inevitable: routine analysis ↓, problem solving & AI literacy ↑
+- Dual training is an advantage **if modernised quickly**
+- Real risks: inequality, regional divergence, age (50+), mental health
 
-    class S1,S2,S4,S6 stage;
-    class S5 human;
-    class S3,M1,M2,M3 models;
-```
+**Open questions (divergences):** Speed of automation, regulation as brake vs. protection, social mobility trend.
+
+**Falsification matrix:** Testable criteria with thresholds (e.g., productivity <0.1% by 2028 would falsify the optimistic productivity thesis).
+
+**Power layer:** Added as fourth filter – who controls AI, who has access, who profits, who bears risks.
+
+📁 **[Go to case study](case_study_labour_market_2030/)**
 
 ---
 
-## 📚 Real‑World Case Study
-**Energy Market 2026 — Hormuz Crisis (TTF Gas)** Models used: Grok (Signal), Claude (Boundaries), Copilot (Dynamics).
+## How to Use This Repository
 
-**Outcome:**
-- Identified a structural shift from speculation → supply‑driven volatility.
-- A model refusal revealed an underspecified hypothesis.
-- Divergence mapping exposed hidden assumptions in the initial scenario.
+- **For researchers:** Replicate the TNS protocol with your own models or updated data. Compare divergence patterns.
+- **For practitioners (IHK, vocational schools):** Use the `teaching/` workshop to introduce the three filters and power layer.
+- **For method developers:** Build upon the divergence types, falsification matrix, and operator reflection.
 
 ---
 
-## 📂 Repository Structure
-```text
-README.md                → Overview (this file)
-WHITE_PAPER.md           → Full methodological description (arXiv: cs.AI)
-PROTOCOL.md              → Step-by-step P1–P6 instructions
-CASE_STUDY_ENERGY.md     → April 2026 test case (transcripts + synthesis)
-TEMPLATES/               → Prompt templates & synthesis spreadsheets
-```
+## License
+
+**CC BY‑NC 4.0** – Attribution required, non‑commercial. You are free to share and adapt, but not for commercial purposes.
 
 ---
 
-## ⚖️ License & Intellectual Property
-- **Method & Documentation:** Apache License 2.0 (Free to use, modify, distribute).
-- **Proprietary Context:** High‑level system prompts used in the GNS (Geopolitical Navigation System) remain proprietary to the author.
+## Citation
+
+Schult, D. (2026). *Triangulation nach Schult (TNS): A multi‑model divergence analysis method*. GitHub. [https://github.com/schltdns/tns](https://github.com/schltdns/tns)
 
 ---
 
-## ✍️ Author & Citation
-**Denis Schult** Independent Researcher, Germany  
-Email: schltdns@gmail.com
+## Version
 
-**Citation:** Schult, D. (2026). *Triangulation nach Schult (TNS): A Recursive Multi‑Agent Framework for Robust Decision‑Making under Epistemic Uncertainty.* GitHub Repository / arXiv: cs.AI.
+**Current release: v1.2-Open** (see [CHANGELOG](CHANGELOG.md))
 
 ---
 
-## 📥 Quick Start
-1. **Define** 3 hypotheses and set falsification thresholds.
-2. **Run** the same prompt through 3+ LLMs.
-3. **Map** divergence — ignore consensus initially.
-4. **Perform** the operator reflection (P6).
+## Contact & Contributing
 
-**Consensus can obscure systemic risk. Divergence reveals structure.**
-```
+Issues and pull requests welcome. For questions, open an issue or contact the maintainer.
+2. CITATION.cff (for GitHub’s citation feature)
+yaml
+cff-version: 1.2.0
+message: "If you use this method or case studies in your work, please cite as follows."
+title: "Triangulation nach Schult (TNS): A multi‑model divergence analysis method"
+version: 1.2-Open
+date-released: 2026-04-06
+authors:
+  - family-names: "Schult"
+    given-names: "Denis"
+    orcid: "https://orcid.org/..." # optional
+repository-code: "https://github.com/schltdns/tns"
+license: "CC-BY-NC-4.0"
+keywords:
+  - triangulation
+  - AI
+  - divergence
+  - labour market
+  - methodology
+type: software
+3. Release Notes (for GitHub Releases)
+markdown
+# Release v1.2-Open – Labour Market 2030 Case Study
+
+## What’s new
+
+- **Full case study: Labour Market 2030** (AI automation & skills shortage)
+  - Raw outputs from 6 models (ChatGPT, Claude, DeepSeek, Gemini, Grok, Copilot)
+  - Divergence matrix with 4 types (substantive, normative, didactic, architectural)
+  - Master Frame 3.3 (tasks, 3 filters, power layer, master question)
+  - Falsification matrix with testable criteria (e.g., productivity <0.1% by 2028)
+  - External validation (IAB, WEF, IW, McKinsey, BAuA)
+  - Operator reflection (bias self‑assessment, falsification of operator decisions)
+
+- **Power layer** introduced as fourth, meta‑filter (access, control, profit, risk)
+
+- **Teaching module** (90‑minute workshop) for IHK / vocational schools
+
+- **CHANGELOG.md** for version tracking
+
+- **CITATION.cff** for easy referencing
+
+## Changed
+
+- Main README restructured with golden sentence and clearer navigation
+
+## Fixed
+
+- Divergence now explicitly treated as primary signal (not consensus‑first)
+
+## How to use
+
+- Browse `case_study_labour_market_2030/` for the full analysis
+- Run the workshop from `teaching/`
+- Cite using `CITATION.cff`
+
+**Next planned:** Update falsification matrix with 2027/2028 data when available.
