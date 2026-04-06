@@ -6,39 +6,41 @@
 ---
 
 ## 🎯 Why TNS Exists
-Most AI evaluation frameworks try to *reduce* disagreement (e.g., voting, averaging, ensemble methods).  
+
+Most AI evaluation frameworks try to **reduce** disagreement (e.g., voting, averaging, ensemble methods).  
 But because modern LLMs share training data, alignment norms, and structural biases, **consensus often hides systemic error**.
 
 When multiple models confidently agree on a falsehood, the error becomes invisible.
 
-**TNS reverses the logic:** Disagreement, drift, refusal, and contradiction are treated as *primary analytical signals*.
+**TNS reverses the logic:** Disagreement, drift, refusal, and contradiction are treated as **primary analytical signals**.
 
 ---
 
 ## 🚀 What TNS Does
+
 TNS provides a **6‑phase operational protocol** that transforms conflicting AI outputs into a structured, falsifiable, human‑led synthesis.
 
 The method is:
-- **model‑agnostic** - **falsifiable** (explicit thresholds)  
-- **recursive** - **didactically applicable** - **open‑source** - **human‑in‑the‑loop by design**
+- **Model‑agnostic** & **Falsifiable** (explicit thresholds)
+- **Recursive** & **Didactically applicable**
+- **Open‑source** & **Human‑in‑the‑loop by design**
 
-TNS does **not** aim for consensus.  
-It aims for **epistemic stability under divergence**.
+TNS does **not** aim for consensus. It aims for **epistemic stability under divergence**.
 
 ---
 
 ## 🔬 Novelty Claim
-TNS is distinct from classical triangulation (Denzin, Patton), Delphi methods, ensemble learning, or multi‑agent debate systems because it:
 
-1. **Operationalizes divergence** as a structured data layer.  
-2. Uses **role‑based model decomposition** (Signal, Structure, Boundaries, Falsification, Dynamics, Critique).  
-3. Applies **explicit falsification thresholds**.  
-4. Requires **mandatory human justification** for synthesis.  
+TNS is distinct from classical triangulation (Denzin, Patton), Delphi methods, or ensemble learning because it:
+1. **Operationalizes divergence** as a structured data layer.
+2. Uses **role‑based model decomposition** (Signal, Structure, Boundaries, Falsification, Dynamics, Critique).
+3. Applies **explicit falsification thresholds**.
+4. Requires **mandatory human justification** for synthesis.
 5. Includes **operator self‑reflection** to detect human bias.
 
 ---
 
-# 🛠 The 6‑Phase TNS Protocol (P1–P6)
+## 🛠 The 6‑Phase TNS Protocol (P1–P6)
 
 ### **P1 — Hypotheses & Falsification**
 Define hypotheses and measurable falsification thresholds.  
@@ -59,11 +61,13 @@ The operator integrates findings and must justify inclusions/exclusions and how 
 
 ### **P6 — Operator Self‑Reflection**
 A mandatory 3‑question check:
-1. *Did I prefer the model that matched my prior belief?* 2. *Did I ignore a divergence because it was inconvenient?* 3. *Would another operator reach the same synthesis?*
+1. Did I prefer the model that matched my prior belief?
+2. Did I ignore a divergence because it was inconvenient?
+3. Would another operator reach the same synthesis?
 
 ---
 
-# 📊 Workflow Diagram
+## 📊 Workflow Diagram
 
 ```mermaid
 graph TD
