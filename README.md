@@ -93,44 +93,50 @@ graph TD
     class S1,S2,S4,S6 stage;
     class S5 human;
     class S3,M1,M2,M3 models;
+```
 
-📚 Real‑World Case Study
-Energy Market 2026 — Hormuz Crisis (TTF Gas) Models used: Grok (Signal), Claude (Boundaries), Copilot (Dynamics).
+---
 
-Outcome:
+## 📚 Real‑World Case Study
+**Energy Market 2026 — Hormuz Crisis (TTF Gas)** Models used: Grok (Signal), Claude (Boundaries), Copilot (Dynamics).
 
-Identified a structural shift from speculation → supply‑driven volatility.
+**Outcome:**
+- Identified a structural shift from speculation → supply‑driven volatility.
+- A model refusal revealed an underspecified hypothesis.
+- Divergence mapping exposed hidden assumptions in the initial scenario.
 
-A model refusal revealed an underspecified hypothesis.
+---
 
-Divergence mapping exposed hidden assumptions in the initial scenario.
-
-📂 Repository Structure
-Plaintext
+## 📂 Repository Structure
+```text
 README.md                → Overview (this file)
 WHITE_PAPER.md           → Full methodological description (arXiv: cs.AI)
 PROTOCOL.md              → Step-by-step P1–P6 instructions
 CASE_STUDY_ENERGY.md     → April 2026 test case (transcripts + synthesis)
 TEMPLATES/               → Prompt templates & synthesis spreadsheets
-⚖️ License & Intellectual Property
-Method & Documentation: Apache License 2.0 (Free to use, modify, distribute).
+```
 
-Proprietary Context: High‑level system prompts used in the GNS (Geopolitical Navigation System) remain proprietary to the author.
+---
 
-✍️ Author & Citation
-Denis Schult Independent Researcher, Germany
+## ⚖️ License & Intellectual Property
+- **Method & Documentation:** Apache License 2.0 (Free to use, modify, distribute).
+- **Proprietary Context:** High‑level system prompts used in the GNS (Geopolitical Navigation System) remain proprietary to the author.
 
+---
+
+## ✍️ Author & Citation
+**Denis Schult** Independent Researcher, Germany  
 Email: schltdns@gmail.com
 
-Citation: Schult, D. (2026). Triangulation nach Schult (TNS): A Recursive Multi‑Agent Framework for Robust Decision‑Making under Epistemic Uncertainty. GitHub Repository / arXiv: cs.AI.
+**Citation:** Schult, D. (2026). *Triangulation nach Schult (TNS): A Recursive Multi‑Agent Framework for Robust Decision‑Making under Epistemic Uncertainty.* GitHub Repository / arXiv: cs.AI.
 
-📥 Quick Start
-Define 3 hypotheses and set falsification thresholds.
+---
 
-Run the same prompt through 3+ LLMs.
+## 📥 Quick Start
+1. **Define** 3 hypotheses and set falsification thresholds.
+2. **Run** the same prompt through 3+ LLMs.
+3. **Map** divergence — ignore consensus initially.
+4. **Perform** the operator reflection (P6).
 
-Map divergence — ignore consensus initially.
-
-Perform the operator reflection (P6).
-
-Consensus can obscure systemic risk. Divergence reveals structure.
+**Consensus can obscure systemic risk. Divergence reveals structure.**
+```
