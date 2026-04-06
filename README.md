@@ -1,4 +1,4 @@
-# Triangulation nach Schult (TNS) — v1.0‑Open
+# Triangulation nach Schult (TNS) — v1.1-Open
 
 **"Divergence is a signal, not noise."** A formal multi‑agent protocol for decision‑making, AI evaluation, and uncertainty mapping using Large Language Models (LLMs).  
 **Divergence > Consensus.**
