@@ -128,3 +128,17 @@ These divergences are **carried forward as persistent uncertainties**. They are 
 ---
 
 **This synthesis is a living document. It will be updated as new empirical data (2027, 2028, 2030) become available.**
+# Synthesis and Falsification – Labour Market 2030
+
+| Block | Core Claim | Falsification Criterion | Weakness |
+|-------|------------|------------------------|----------|
+| A (Economy) | Productivity +0.3–1.2% p.a.; net job change | Productivity <0.1% p.a. by 2028 **or** unemployment +2pp despite skills shortage | Assumes fast organisational adaptation (Solow paradox 2.0) |
+| B (Technology) | Exponential scaling; agents as accelerators | LLM performance improvement <10%/year **or** agent adoption <10% of firms by 2027 | Technical plateau possible |
+| C (Social) | Polarisation, risks for 50+ | Middle‑income share stable **or** 50+ unemployment not above average | Causality hard to isolate |
+| D (Education) | Dual training advantage; AI tutors standard | Training participation <40% **or** AI tutors in <30% of vocational schools by 2030 | Normative overload (should vs. is) |
+| E (Policy) | 4‑day week possible; migration necessary; AI Act as brake | 4‑day week in <10% of relevant companies **or** EU AI adoption faster than US | Path dependency |
+| F (Firms) | Re‑skilling > layoffs; flatter hierarchies | Company‑driven layoffs increase despite shortage **or** hierarchy levels do not decrease | Measurement problems |
+| G (Divergence) | Everything depends on relative speed + filter permeability | Systemic indicators (unemployment + inequality) improve despite rapid AI scaling | Complexity of system model |
+
+**Power layer addition (Version 3.3):** If inequality rises even when adaptation is fast, the bottleneck is **power concentration** – who controls AI, who benefits from near‑zero marginal costs.
+
