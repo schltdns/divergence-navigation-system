@@ -70,7 +70,7 @@ CC BY‑NC 4.0 (same as main repository)
 
 ## Citation suggestion
 
-Schult, D. (2026). *DNS (Divergence-based Navigation System): Labour Market 2030 Case Study*. GitHub Repository. [https://github.com/schltdns/triangulation-nach-schult](https://github.com/schltdns/triangulation-nach-schult)
+Schult, D. (2026). *DNS (Divergence-based Navigation System): Labour Market 2030 Case Study*. GitHub Repository. [https://github.com/schltdns/divergence-navigation-system](https://github.com/schltdns/divergence-navigation-system)
 
 ---
 
