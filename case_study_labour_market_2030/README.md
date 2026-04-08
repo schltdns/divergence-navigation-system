@@ -1,6 +1,6 @@
-# TNS Case Study: Labour Market 2030 – AI Automation & Skills Shortage
+## DNS Case Study: Labour Market 2030 – AI Automation & Skills Shortage
 
-**Part of the Triangulation nach Schult (TNS) repository – Version 1.2‑Open**
+**Part of the DNS (Divergence-based Navigation System) repository – Version 1.2‑Open**
 
 > **"This case study does not show what AI says – it reveals where and why AI models disagree, and how reasoned decisions are derived from that divergence."**
 
@@ -10,7 +10,7 @@
 
 This folder documents a **structured, falsifiable, multi‑model analysis** of the German labour market up to 2030 under AI automation. It serves two purposes:
 
-1. **Demonstration of the TNS method** – how to apply P1‑P8, extract divergence, use the power layer, and produce a transparent synthesis.
+1. **Demonstration of the DNS method** – how to apply P1‑P6, extract divergence, use the power layer, and produce a transparent synthesis.
 2. **Substantive contribution** – a robust, empirically grounded synthesis of expected labour market transformations.
 
 ---
@@ -70,13 +70,13 @@ CC BY‑NC 4.0 (same as main repository)
 
 ## Citation suggestion
 
-Schult, D. (2025). *Triangulation nach Schult (TNS): Labour Market 2030 Case Study*. GitHub Repository. [https://github.com/schltdns/tns-case-study-labour-market-2030](https://github.com/schltdns/tns-case-study-labour-market-2030)
+Schult, D. (2026). *DNS (Divergence-based Navigation System): Labour Market 2030 Case Study*. GitHub Repository. [https://github.com/schltdns/triangulation-nach-schult](https://github.com/schltdns/triangulation-nach-schult)
 
 ---
 
 ## Acknowledgements
 
-This case study was developed using six AI models (ChatGPT, Claude, DeepSeek, Gemini, Grok, Copilot) and validated against empirical sources (IAB, WEF, IW, McKinsey, BAuA). The method builds on Denzin (1978), Patton (1999), Reich (2008), and Popper’s logic of falsification.
+This case study was developed using six AI models (Grok, ChatGPT, Gemini, Copilot, Claude, DeepSeek) as specialized agents within the DNS team architecture (v1.5). It was validated against empirical sources (IAB, WEF, IW, McKinsey, BAuA). The method builds on Denzin (1978), Patton (1999), Reich (2008), and Popper’s logic of falsification.
 
 ---
 
