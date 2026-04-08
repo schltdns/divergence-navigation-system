@@ -1,4 +1,28 @@
-# Triangulation nach Schult (TNS)
+# DNS Divergence-based Navigation System
+graph TD
+    User((Mensch / Operator)) -- P5 Synthese --> Master[Divergence-based Navigation System]
+    
+    subgraph "Analytischer Kern (S1-S3)"
+        DS[DeepSeek: Falsifikator]
+        GK[Grok: Signal-Agent]
+        CL[Claude: Grenzmarkierer]
+    end
+    
+    subgraph "Synthese & Struktur"
+        GPT[ChatGPT: System-Architekt]
+        GEM[Gemini: Strategie-Erotik/Vision]
+        CP[Copilot: Quellen-Matrix]
+    end
+    
+    DS -.-> Master
+    GK -.-> Master
+    CL -.-> Master
+    GPT -.-> Master
+    GEM -.-> Master
+    CP -.-> Master
+
+    style User fill:#f9f,stroke:#333,stroke-width:4px
+    style Master fill:#bbf,stroke:#333,stroke-width:2px
 
 **A structured, falsifiable, multi‑model analysis method for complex uncertainty.**
 
