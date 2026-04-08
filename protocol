@@ -1,112 +1,123 @@
-# Triangulation nach Schult – Protocol P1–P6
+DNS – Protocol P1–P6 (Divergence-based Navigation System)
+Operational guide to the six-phase DNS protocol
 
-This document provides a detailed, operational guide to the six phases of the protocol.
+This document provides a detailed, operational guide to the six phases of the DNS (Divergence-based Navigation System) protocol.
 
----
+P1 – Hypothesis & Falsification Setup
+Goal: Define what you want to test and under which conditions you would consider it falsified.
 
-## P1 – Hypothesis & Falsification Setup
+Steps:
 
-**Goal:** Define what you want to test and under which conditions you would consider it falsified.
+Write down 3–5 hypotheses (e.g., “TTF prices are driven by speculation, not supply shortage”).
 
-**Steps:**
-1. Write down **3–5 hypotheses** (e.g., “TTF prices are driven by speculation, not supply shortage”).
-2. For each hypothesis, define a **measurable falsification threshold** (e.g., “H1 is falsified if TTF average >50€/MWh for 10 consecutive days”).
-3. Decide which falsification rules (Rule 1–4) apply.
+For each hypothesis, define a measurable falsification threshold (e.g., “H1 is falsified if TTF average >50€/MWh for 10 consecutive days”).
 
-**Output:** A document with hypotheses and thresholds.
+Decide which falsification rules (Rule 1–4) apply.
 
----
+Output: A document with hypotheses and thresholds.
 
-## P2 – Role-Based Model Configuration
+P2 – Role-Based Model Configuration (Team Architecture v1.5)
+Goal: Select LLMs and assign them functional roles according to the DNS team matrix.
 
-**Goal:** Select LLMs and assign them functional roles (illustrative, not fixed).
+Standard DNS configuration:
 
-**Example configuration:**
-- Model A (Signal): raw data, market signals
-- Model B (Boundaries): normative constraints, safety
-- Model C (Falsification): stress-testing, logic checks
-- Model D (Synthesis): operational integration
-- Human Operator: final judgment, reflection
+Role	Instance	Function
+S1: Kinetic-Agent	Grok	Raw data, market signals, real-time OSINT
+S2: Structural-Architect	ChatGPT	Framework integrity, documentation, logic
+S3: Synthesis-Bridge	Gemini	Strategic vision, context expansion, scenarios
+S4a: Visualizer	Copilot	Source matrix, data synthesis, operational tools
+S4b: Boundary-Marker	Claude	Epistemic precision, safety, risk boundaries
+Ω: Falsificator	DeepSeek	Logical stress testing, falsification, backtesting
+P5/6: Operator	Human	Final synthesis, judgment, meta‑reflection
+Roles are illustrative, not fixed – they can be reassigned to other models with similar epistemic profiles.
 
-**Output:** List of models and their roles.
+Output: List of models and their assigned roles.
 
----
+P3 – Parallel Elicitation
+Goal: Obtain raw, comparable outputs from all models.
 
-## P3 – Parallel Elicitation
+Steps:
 
-**Goal:** Obtain raw, comparable outputs from all models.
+Write an identical prompt for all models. Include the hypotheses and ask for structured answers (summary, critical points, open questions).
 
-**Steps:**
-1. Write an **identical prompt** for all models. Include the hypotheses and ask for structured answers (summary, critical points, open questions).
-2. Send the prompt to each model **independently** (no cross-feeding).
-3. Copy the raw responses verbatim.
+Send the prompt to each model independently (no cross‑feeding).
 
-**Output:** A folder with raw model responses (timestamped).
+Copy the raw responses verbatim.
 
----
+Output: A folder with raw model responses (timestamped).
 
-## P4 – Divergence Mapping
+P4 – Divergence Mapping
+Goal: Systematically compare the responses.
 
-**Goal:** Systematically compare the responses.
+Steps:
 
-**Steps:**
-1. Create a table with rows for each hypothesis/question and columns for each model.
-2. Mark each cell as:
-   - ✅ Confirmed
-   - ❌ Rejected
-   - ⚠️ Partial/ambiguous
-   - 🚫 Refused (with reason)
-3. Categorize divergences:
-   - **Content divergence** (different factual claims)
-   - **Methodological divergence** (different approaches to uncertainty)
-   - **Bias signals** (moralizing, one-sided framing)
-   - **Blind spots** (missing aspects)
+Create a table with rows for each hypothesis/question and columns for each model.
 
-**Output:** Divergence map table.
+Mark each cell as:
 
----
+✅ Confirmed
 
-## P5 – Weighted Synthesis (Human Operator)
+❌ Rejected
 
-**Goal:** Integrate the perspectives into a coherent conclusion.
+⚠️ Partial/ambiguous
 
-**Steps:**
-1. Identify convergences (points where ≥2 models agree on content).
-2. For divergences, decide which perspective to follow or whether to mark the point as unresolved.
-3. **Justify every deviation** from the majority/weighting rule in writing.
-4. If more than three unjustified deviations occur, the synthesis is invalid (Rule 3).
+🚫 Refused (with reason)
 
-**Output:** A written synthesis (2–5 paragraphs).
+Categorize divergences:
 
----
+Content divergence (different factual claims)
 
-## P6 – Operator Self-Reflection
+Methodological divergence (different approaches to uncertainty)
 
-**Goal:** Detect and document human bias.
+Bias signals (moralizing, one-sided framing)
 
-**Mandatory three questions (answer in writing):**
-1. Which perspective dominated my synthesis? Did I give it too much weight?
-2. Which perspective did I ignore – and why? Is that reason valid?
-3. Which assumption remained unfalsified – and do I secretly hope it stays that way?
+Blind spots (missing aspects)
 
-**Output:** A short self-reflection statement. If any answer reveals significant bias, the synthesis is marked as “operator-influenced” but can still be valid if justifications are sound.
+Output: Divergence map table.
 
----
+P5 – Weighted Synthesis (Human Operator)
+Goal: Integrate the perspectives into a coherent conclusion.
 
-## Falsification Rules (Quick Reference)
+Steps:
 
-| Rule | Condition | Consequence |
-|------|-----------|-------------|
-| 1 | After 3 rounds, divergence pattern unchanged | Hypothesis inconclusive |
-| 2 | Model refusal persists with substitute models | Hypothesis underspecified |
-| 3 | Operator cannot justify ignoring a model | Synthesis invalid |
-| 4 | External reviewer finds critical flaw | Return to P1/P3 |
+Identify convergences (points where ≥2 models agree on content).
 
----
+For divergences, decide which perspective to follow or whether to mark the point as unresolved.
 
-## Template Files
+Justify every deviation from the majority/weighting rule in writing.
 
-See `/TEMPLATES/` for:
-- `prompt_template.md`
-- `divergence_map_template.csv`
-- `operator_reflection_template.md`
+If more than three unjustified deviations occur, the synthesis is invalid (Rule 3).
+
+Output: A written synthesis (2–5 paragraphs).
+
+P6 – Operator Self-Reflection
+Goal: Detect and document human bias.
+
+Mandatory three questions (answer in writing):
+
+Which perspective dominated my synthesis? Did I give it too much weight?
+
+Which perspective did I ignore – and why? Is that reason valid?
+
+Which assumption remained unfalsified – and do I secretly hope it stays that way?
+
+Output: A short self-reflection statement. If any answer reveals significant bias, the synthesis is marked as “operator‑influenced” but can still be valid if justifications are sound.
+
+Falsification Rules (Quick Reference)
+Rule	Condition	Consequence
+1	After 3 rounds, divergence pattern unchanged	Hypothesis inconclusive
+2	Model refusal persists with substitute models	Hypothesis underspecified
+3	Operator cannot justify ignoring a model	Synthesis invalid
+4	External reviewer finds critical flaw	Return to P1/P3
+Template Files
+See /TEMPLATES/ for:
+
+prompt_template.md
+
+divergence_map_template.csv
+
+operator_reflection_template.md
+
+Last update: April 8, 2026
+Version: 3.8.2‑DNS (Open)
+Part of: DNS – Divergence-based Navigation System
