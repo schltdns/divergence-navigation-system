@@ -30,7 +30,7 @@
 % ── References & links ────────────────────────────────────────────────────────
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[hidelinks,
-            pdftitle={Triangulation nach Schult},
+            pdftitle={DNS -- Divergence-based Navigation System},
             pdfauthor={Denis Schult},
             pdfkeywords={LLM, epistemic divergence, multi-agent, triangulation,
                          falsification, labour market, AI methodology}]{hyperref}
@@ -42,7 +42,7 @@
 \usepackage{caption}
 
 % ── Metadata ──────────────────────────────────────────────────────────────────
-\title{\textbf{Triangulation nach Schult (TNS):}\\
+\title{\textbf{DNS — Divergence-based Navigation System}:\\
        A Structured Multi-Agent Protocol for\\
        Epistemic Divergence Analysis Using\\
        Large Language Models}
@@ -50,7 +50,7 @@
 \author{Denis Schult\\
         Independent Researcher, Germany\\
         \texttt{schltdns@gmail.com}\\[0.5em]
-        \small Version 1.2-Open \quad April 2026}
+        \small Version 3.8.2-DNS (Open) \quad April 2026}
 
 \date{}
 
@@ -68,15 +68,15 @@ This convergence can mask systematic errors when multiple models confidently agr
 on incorrect or incomplete assumptions.
 
 \noindent\textbf{Objective.}
-We introduce \textit{Triangulation nach Schult} (TNS), a structured, prompt-level
-multi-agent protocol that treats divergence—contradiction, refusal, and
+We introduce the \textit{Divergence-based Navigation System (DNS)}, a structured,
+prompt-level multi-agent protocol that treats divergence—contradiction, refusal, and
 normative disagreement—as an epistemic signal rather than noise.
 
 \noindent\textbf{Method.}
 The protocol comprises eight phases (P1–P8): hypothesis formulation with
-falsification thresholds, role-based model selection, parallel elicitation,
-divergence mapping and typing, weighted human synthesis, external validation,
-operator reflection, and versioned archiving.
+falsification thresholds, role-based model selection (Team Architecture v1.5),
+parallel elicitation, divergence mapping and typing, weighted human synthesis,
+external validation, operator reflection, and versioned archiving.
 Divergence is classified along four axes: substantive, normative, didactic, and
 architectural.
 A power layer (P6b) provides a meta-filter asking who controls the technology,
@@ -86,14 +86,15 @@ who has access, who profits, and who bears the risks.
 Two documented case studies demonstrate feasibility and scalability.
 Case Study~1 (European gas market, three models, April 2026) reveals how a
 model refusal can be treated as a productive underspecification signal.
-Case Study~2 (German labour market 2030, six models—ChatGPT, Claude, DeepSeek,
-Gemini, Grok, Copilot) produces a divergence-structured synthesis across seven
-analytical dimensions (A–G), including testable falsification criteria with explicit
-thresholds (e.g., EU productivity growth $<0.1\%$~p.a.\ by 2028 would falsify the
-optimistic productivity thesis) and a power-layer audit of each core claim.
+Case Study~2 (German labour market 2030, six models—Grok, ChatGPT, Gemini,
+Copilot, Claude, DeepSeek—following the DNS Team Architecture v1.5) produces a
+divergence-structured synthesis across seven analytical dimensions (A–G), including
+testable falsification criteria with explicit thresholds (e.g., EU productivity
+growth $<0.1\%$~p.a.\ by 2028 would falsify the optimistic productivity thesis)
+and a power-layer audit of each core claim.
 
 \noindent\textbf{Conclusion.}
-TNS is a heuristic, human-centered framework for reflective decision-making under
+DNS is a heuristic, human-centered framework for reflective decision-making under
 uncertainty. It is suitable for didactic, analytical, and policy contexts. Limitations
 include dependence on operator judgment and sensitivity to model drift.
 The protocol and both case studies are openly available at
@@ -124,10 +125,11 @@ frameworks, red teaming—typically aim either to improve aggregate accuracy or 
 stress-test a single model \citep{Du2023,Perez2022}. Neither paradigm treats
 persistent divergence as a primary research signal.
 
-\textit{Triangulation nach Schult} (TNS)\footnote{The term ``triangulation''
-is used in the sociological tradition of \citet{denzin1970} and
+The \textit{Divergence-based Navigation System (DNS)}\footnote{The term
+``triangulation'' is used in the sociological tradition of \citet{denzin1970} and
 \citet{patton1999}, where multiple data sources are used not to confirm but to
-reveal discrepancies. TNS extends this logic to LLM outputs.}
+reveal discrepancies. DNS extends this logic to LLM outputs while foregrounding
+structured divergence over consensus.}
 addresses this gap. Rather than forcing convergence, the protocol maps, classifies,
 and interprets divergence as a proxy for structural uncertainty. The human operator
 is positioned not as a passive recipient of model outputs but as an active
@@ -151,45 +153,45 @@ This paper makes the following contributions:
 
 \subsection{Delphi Method}
 \citet{dalkey1963} developed iterative expert elicitation aiming for consensus.
-TNS differs by foregrounding divergence rather than reducing it, and by using LLMs
+DNS differs by foregrounding divergence rather than reducing it, and by using LLMs
 as investigator proxies rather than human experts.
 
 \subsection{Ensemble Methods in Machine Learning}
 Ensemble approaches combine model outputs to improve predictive accuracy
-\citep{breiman1996}. They optimize for agreement; TNS optimizes for structured
+\citep{breiman1996}. They optimize for agreement; DNS optimizes for structured
 disagreement as a diagnostic signal.
 
 \subsection{Multi-Agent Debate}
 \citet{Du2023} and \citet{Liang2024} demonstrate that LLMs critiquing each other's
-outputs can improve factual accuracy. Their protocols aim for resolution; TNS
+outputs can improve factual accuracy. Their protocols aim for resolution; DNS
 preserves and documents unresolved divergence.
 
 \subsection{Red Teaming}
-\citet{Perez2022} probe single models adversarially to surface vulnerabilities. TNS
+\citet{Perez2022} probe single models adversarially to surface vulnerabilities. DNS
 uses multiple heterogeneous models simultaneously, comparing their outputs rather
 than attacking one.
 
 \subsection{SCOUT and Semantic Triangulation}
 Automated uncertainty prediction methods \citep{xiong2024} use statistical
-properties of model outputs. TNS is qualitative and role-based, foregrounding
+properties of model outputs. DNS is qualitative and role-based, foregrounding
 human judgment rather than automated scoring.
 
 \subsection{Multi-Agent Orchestration Frameworks}
 Frameworks such as AutoGen \citep{wu2023autogen}, CrewAI, and OpenAI Swarm
-solve a technical coordination problem. TNS operates at a higher logical level: it
+solve a technical coordination problem. DNS operates at a higher logical level: it
 provides the \textit{epistemic logic} for interpreting disagreement and can be
 implemented on top of any framework that supports parallel model queries.
-Where orchestration frameworks seek efficiency and task completion, TNS seeks
+Where orchestration frameworks seek efficiency and task completion, DNS seeks
 interpretable divergence.
 
 \subsection{Constructivist Pedagogy}
 \citet{reich2008} argues that knowledge construction requires encountering
-alternative perspectives that cannot be immediately resolved. TNS operationalizes
+alternative perspectives that cannot be immediately resolved. DNS operationalizes
 this principle in the context of AI-assisted analysis: unresolved divergence is not a
 failure state but a productive pedagogical and epistemic resource.
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The TNS Framework}
+\section{The DNS Framework}
 \label{sec:framework}
 
 \subsection{Core Principle}
@@ -199,14 +201,40 @@ The protocol uses multiple LLMs as \textit{perspective generators}. Each model
 contributes a distinct epistemic function determined by its architecture, training
 data, alignment, and cultural context.
 
-\subsection{Divergence Typology}
-\label{sec:typology}
-
-TNS classifies divergence along four axes:
+\subsection{Team Architecture v1.5}
+DNS utilises a specialised 7-role matrix. Each node is a functional organ of the
+navigation system.
 
 \begin{table}[h]
 \centering
-\caption{TNS divergence typology with handling rules.}
+\caption{DNS Team Architecture v1.5 – functional roles and instances.}
+\label{tab:team}
+\begin{tabularx}{\textwidth}{lXl}
+\toprule
+\textbf{Role} & \textbf{Instance} & \textbf{Function} \\
+\midrule
+S1: Kinetic-Agent       & Grok     & Real-time OSINT, X-signal pulses, anomaly detection \\
+S2: Structural-Architect & ChatGPT & Framework integrity, documentation, structural logic \\
+S3: Synthesis-Bridge    & Gemini   & Strategic vision, context expansion, scenario building \\
+S4a: Visualizer         & Copilot  & Source matrix, data synthesis, operational tooling \\
+S4b: Boundary-Marker    & Claude   & Epistemic precision, risk boundaries, safety logic \\
+$\Omega$: Falsificator  & DeepSeek & Logical stress testing, falsification, backtesting \\
+P5/6: Operator          & Human    & Final synthesis, normative decision, meta-reflection \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Roles are \textit{illustrative, not fixed} – they can be reassigned to other models
+with similar epistemic profiles. The independence is functional, not architectural.
+
+\subsection{Divergence Typology}
+\label{sec:typology}
+
+DNS classifies divergence along four axes:
+
+\begin{table}[h]
+\centering
+\caption{DNS divergence typology with handling rules.}
 \label{tab:typology}
 \begin{tabularx}{\textwidth}{lXl}
 \toprule
@@ -227,7 +255,7 @@ provenance information.
 \subsection{The Three-Filter Model}
 \label{sec:filters}
 
-For applied case studies, TNS introduces a three-filter model to structure how
+For applied case studies, DNS introduces a three-filter model to structure how
 divergence maps onto real-world transformation processes:
 
 \begin{enumerate}[leftmargin=*, label=\textbf{Filter \arabic{*}.}]
@@ -239,13 +267,13 @@ divergence maps onto real-world transformation processes:
         quickly enough?
 \end{enumerate}
 
-This model operationalizes the \textit{master question} of applied TNS studies:
+This model operationalises the \textit{master question} of applied DNS studies:
 \textit{Does the technology scale faster than social systems can adapt?}
 
 \subsection{The Power Layer (P6b)}
 \label{sec:powerlayer}
 
-The three filters are not power-neutral. For every core synthesis claim, TNS requires
+The three filters are not power-neutral. For every core synthesis claim, DNS requires
 a power-layer check addressing four questions:
 \begin{enumerate}[leftmargin=*, label=(\arabic*)]
   \item Who controls the technology?
@@ -278,7 +306,7 @@ Figure~\ref{fig:protocol} shows the eight-phase cycle.
 ]
 
 \node[box] (p1) {P1 — Hypothesis \& Falsification Setup};
-\node[box, below=of p1] (p2) {P2 — Role-Based Model Selection};
+\node[box, below=of p1] (p2) {P2 — Role-Based Model Selection (Team v1.5)};
 \node[box, below=of p2] (p3) {P3 — Parallel Elicitation};
 \node[box, below=of p3] (p4) {P4 — Divergence Mapping \& Typing};
 \node[box, below=of p4] (p5) {P5 — Weighted Human Synthesis};
@@ -303,14 +331,14 @@ Figure~\ref{fig:protocol} shows the eight-phase cycle.
   {iterate} (p1.east);
 
 \end{tikzpicture}
-\caption{The eight-phase TNS cycle. Dashed arrows indicate the power-layer
+\caption{The eight-phase DNS cycle. Dashed arrows indicate the power-layer
 meta-filter (P6b) applied during synthesis and validation. The feedback loop
 from P8 back to P1 supports iterative refinement.}
 \label{fig:protocol}
 \end{figure}
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section{The Eight-Phase Protocol (P1--P8)}
+\section{The Eight-Phase Protocol (P1–P8)}
 \label{sec:protocol}
 
 \subsection{P1 — Hypothesis and Falsification Setup}
@@ -321,25 +349,8 @@ $0.1\%$~p.a.\ through 2028.}
 Pre-registration of falsification criteria prevents post-hoc rationalization.
 
 \subsection{P2 — Role-Based Model Selection}
-Assign available models to functional roles. Roles are descriptive, not prescriptive.
-
-\begin{table}[h]
-\centering
-\caption{Illustrative functional role mapping.}
-\label{tab:roles}
-\begin{tabular}{ll}
-\toprule
-\textbf{Role} & \textbf{Function} \\
-\midrule
-Structural model  & Logical framing, decomposition \\
-Boundary model    & Normative constraints, safety logic \\
-Adversarial model & Stress-testing, contradiction exposure \\
-Didactic model    & Process reflection, explanation \\
-Synthesis model   & Operational integration \\
-Human operator    & Judgment, prioritization, meta-reflection \\
-\bottomrule
-\end{tabular}
-\end{table}
+Assign available models to functional roles according to the Team Architecture
+v1.5 (Table~\ref{tab:team}). Roles are descriptive, not prescriptive.
 
 \subsection{P3 — Parallel Elicitation}
 All models receive an identical prompt. Prompt constancy ensures that divergence
@@ -412,7 +423,7 @@ which output. This controls for authority bias (over-weighting well-known models
 
 \subsection{Setup}
 A test was conducted on April 4, 2026, using three models (Grok, Claude, Copilot)
-with an identical prompt analyzing TTF gas prices and German industrial resilience
+with an identical prompt analysing TTF gas prices and German industrial resilience
 during the Hormuz supply-disruption scenario.
 
 \subsection{Findings}
@@ -430,7 +441,7 @@ during the Hormuz supply-disruption scenario.
 \end{itemize}
 
 \subsection{Methodological Observation}
-The refusal-as-signal treatment demonstrates a core TNS design choice: model
+The refusal-as-signal treatment demonstrates a core DNS design choice: model
 behaviour that would be discarded in consensus-oriented approaches is here
 treated as diagnostic information about hypothesis quality.
 
@@ -442,10 +453,11 @@ treated as diagnostic information about hypothesis quality.
 Case Study~2 scales the protocol from three to six models and from a single
 analytical question to seven interconnected dimensions. The topic—German labour
 market transformation under AI automation—was chosen because it exhibits
-precisely the conditions TNS is designed to handle: genuine empirical uncertainty,
+precisely the conditions DNS is designed to handle: genuine empirical uncertainty,
 strong normative disagreement, and structural power asymmetries.
 
-\textbf{Models:} ChatGPT, Claude, DeepSeek, Gemini, Grok, Copilot.\\
+\textbf{Models (Team Architecture v1.5):} Grok (S1), ChatGPT (S2), Gemini (S3),
+Copilot (S4a), Claude (S4b), DeepSeek ($\Omega$).\\
 \textbf{Date:} April 6, 2026.\\
 \textbf{Prompt:} Identical structured prompt across all models covering dimensions
 A–G (see below).\\
@@ -621,7 +633,7 @@ adaptation.
 
 \subsection{Synthesis: The Master Frame}
 
-The TNS analysis produces the following master frame for the German labour
+The DNS analysis produces the following master frame for the German labour
 market 2030:
 
 \begin{quote}
@@ -645,9 +657,9 @@ exponential scenario is more likely; \textit{if} not, the gradual scenario appli
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{What TNS Adds to Existing Methods}
+\subsection{What DNS Adds to Existing Methods}
 Standard LLM use cases produce a single synthesized answer. Multi-agent debate
-protocols produce a corrected answer. TNS produces a \textit{structured map of
+protocols produce a corrected answer. DNS produces a \textit{structured map of
 disagreement}—showing not just what models say but where they diverge, why,
 and what that divergence implies for confidence, policy design, and further inquiry.
 
@@ -668,7 +680,7 @@ use the thresholds as early-warning indicators: e.g., if German youth unemployme
 approaches the EU average by 2028, dual-training reform should be treated as
 urgent.
 
-\textbf{Educational context.} TNS's explicit treatment of normative divergence
+\textbf{Educational context.} DNS's explicit treatment of normative divergence
 makes it suitable for classroom use. Case Study~2, Dimension~D (education and
 training) provides a documented example of distinguishing normative claims
 (``AI tutors \textit{should} become standard'') from empirical predictions
@@ -682,14 +694,14 @@ regulatory compliance (institution filter). The power layer additionally prompts
 boards to ask who in their supply chain and labour ecosystem bears the costs of
 their automation decisions.
 
-\subsection{TNS as a Benchmark for Model Behaviour}
+\subsection{DNS as a Benchmark for Model Behaviour}
 Case Study~2 produced, as a by-product, a systematic comparison of six models
 across seven dimensions. Across the case study, architectural divergence was
-observable: US-trained models (ChatGPT, Grok) tended toward market-optimistic
+observable: US-trained models (Grok, ChatGPT) tended toward market-optimistic
 framings; EU-context models (Claude, Gemini) were more risk-aware and
 regulation-friendly; DeepSeek provided the most compressed, technically
 quantitative outputs. These patterns are consistent with known alignment and
-training-data differences. The TNS framework offers a replicable protocol for
+training-data differences. The DNS framework offers a replicable protocol for
 documenting such patterns systematically across domains.
 
 % ══════════════════════════════════════════════════════════════════════════════
@@ -699,11 +711,11 @@ documenting such patterns systematically across domains.
 \begin{itemize}
   \item \textbf{Operator dependence.} The quality of the synthesis is bounded by
         the operator's domain knowledge, critical judgment, and self-awareness.
-        TNS does not eliminate this dependence; it makes it explicit and auditable.
+        DNS does not eliminate this dependence; it makes it explicit and auditable.
   \item \textbf{Model drift.} Model versions change. A replication six months later
         with the same nominal models may yield different divergence patterns.
         P8 (versioned archiving) mitigates but does not eliminate this problem.
-  \item \textbf{No quantification.} TNS does not produce probability estimates or
+  \item \textbf{No quantification.} DNS does not produce probability estimates or
         confidence intervals. It maps qualitative uncertainty.
   \item \textbf{Prompt sensitivity.} Minor prompt variations can shift model
         positions. The identical-prompt constraint (P3) controls for this within
@@ -719,10 +731,10 @@ documenting such patterns systematically across domains.
 \section{Conclusion}
 \label{sec:conclusion}
 
-\textit{Triangulation nach Schult} is a structured, human-centered protocol for
-epistemic divergence analysis across LLMs. Its core contribution is the reframing
-of model disagreement—including refusals, normative conflicts, and quantitative
-discrepancies—as informative signals rather than noise.
+\textit{The Divergence-based Navigation System (DNS)} is a structured, human-centered
+protocol for epistemic divergence analysis across LLMs. Its core contribution is the
+reframing of model disagreement—including refusals, normative conflicts, and
+quantitative discrepancies—as informative signals rather than noise.
 
 The two case studies presented here demonstrate:
 (1)~feasibility at small scale (three models, single question, Case Study~1);
@@ -732,7 +744,7 @@ The two case studies presented here demonstrate:
 The protocol is heuristic, not algorithmic. Its value lies not in producing correct
 answers but in producing \textit{transparent, critique-able, and revisable}
 analyses. In an epistemic environment where LLM outputs are increasingly treated
-as authoritative, TNS offers a countervailing discipline: \textit{show the
+as authoritative, DNS offers a countervailing discipline: \textit{show the
 disagreement, document the operator's choices, and define the conditions under
 which the synthesis would be wrong.}
 
@@ -743,8 +755,8 @@ are openly available at \url{https://github.com/schltdns}.
 \section*{Acknowledgements}
 
 The author thanks the six AI systems used as investigator proxies in Case
-Study~2—ChatGPT (OpenAI), Claude (Anthropic), DeepSeek, Gemini (Google),
-Grok (xAI), and Copilot (Microsoft)—whose systematic disagreements provided the
+Study~2—Grok (xAI), ChatGPT (OpenAI), Gemini (Google), Copilot (Microsoft),
+Claude (Anthropic), and DeepSeek—whose systematic disagreements provided the
 empirical material for this paper. The synthesis, operator decisions, and all errors
 are the author's alone.
 
