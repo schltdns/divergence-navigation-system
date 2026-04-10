@@ -103,32 +103,28 @@ Full walkthroughs:
 
 # 5. Mathematical Foundations
 
-DNS includes two conceptual models:
+DNS includes two conceptual models that formalize divergence and transmission dynamics.  
+GitHub supports MathJax, so formulas are rendered using double‑dollar notation.
 
 ### 5.1 Divergence Delta (Δdiv)
 
-
-
-\[
+$$
 \Delta_{div} = \frac{1}{n} \sum_{i=1}^{n} \frac{|M_i - \bar{M}|}{\sigma_{KRI}}
-\]
+$$
 
-
-
-Used to conceptualize divergence magnitude.
+This expression conceptualizes the magnitude of divergence across models, normalized by the Knowledge‑Risk‑Index (KRI).
 
 ### 5.2 S2→S4 Transmission Model (GNS only)
 
-
-
-\[
+$$
 \tau_{S4} = T_{\text{threshold}} \ln(1 + \eta \cdot KRI)
-\]
+$$
 
+This model describes how epistemic load (KRI) propagates from S2 to S4 under threshold‑based amplification.
 
-
-Full definitions:  
+Full definitions and glossary:  
 👉 [MATH_AND_GLOSSARY.md](docs/MATH_AND_GLOSSARY.md)
+
 
 ---
 
