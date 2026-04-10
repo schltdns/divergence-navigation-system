@@ -1,15 +1,26 @@
-\section{Related Work and Distinction}
+## Related Work and Distinction
 
-The \textit{Divergence-based Navigation System (DNS)} – previously developed under the working title ``Triangulation nach Schult'' – operates at the intersection of Multi-Agent Systems (MAS) and Epistemic Uncertainty. To define its unique contribution, it must be distinguished from existing frameworks:
+The **Divergence‑based Navigation System (DNS)** – previously developed under the working title *Triangulation nach Schult* – operates at the intersection of multi‑agent LLM systems and epistemic uncertainty. To clarify its unique contribution, DNS must be distinguished from adjacent frameworks:
 
-\begin{itemize}
-    \item \textbf{SCOUT (Uncertainty Triangulation):} While SCOUT utilizes signals like model heterogeneity and reasoning-critique for automated error detection in clinical settings, it lacks the \textbf{Phase P6 (Meta-Reflection)} characteristic of the DNS protocol. SCOUT aims to ``fix'' the AI; DNS aims to ``inform'' the human operator through structured dissonance.
-    
-    \item \textbf{AI Council Framework:} Traditional ``Councils'' orchestrate multiple LLMs to reach a \textbf{consensus} through deliberation. In contrast, DNS treats \textit{divergence} as the primary informative signal. We argue that forcing consensus often masks underlying epistemic risks.
-    
-    \item \textbf{Semantic Triangulation:} This mathematical approach focuses on consistency across linguistic transformations of a single problem. DNS, however, leverages the \textbf{diverse ``identities'' and training biases} of independent models (e.g., Grok vs. Claude) to expose structural blind spots.
-    
-    \item \textbf{DelphiAgent / LLM Council-Double Delphi:} These methods adapt the classical Delphi technique for iterative convergence. While they share a multi-stage structure, DNS is explicitly designed for \textbf{Falsification (P1)} and the analysis of unresolved gaps, rather than seeking a common denominator.
-\end{itemize}
+### **SCOUT (Uncertainty Triangulation)**
+SCOUT uses signals such as model heterogeneity and reasoning‑critique for automated error detection in clinical environments.  
+DNS differs fundamentally: it includes **Phase P6 (Meta‑Reflection)** and does not aim to “fix” the AI. Instead, DNS uses structured dissonance to **inform the human operator**, not to optimize the model.
 
-In summary, DNS is not a consensus-machine but a \textbf{diagnostic framework for uncertainty}, placing the human operator in the role of a ``Synthesizer'' rather than a mere recipient of an averaged output.
+### **AI Council Framework**
+Traditional “Councils” orchestrate multiple LLMs to reach **consensus** through deliberation.  
+DNS takes the opposite stance: **divergence** is the primary epistemic signal.  
+Consensus often hides risk; DNS exposes it.
+
+### **Semantic Triangulation**
+Semantic Triangulation evaluates consistency across linguistic transformations of a single model’s output.  
+DNS instead leverages the **different identities, architectures, and training biases** of independent models (e.g., Grok vs. Claude) to reveal structural blind spots.
+
+### **DelphiAgent / LLM Council‑Double Delphi**
+These approaches adapt the classical Delphi technique to iteratively converge on shared answers.  
+DNS, in contrast, is explicitly designed for **falsification (P1)** and the analysis of **unresolved gaps**, not for convergence or averaging.
+
+---
+
+### **Summary**
+DNS is not a consensus‑machine.  
+It is a **diagnostic framework for uncertainty**, positioning the human operator as an active **Synthesizer** rather than a passive consumer of averaged model output.
