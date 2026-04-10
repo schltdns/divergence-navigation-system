@@ -97,8 +97,8 @@ DNS follows a reproducible, auditable workflow:
    Archive all artefacts.
 
 Full walkthroughs:  
-👉 `docs/EXAMPLE_RUN.md`  
-👉 `docs/HOW_IT_WORKS.md`
+👉 [EXAMPLE_RUN.md](EXAMPLE_RUN.md)
+👉 [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)
 
 ---
 
