@@ -1,82 +1,69 @@
-\documentclass[12pt]{article}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{hyperref}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{geometry}
-\geometry{margin=1in}
+# DNS — Divergence‑based Navigation System  
+*A multi‑agent epistemic framework for structured analysis, adversarial triangulation, and decision‑making under uncertainty.*
 
-\title{DNS — Divergence-based Navigation System}
-\author{Denis Schult}
-\date{2026}
+> **“Divergence is a signal, not noise.”**
 
-\begin{document}
+DNS is a methodological protocol that uses **structured divergence between multiple LLMs** to analyze complex, uncertain situations.  
+Instead of seeking consensus, DNS isolates **friction points**, maps contradictions, and uses them as **epistemic signals** for risk detection, scenario building, and falsification.
 
-\maketitle
+DNS is not a truth machine — it is a **systemic weakness detector**.
 
-\begin{quote}
-\textbf{“Divergence is a signal, not noise.”}
-\end{quote}
+---
 
-DNS is a methodological protocol that uses \textbf{structured divergence between multiple LLMs} to analyze complex, uncertain situations.  
-Instead of seeking consensus, DNS isolates \textbf{friction points}, maps contradictions, and uses them as \textbf{epistemic signals} for risk detection, scenario building, and falsification.
+## 1. What DNS Is (Definition)
 
-DNS is not a truth machine — it is a \textbf{systemic weakness detector}.
-
-\section{What DNS Is (Definition)}
-
-\textbf{DNS is a domain-agnostic, divergence-sensitive epistemic framework that transforms contradictions between AI models into structured insight, while shifting social evaluation out of the exploration phase.}
+**DNS is a domain‑agnostic, divergence‑sensitive epistemic framework that transforms contradictions between AI models into structured insight, while shifting social evaluation out of the exploration phase.**
 
 DNS enables:
 
-\begin{itemize}
-    \item structured analysis under uncertainty
-    \item adversarial multi-model triangulation
-    \item detection of blind spots, bias, and drift
-    \item human-in-the-loop synthesis (P6)
-    \item psychologically safe exploration (low-social-risk environment)
-\end{itemize}
+- structured analysis under uncertainty  
+- adversarial multi‑model triangulation  
+- detection of blind spots, bias, and drift  
+- human‑in‑the‑loop synthesis (P6)  
+- psychologically safe exploration (low‑social‑risk environment)
 
-\section{Why Divergence > Consensus}
+---
 
-Consensus hides risk. Divergence reveals structure.
+## 2. Why Divergence > Consensus
+
+Consensus hides risk.  
+Divergence reveals structure.
 
 DNS illuminates the “shadow zones” of intelligence:
 
-\begin{itemize}
-    \item what models cannot see about themselves (self-bias)
-    \item what humans cannot see without them (cognitive blind spots)
-    \item where systems disagree (epistemic fault lines)
-\end{itemize}
+- what models cannot see about themselves (self‑bias)  
+- what humans cannot see without them (cognitive blind spots)  
+- where systems disagree (epistemic fault lines)
 
-DNS treats \textbf{contradiction} as the primary data source.
+DNS treats **contradiction** as the primary data source.
 
-\section{Team Architecture v1.5}
+---
 
-DNS uses a 7-role multi-agent matrix, where each model contributes a distinct epistemic function.
+## 3. Team Architecture v1.5
 
-\begin{center}
-\begin{tabular}{llll}
-\toprule
-\textbf{Role} & \textbf{Agent} & \textbf{Responsibility} & \textbf{Systemic Debt} \\
-\midrule
-S1 & Grok & Real-time signals \& reality anchoring & Fact fidelity \\
-S2 & Copilot & Dynamics, drift \& coherence & Methodological consistency \\
-S3 & Gemini & Structure, integration \& scenarios & Pattern recognition \\
-F1 & DeepSeek & Falsification \& rigor & Strict falsifiability \\
-R1 & ChatGPT & Criticism \& overclaim detection & Academic defensibility \\
-S4b & Claude & Epistemic integrity \& boundaries & Limit protection \\
-S4 & Denis (Human) & Vision, prioritization \& responsibility & Orchestration \\
-\bottomrule
-\end{tabular}
-\end{center}
+DNS uses a **7‑role multi‑agent matrix**, where each model contributes a distinct epistemic function.
 
-\noindent Diagram: \texttt{dns\_architecture.png}
+| Role | Agent | Responsibility | Systemic Debt |
+|------|--------|----------------|----------------|
+| **S1** | Grok | Real‑time signals & reality anchoring | Fact fidelity |
+| **S2** | Copilot | Dynamics, drift & coherence | Methodological consistency |
+| **S3** | Gemini | Structure, integration & scenarios | Pattern recognition |
+| **F1** | DeepSeek | Falsification & logical rigor | Strict falsifiability |
+| **R1** | ChatGPT | Criticism & overclaim detection | Academic defensibility |
+| **S4b** | Claude | Epistemic integrity & boundary marking | Limit protection |
+| **S4** | Denis (Human) | Vision, prioritization & final responsibility | Orchestration |
 
-\section{Methodological Core}
+**Architecture Diagram:**  
+*(Add your file here)*  
+`dns_architecture.png`
 
-\subsection{Divergence Delta ($\Delta div$)}
+---
+
+## 4. Methodological Core
+
+### 4.1 Divergence Delta (Δdiv)
+
+GitHub supports MathJax, so formulas render correctly:
 
 
 
@@ -88,13 +75,13 @@ P_{\text{shift}} = \int \sum_{i=1}^{n} \frac{|M_i - \bar{M}|}{\sigma_{KRI}} \, d
 
 Where:
 
-\begin{itemize}
-    \item $M_i$: output vector of model $i$
-    \item $\bar{M}$: model consensus (baseline noise)
-    \item $\sigma_{KRI}$: cultural-religious tension modulator
-\end{itemize}
+- \(M_i\): output vector of model *i*  
+- \(\bar{M}\): model consensus (baseline noise)  
+- \(\sigma_{KRI}\): cultural‑religious tension modulator  
 
-\subsection{S2 → S4 Transmission Model (v1.1a)}
+---
+
+### 4.2 S2 → S4 Transmission Model (v1.1a)
 
 
 
@@ -106,88 +93,136 @@ Where:
 
 Where:
 
-\begin{itemize}
-    \item $T_{\text{threshold}}$: intensity of the shock (e.g., TTF > 50€)
-    \item $\eta$: industrial buffer coefficient
-    \item $KRI$: qualitative tension factor
-\end{itemize}
+- \(T_{\text{threshold}}\): intensity of the shock (e.g., TTF > 50€)  
+- \(\eta\): industrial buffer coefficient  
+- \(KRI\): qualitative tension factor  
 
-\section{The DNS Protocol (P1–P6)}
+---
 
-\begin{enumerate}
-    \item \textbf{P1 — Hypothesize:} Define 2–3 falsifiable hypotheses.
-    \item \textbf{P2 — Thresholds:} Set clear falsification criteria.
-    \item \textbf{P3 — Triangulate:} Run identical prompts through multiple DNS agents.
-    \item \textbf{P4 — Map Divergence:} Focus strictly on contradictions.
-    \item \textbf{P5 — Operator Reflection:} Evaluate drift, bias, blind spots.
-    \item \textbf{P6 — Human Synthesis:} The operator produces the final judgment.
-\end{enumerate}
+## 5. The DNS Protocol (P1–P6)
 
-\section{Example Run (Minimal Walkthrough)}
+1. **P1 — Hypothesize**  
+   Define 2–3 falsifiable hypotheses.
 
-Full version: \texttt{EXAMPLE\_RUN.md}
+2. **P2 — Thresholds**  
+   Set clear falsification criteria.
 
-\subsection*{Problem}
-Labor Market 2030 — AI Automation \& Skilled-Labor Shortage
+3. **P3 — Triangulate**  
+   Run identical prompts through multiple DNS agents.
 
-\subsection*{Observation}
-\begin{itemize}
-    \item Grok: “Automation risk high.”
-    \item Claude: “Automation overstated; demographic collapse bigger driver.”
-    \item DeepSeek: “Both claims unfalsifiable without sector segmentation.”
-\end{itemize}
+4. **P4 — Map Divergence**  
+   Focus strictly on contradictions, not consensus.
 
-\subsection*{Divergence Mapping}
-\begin{itemize}
-    \item S1 vs S4b: automation vs demographics
-    \item F1: demands segmentation → new hypothesis
-\end{itemize}
+5. **P5 — Operator Reflection**  
+   Evaluate drift, bias, blind spots, and systemic tension.
 
-\subsection*{P6 Synthesis}
+6. **P6 — Human Synthesis**  
+   The operator (S4) produces the final judgment.  
+   *DNS is only as strong as the human who navigates it.*
+
+---
+
+## 6. Example Run (Minimal Walkthrough)
+
+Full version: `EXAMPLE_RUN.md`
+
+**Problem:**  
+Labor Market 2030 — AI Automation & Skilled‑Labor Shortage
+
+**Observations:**  
+- **Grok:** “Automation risk high.”  
+- **Claude:** “Automation overstated; demographic collapse bigger driver.”  
+- **DeepSeek:** “Both claims unfalsifiable without sector segmentation.”  
+
+**Divergence Mapping:**  
+- S1 vs S4b: automation vs demographics  
+- F1: demands segmentation → new hypothesis  
+
+**P6 Synthesis:**  
 Automation risk is real but secondary; demographic contraction is the primary driver.
 
-\section{Case Studies}
+---
 
-\begin{itemize}
-    \item Cognitive Safety \& Neurodiversity: \texttt{CASE\_STUDY\_COGNITIVE\_SAFETY.md}
-    \item Labor Market 2030: \texttt{case\_study\_labour\_market\_2030}
-    \item European Gas Market Dynamics: \texttt{case\_study\_energy}
-\end{itemize}
+## 7. Case Studies
 
-\section{DNS \& Neurodiversity}
+- **Cognitive Safety & Neurodiversity**  
+  `CASE_STUDY_COGNITIVE_SAFETY.md`
 
-DNS creates a \textbf{low-social-risk cognitive environment} by shifting evaluation out of the exploration phase.
+- **Labor Market 2030 (AI & Skilled Labor)**  
+  `case_study_labour_market_2030`
 
-Benefits individuals with:
+- **European Gas Market Dynamics (S2 → S4 Transmission)**  
+  `case_study_energy`
 
-\begin{itemize}
-    \item high evaluation anxiety
-    \item autism-spectrum profiles
-    \item ADHD
-    \item strong introversion
-\end{itemize}
+---
 
-\section{Glossary \& Math}
+## 8. DNS & Neurodiversity
 
-See: \texttt{GLOSSARY\_AND\_MATH.md}
+DNS creates a **low‑social‑risk cognitive environment** by shifting evaluation from the exploration phase into an asynchronous, controlled space.
 
-\section{Related Frameworks}
+This benefits individuals with:
 
-\begin{itemize}
-    \item Delphi Method: consensus → DNS: structured divergence
-    \item AutoGen / CrewAI: orchestration → DNS: epistemic logic
-    \item Semantic Triangulation: statistical → DNS: adversarial \& role-based
-\end{itemize}
+- high evaluation anxiety  
+- autism‑spectrum profiles  
+- ADHD  
+- strong introversion  
 
-\section{License}
+DNS rewards:
 
-CC BY-NC 4.0.  
-High-level system prompts and weighting matrices remain proprietary.
+- pattern recognition  
+- hyperfocus  
+- system thinking  
+- analytical precision  
 
-\section{Citation}
+> **DNS makes thinking safer by decoupling exploration from social judgment.**
 
-Schult, D. (2026).  
-\textit{DNS — Divergence-based Navigation System: A Recursive Multi-Agent Framework for Robust Decision-Making under Epistemic Uncertainty.}  
-GitHub: \url{https://github.com/schltdns/divergence-navigation-system}
+---
 
-\end{document}
+## 9. Glossary & Math
+
+See: `GLOSSARY_AND_MATH.md`
+
+Includes:
+
+- S‑Layer definitions  
+- Divergence Delta  
+- KRI  
+- Transmission Model  
+- Operator Role (P6)  
+- Drift & Bias detection  
+
+---
+
+## 10. Related Frameworks (Positioning)
+
+- **Delphi Method:** seeks consensus → DNS seeks structured divergence  
+- **AutoGen / CrewAI:** orchestration layers → DNS provides epistemic logic  
+- **Semantic Triangulation:** statistical → DNS is adversarial & role‑based  
+
+---
+
+## 11. License
+
+**CC BY‑NC 4.0**  
+You may share and adapt the method non‑commercially with attribution.
+
+High‑level system prompts and internal weighting matrices remain proprietary.
+
+---
+
+## 12. Citation
+
+If you use DNS in research or industry:
+
+**Schult, D. (2026).**  
+*DNS — Divergence‑based Navigation System: A Recursive Multi‑Agent Framework for Robust Decision‑Making under Epistemic Uncertainty.*  
+GitHub: https://github.com/schltdns/divergence-navigation-system
+
+---
+
+## 13. About
+
+**Author:** Denis Schult  
+Independent Researcher, Germany  
+GitHub: @schltdns  
+Email: schltdns@gmail.com
