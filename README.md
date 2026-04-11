@@ -161,7 +161,8 @@ Code
 
 1. [BENCHMARK.md](BENCHMARK.md) lesen (Δdiv‑Logik)  
 2. [HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) für den Ablauf  
-3. [P1_P6_protocol.md](protocol/P1_P6_protocol.md) für den operativen Run  
+3. [protocol.md](protocol/protocol.md)
+ für den operativen Run  
 4. Eigene Mini‑Benchmarks mit deinen Modellen fahren
 
 DNS erfordert **keine Installation** — es ist ein human‑centered Protocol.
