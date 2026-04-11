@@ -1,24 +1,10 @@
-DNS transforms model disagreement into structured epistemic insight.
+# Divergence Navigation System (DNS)
 
-It is a domain-agnostic evaluation layer that:
-- detects friction  
-- reveals blind spots  
-- supports transparent human-in-the-loop synthesis  
-
-DNS is not a truth machine —  
-it is a systemic weakness detector for AI safety, governance, and research.
+### A divergence-based evaluation layer for epistemic uncertainty in multi-model systems
 
 ---
 
-DNS transforms model disagreement into structured epistemic insight.
-
-It is a domain-agnostic evaluation layer that:
-- detects friction  
-- reveals blind spots  
-- supports transparent human-in-the-loop synthesis  
-
-DNS is not a truth machine —  
-it is a systemic weakness detector for AI safety, governance, and research.
+> **DNS does not reduce uncertainty — it makes it visible.**
 
 ---
 
