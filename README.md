@@ -26,7 +26,7 @@ It enables:
 - transparent human synthesis (operator‑in‑the‑loop)
 
 Full conceptual description:  
-👉 `docs/HOW_IT_WORKS.md`
+👉 [HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)
 
 ---
 
@@ -62,7 +62,7 @@ DNS measures **epistemic friction**, not correctness.
 | Complex Systems   | ~0.65–0.80      | Contested / High Uncertainty |
 
 Full benchmark:  
-👉 `BENCHMARK.md`
+👉 [BENCHMARK.md](BENCHMARK.md)
 
 ---
 
@@ -86,37 +86,37 @@ The operator remains the final synthesizer.
 ## 📜 DNS Protocol
 
 Reproducible workflow (Hypothese → Triangulation → Divergenz‑Mapping → Synthese → Validierung → Reflexion → Versionierung):  
-👉 `protocol/P1_P6_protocol.md`
+👉 [P1_P6_protocol.md](protocol/P1_P6_protocol.md)
 
 ---
 
 ## 🧮 Mathematical Foundations
 
 Formal definitions and glossary:  
-👉 `docs/MATH_AND_GLOSSARY.md`
+👉 [MATH_AND_GLOSSARY.md](docs/MATH_AND_GLOSSARY.md)
 
 Beispielhafter vollständiger Lauf (P1–P6):  
-👉 `docs/EXAMPLE_RUN.md`
+👉 [EXAMPLE_RUN.md](docs/EXAMPLE_RUN.md)
 
 ---
 
 ## 📦 Case Studies
 
 - Cognitive Safety & Neurodiversity  
-  👉 `case_studies/case_study_cognitive_safety.md`
+  👉 [case_study_cognitive_safety.md](case_studies/case_study_cognitive_safety.md)
 
 - Labor Market 2030  
-  👉 `case_studies/case_study_labour_market_2030.md`
+  👉 [case_study_labour_market_2030.md](case_studies/case_study_labour_market_2030.md)
 
 - Energy Market Dynamics  
-  👉 `case_studies/case_study_energy.md`
+  👉 [case_study_energy.md](case_studies/case_study_energy.md)
 
 ---
 
 ## 🔗 Related Work
 
 Ausführliche Einordnung im Kontext anderer Frameworks:  
-👉 `related_works.md`
+👉 [related_works.md](related_works.md)
 
 Kurzfassung:
 
@@ -158,9 +158,9 @@ Code
 
 ## 🚀 Quick Start
 
-1. `BENCHMARK.md` lesen (Δdiv‑Logik)  
-2. `docs/HOW_IT_WORKS.md` für den Ablauf  
-3. `protocol/P1_P6_protocol.md` für den operativen Run  
+1. [BENCHMARK.md](BENCHMARK.md) lesen (Δdiv‑Logik)  
+2. [HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) für den Ablauf  
+3. [P1_P6_protocol.md](protocol/P1_P6_protocol.md) für den operativen Run  
 4. Eigene Mini‑Benchmarks mit deinen Modellen fahren
 
 DNS erfordert **keine Installation** — es ist ein human‑centered Protocol.
@@ -169,7 +169,7 @@ DNS erfordert **keine Installation** — es ist ein human‑centered Protocol.
 
 ## ⚖️ License
 
-**Apache‑2.0** — siehe `LICENSE`.
+**Apache‑2.0** — siehe [LICENSE](LICENSE).
 
 ---
 
@@ -180,4 +180,4 @@ Independent Researcher, Germany
 GitHub: https://github.com/schltdns
 
 > Schult, D. (2026). *DNS — Divergence Navigation System: A divergence‑based evaluation layer for epistemic uncertainty in multi‑model systems.*  
-> GitHub: https://github.com/schltdns/diver
+> GitHub: https://github.com/schltdns/divergence-navigation-system
