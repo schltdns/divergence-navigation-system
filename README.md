@@ -86,7 +86,8 @@ The operator remains the final synthesizer.
 ## 📜 DNS Protocol
 
 Reproducible workflow (Hypothese → Triangulation → Divergenz‑Mapping → Synthese → Validierung → Reflexion → Versionierung):  
-👉 [P1_P6_protocol.md](protocol/P1_P6_protocol.md)
+👉 [protocol.md](protocol/protocol.md)
+
 
 ---
 
