@@ -83,16 +83,9 @@ The operator remains the final synthesizer.
 
 ---
 
-## 🏗 Team Architecture (moved to separate file)
+## 📜 DNS Protocol
 
-Full description of S1–Ω roles:  
-👉 `protocol/TEAM_ARCHITECTURE.md`
-
----
-
-## 📜 DNS Protocol (P1–P8)
-
-Reproducible workflow (hypothesis → triangulation → divergence mapping → synthesis → validation → reflection → versioning):  
+Reproducible workflow (Hypothese → Triangulation → Divergenz‑Mapping → Synthese → Validierung → Reflexion → Versionierung):  
 👉 `protocol/P1_P6_protocol.md`
 
 ---
@@ -102,9 +95,12 @@ Reproducible workflow (hypothesis → triangulation → divergence mapping → s
 Formal definitions and glossary:  
 👉 `docs/MATH_AND_GLOSSARY.md`
 
+Beispielhafter vollständiger Lauf (P1–P6):  
+👉 `docs/EXAMPLE_RUN.md`
+
 ---
 
-## 📦 Case Studies (linked only)
+## 📦 Case Studies
 
 - Cognitive Safety & Neurodiversity  
   👉 `case_studies/case_study_cognitive_safety.md`
@@ -119,7 +115,10 @@ Formal definitions and glossary:
 
 ## 🔗 Related Work
 
-DNS complements existing frameworks:
+Ausführliche Einordnung im Kontext anderer Frameworks:  
+👉 `related_works.md`
+
+Kurzfassung:
 
 | Framework | Focus | DNS adds… |
 |----------|--------|-----------|
@@ -128,7 +127,7 @@ DNS complements existing frameworks:
 | Semantic Triangulation | consistency | role‑based divergence |
 | Red Teaming | adversarial probing | multi‑model disagreement |
 
-DNS is an **evaluation layer**, not a replacement.
+DNS ist ein **Evaluation Layer**, kein Ersatz.
 
 ---
 
@@ -148,7 +147,7 @@ divergence-navigation-system/
 │   ├── case_study_labour_market_2030.md
 │   └── case_study_energy.md
 ├── teaching/
-├── templates/
+├── related_works.md
 ├── dns_architecture.png
 ├── LICENSE
 └── whitepaper.tex
@@ -159,27 +158,18 @@ Code
 
 ## 🚀 Quick Start
 
-1. Read the benchmark (`BENCHMARK.md`)  
-2. Explore the protocol (`protocol/`)  
-3. Run your own mini‑benchmark  
-4. Use templates for divergence mapping  
+1. `BENCHMARK.md` lesen (Δdiv‑Logik)  
+2. `docs/HOW_IT_WORKS.md` für den Ablauf  
+3. `protocol/P1_P6_protocol.md` für den operativen Run  
+4. Eigene Mini‑Benchmarks mit deinen Modellen fahren
 
-DNS requires **no installation** — it is a human‑centered protocol.
-
----
-
-## 📈 Roadmap
-
-- minimal reproducible example (P1–P6)  
-- divergence‑mapping templates  
-- “DNS in 5 Minutes” guide  
-- unified glossary  
+DNS erfordert **keine Installation** — es ist ein human‑centered Protocol.
 
 ---
 
 ## ⚖️ License
 
-**Apache‑2.0** — see `LICENSE`.
+**Apache‑2.0** — siehe `LICENSE`.
 
 ---
 
@@ -190,4 +180,4 @@ Independent Researcher, Germany
 GitHub: https://github.com/schltdns
 
 > Schult, D. (2026). *DNS — Divergence Navigation System: A divergence‑based evaluation layer for epistemic uncertainty in multi‑model systems.*  
-> GitHub: https://github.com/schltdns/divergence-navigation-system
+> GitHub: https://github.com/schltdns/diver
