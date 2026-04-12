@@ -183,11 +183,6 @@ Code
 
 DNS erfordert **keine Installation** — es ist ein human‑centered Protocol.
 
----
-
-## ⚖️ License
-
-**Apache‑2.0** — siehe [LICENSE](LICENSE).
 
 ---
 
