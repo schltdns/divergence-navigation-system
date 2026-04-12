@@ -89,7 +89,7 @@ DNS is a **community-driven project**. Whether you’re a mathematician, AI safe
 
 - **GitHub Issue:** [Create a new issue](https://github.com/schltdns/divergence-navigation-system/issues/new)  
 - **Discord:** [DNS Community Server](https://discord.gg/...) (for real-time collaboration)  
-- **Email:** [Your email address]
+- **Email:** [schltdns@gmail.com]
 
 ---
 
