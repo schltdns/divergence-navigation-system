@@ -18,7 +18,7 @@ it is a systemic weakness detector for AI safety, governance, and research.
 
 ## Attribution & License
 
-DNS is licensed under **Apache License 2.0** see [LICENSE.md](LICENSE.md) — you are free to use, modify and integrate it commercially.
+DNS is licensed under **Apache License 2.0** see [LICENSE](LICENSE) — you are free to use, modify and integrate it commercially.
 
 However, I kindly ask that any public use, derivative work, product integration, research paper or commercial application includes clear attribution:
 
