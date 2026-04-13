@@ -64,7 +64,7 @@ This folder documents a **structured, falsifiable, multi‑model analysis** of t
 
 ## License
 
-CC BY‑NC 4.0 (same as main repository)
+APACHE 2.0 (same as main repository)
 
 ---
 
