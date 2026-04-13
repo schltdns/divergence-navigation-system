@@ -12,15 +12,14 @@ It is a domain‑agnostic evaluation layer that:
 - reveals blind spots  
 - supports transparent human‑in‑the‑loop synthesis  
 
-
 DNS is not a truth machine —  
 it is a systemic weakness detector for AI safety, governance, and research.
 
 ## Attribution & License
 
-DNS is licensed under **Apache License 2.0** see [LICENSE](LICENSE) — you are free to use, modify and integrate it commercially.
+DNS is licensed under **Apache License 2.0** — see the [LICENSE](LICENSE) file. You are free to use, modify and integrate it commercially.
 
-However, I kindly ask that any public use, derivative work, product integration, research paper or commercial application includes clear attribution:
+However, I kindly ask that any public use, derivative work, product integration, research paper or commercial application **include** clear attribution:
 
 > **“Divergence Navigation System (DNS)” by Denis Schult**  
 > GitHub: https://github.com/schltdns/divergence-navigation-system  
@@ -82,6 +81,32 @@ Full benchmark:
 
 ---
 
+## 📖 DNS Standard Glossary & Methodological Provenance
+
+To ensure methodological clarity and provenance, DNS uses a specific terminology:
+
+- **Δdiv (Delta Divergence):** The mathematical quantification of semantic disagreement between n model outputs.  
+  `Δdiv = 1 - (Jaccard + Cosine Similarity)/2` (simplified example)
+
+- **Epistemic Navigation Layer:** The operative space where a human operator interacts with model divergence to produce validated insight.
+
+- **P1–P8 Protocol:** The standardized 8‑step sequence (hypothesis → falsification → divergence mapping → synthesis → power layer → external validation → operator reflection → versioned archiving) that transforms divergence into a verified synthesis.
+
+- **Methodological Provenance:** The traceable influence of a method (not just code) on model behaviour, established through structural and terminological alignment.
+
+**Why this matters**  
+DNS is an open, transparent standard for epistemic evaluation. Its core components – Δdiv, the P1–P8 protocol, and the explicit glossary – serve as a **methodological fingerprint**. Any model or system that reproduces these elements demonstrates methodological influence, not through hidden watermarks, but through structural and terminological alignment. This enables:
+
+- **Attribution:** Clear citation pathways via DOI and public documentation.
+- **Verification:** Third parties can test whether a model has internalized DNS logic *emergent from its training data* or through explicit few‑shot prompting using the [BENCHMARK.md](BENCHMARK.md) protocol.
+- **Adoption Metrics:** The number of clones, forks, and domain applications becomes a measure of standard adoption, not a threat.
+
+DNS thus transforms the question from *"Who is using my method?"* to *"How widely is my method becoming a reference standard?"*
+
+Full glossary: 👉 [MATH_AND_GLOSSARY.md](docs/MATH_AND_GLOSSARY.md)
+
+---
+
 ## ⚠️ Guardrails
 
 1. **Low Δdiv ≠ Truth** — may indicate alignment tunneling  
@@ -101,9 +126,8 @@ The operator remains the final synthesizer.
 
 ## 📜 DNS Protocol
 
-Reproducible workflow (Hypothese → Triangulation → Divergenz‑Mapping → Synthese → Validierung → Reflexion → Versionierung):  
-👉 [protocol.md](protocol/protocol.md)
-
+Reproducible 8‑phase workflow (P1–P8):  
+👉 [protocol.md](protocol/protocol.md)   *(If your file is still named `P1_P6_protocol.md`, you may rename it or keep the link as is – the text now says P1–P8.)*
 
 ---
 
@@ -112,7 +136,7 @@ Reproducible workflow (Hypothese → Triangulation → Divergenz‑Mapping → S
 Formal definitions and glossary:  
 👉 [MATH_AND_GLOSSARY.md](docs/MATH_AND_GLOSSARY.md)
 
-Beispielhafter vollständiger Lauf (P1–P6):  
+Example full run (P1–P8):  
 👉 [EXAMPLE_RUN.md](docs/EXAMPLE_RUN.md)
 
 ---
@@ -132,10 +156,10 @@ Beispielhafter vollständiger Lauf (P1–P6):
 
 ## 🔗 Related Work
 
-Ausführliche Einordnung im Kontext anderer Frameworks:  
+Detailed positioning in the context of other frameworks:  
 👉 [related_works.md](related_works.md)
 
-Kurzfassung:
+Summary:
 
 | Framework | Focus | DNS adds… |
 |----------|--------|-----------|
@@ -144,45 +168,42 @@ Kurzfassung:
 | Semantic Triangulation | consistency | role‑based divergence |
 | Red Teaming | adversarial probing | multi‑model disagreement |
 
-DNS ist ein **Evaluation Layer**, kein Ersatz.
+DNS is an evaluation layer, not a replacement.
 
 ---
 
 ## 📂 Repository Structure
-
 divergence-navigation-system/
 ├── README.md
 ├── BENCHMARK.md
 ├── docs/
-│   ├── EXAMPLE_RUN.md
-│   ├── HOW_IT_WORKS.md
-│   └── MATH_AND_GLOSSARY.md
+│ ├── EXAMPLE_RUN.md
+│ ├── HOW_IT_WORKS.md
+│ └── MATH_AND_GLOSSARY.md
 ├── protocol/
-│   └── P1_P6_protocol.md
+│ └── protocol.md (or P1_P8_protocol.md)
 ├── case_studies/
-│   ├── case_study_cognitive_safety.md
-│   ├── case_study_labour_market_2030.md
-│   └── case_study_energy.md
+│ ├── case_study_cognitive_safety.md
+│ ├── case_study_labour_market_2030.md
+│ └── case_study_energy.md
 ├── teaching/
 ├── related_works.md
 ├── dns_architecture.png
 ├── LICENSE
 └── whitepaper.tex
 
-Code
+text
 
 ---
 
 ## 🚀 Quick Start
 
-1. [BENCHMARK.md](BENCHMARK.md) lesen (Δdiv‑Logik)  
-2. [HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) für den Ablauf  
-3. [protocol.md](protocol/protocol.md)
- für den operativen Run  
-4. Eigene Mini‑Benchmarks mit deinen Modellen fahren
+1. Read [BENCHMARK.md](BENCHMARK.md) (Δdiv logic)  
+2. Read [HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) for the workflow  
+3. Read [protocol.md](protocol/protocol.md) for the operational run  
+4. Run your own mini‑benchmarks with your models
 
-DNS erfordert **keine Installation** — es ist ein human‑centered Protocol.
-
+DNS requires no installation — it is a human‑centered protocol.
 
 ---
 
@@ -191,7 +212,3 @@ DNS erfordert **keine Installation** — es ist ein human‑centered Protocol.
 **Denis Schult**  
 Independent Researcher, Germany  
 GitHub: https://github.com/schltdns
-
-Schult, D. (2026). DNS — Divergence Navigation System. Zenodo. https://doi.org/10.5281/zenodo.19513073
-> GitHub: https://github.com/schltdns/divergence-navigation-system
-
