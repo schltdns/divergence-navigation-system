@@ -46,6 +46,7 @@ Full conceptual description:
 ---
 
 ## 🎯 Why DNS matters for AI safety & governance
+DNS is Governance by Design, not just Ethics by Declaration.
 
 Modern LLMs often exhibit **false consensus** due to shared training data and alignment.  
 DNS exposes this by measuring **semantic dispersion** across models.
