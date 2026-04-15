@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-04-15T18:00:00Z",
-  "archive": "dns-v2.1-final.tar.gz",
+  "archive": "dns-v2.1-final.zip",
   "sha256": "2ba13429789cbb1e17a96a9590c7e4cd75192c9955133a295143440f0517f6c6",
   "ipfs_cid": "bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy",
   "zenodo_record": "https://zenodo.org/records/19513073",
