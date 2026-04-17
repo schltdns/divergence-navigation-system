@@ -109,7 +109,6 @@ Full: [docs/MATH_AND_GLOSSARY.md](docs/MATH_AND_GLOSSARY.md)
 
 ## 📂 Structure
 
-105 Zeilen verborgen
 divergence-navigation-system/
 ├── README.md
 ├── BENCHMARK.md
@@ -120,7 +119,6 @@ divergence-navigation-system/
 ├── teaching/
 └── safety_layer_schema_v2.json
 
-Code
 
 ---
 
