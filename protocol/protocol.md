@@ -76,4 +76,9 @@ Archive all artifacts with version tag (e.g., `dns_v2.1_run03`).
 **Output:** 
 - `08_manifest.json`
 - IPFS CID (see `dns_open_data_proof.json`)
+- Zenodo record: https://doi.org/10.5281/zenodo.19597808
+
+**Output:** 
+- `08_manifest.json`
+- IPFS CID (see `dns_open_data_proof.json`)
 - Zenodo DOI: https://doi.org/10.5281/zenodo.19597808
