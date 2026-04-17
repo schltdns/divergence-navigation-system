@@ -2,10 +2,10 @@
 
 This file presents the **integrated findings** of the TNS analysis on the labour market 2030. The synthesis is not an average of model positions. It is a **reasoned selection and integration** based on:
 
-- Substantive and normative divergence analysis (see `03_divergence_analysis.md`)
+- Substantive and normative divergence analysis ([see `03_divergence_analysis.md`](./03_divergence_analysis.md))
 - External validation against empirical sources (IAB, WEF, IW, McKinsey, BAuA)
-- Operator decisions (see `07_reflection.md`)
-- Power layer checks (see `06_power_layer.md`)
+- Operator decisions ([see `07_reflection.md`](./07_reflection.md))
+- Power layer checks ([see `06_power_layer.md`](./06_power_layer.md))
 
 Where consensus exists, we state it firmly. Where divergence persists, we mark it as an **open question** or formulate **conditional statements**.
 
@@ -120,14 +120,16 @@ These divergences are **carried forward as persistent uncertainties**. They are 
 
 ## 6. Next Steps (for the Reader)
 
-- For **falsification criteria** (how to test these claims), see `04_falsification_matrix.md` (or integrated in synthesis folder).
-- For **power layer details** (access, control, distribution), see `06_power_layer.md`.
-- For **operator decisions** (why we weighted models this way), see `07_reflection.md`.
-- For **external validation sources**, see `05_validation.md`.
+- For **falsification criteria** (how to test these claims), see table below.
+- For **power layer details** (access, control, distribution), see [06_power_layer.md](./06_power_layer.md).
+- For **operator decisions** (why we weighted models this way), see [07_reflection.md](./07_reflection.md).
+- For **external validation sources**, see [05_validation.md](./05_validation.md).
+- For **divergence measurements**, see [08_divergence_matrix.md](./08_divergence_matrix.md) and [heatmap](./dns_heatmap_labour_2030.png).
 
 ---
 
 **This synthesis is a living document. It will be updated as new empirical data (2027, 2028, 2030) become available.**
+
 # Synthesis and Falsification – Labour Market 2030
 
 | Block | Core Claim | Falsification Criterion | Weakness |
@@ -137,8 +139,4 @@ These divergences are **carried forward as persistent uncertainties**. They are 
 | C (Social) | Polarisation, risks for 50+ | Middle‑income share stable **or** 50+ unemployment not above average | Causality hard to isolate |
 | D (Education) | Dual training advantage; AI tutors standard | Training participation <40% **or** AI tutors in <30% of vocational schools by 2030 | Normative overload (should vs. is) |
 | E (Policy) | 4‑day week possible; migration necessary; AI Act as brake | 4‑day week in <10% of relevant companies **or** EU AI adoption faster than US | Path dependency |
-| F (Firms) | Re‑skilling > layoffs; flatter hierarchies | Company‑driven layoffs increase despite shortage **or** hierarchy levels do not decrease | Measurement problems |
-| G (Divergence) | Everything depends on relative speed + filter permeability | Systemic indicators (unemployment + inequality) improve despite rapid AI scaling | Complexity of system model |
-
-**Power layer addition (Version 3.3):** If inequality rises even when adaptation is fast, the bottleneck is **power concentration** – who controls AI, who benefits from near‑zero marginal costs.
-
+| F (Firms) | Re‑skilling > layoffs; flatter hierarchies | Company‑driven layoffs increase despite shortage **or**
