@@ -23,7 +23,7 @@ This file documents the **decisions, assumptions, and potential biases** of the 
 
 ## 2. Weighting Decisions
 
-Rule: **No automatic averaging.** Divergences were classified (see `03_divergence_analysis.md`) and weighted as follows:
+Divergences were classified ([see `03_divergence_analysis.md`](./03_divergence_analysis.md)) and weighted as follows:
 The measured Δdiv of 0.6256 (Jaccard 0.1923, Cosine 0.5564) confirmed high lexical distance despite semantic overlap, justifying the high weight assigned to normative divergences.
 | Divergence Type | Weight in Synthesis | Handling |
 |----------------|---------------------|----------|
