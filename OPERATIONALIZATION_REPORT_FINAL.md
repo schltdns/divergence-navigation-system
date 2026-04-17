@@ -8,51 +8,66 @@ Operationalize DNS into a practical, EU AI Act-compliant method that can be used
 
 ## Solution: Two-Layer Architecture
 
-**Frontend – Four Questions Method**
-1. On topic? 🟢 / 🔴
-2. New idea? 🟢 / 🟡 / 🔴
-3. Verifiable? (number, date, place, if-then) 🟢 / 🔴
-4. Understandable? 👍 / 👎
+### Frontend – Four Questions Method
+1. **On topic?** 🟢 / 🔴
+2. **New idea?** 🟢 / 🟡 / 🔴
+3. **Verifiable?** (number, date, place, if-then) 🟢 / 🔴
+4. **Understandable?** 👍 / 👎
 
-Good answer = 🟢 + 🟢 + 👍
+**Good answer = 🟢 + 🟢 + 👍**
 
-**Backend – Safety Layer**
-| Component | Function | AI Act |
-|-----------|----------|--------|
-| Bias detection (SHAP) | Marks yellow when protected feature >25% | Art. 13 |
-| Formal dissent | Justification ≥140 chars for deviation | Art. 14 |
-| Audit trail | Merkle root + IPFS, daily salts | Art. 9, 15, 19 |
+### Backend – Safety Layer (EU AI Act)
+| Component | Function | AI Act Article |
+|-----------|----------|----------------|
+| Bias detection (SHAP alerts) | Shows feature importance, marks yellow when protected feature contributes >25% | Art. 13 Transparency |
+| Formal dissent | Mandatory justification (≥140 characters) for any deviation from AI recommendation | Art. 14 Human Oversight |
+| Audit trail | Hash-anchored logs (Merkle root + IPFS), session-based daily rotating salts | Art. 9, 15, 19 |
 
-DSGVO-compliant: no personal profiles, only session hashes (Art. 89).
+All logs use no personal profiles – only session hashes, fully DSGVO-compliant (Art. 89).
 
 ## Interventions-Trigger
 
-1. **Q3 Verifiability → 🔴**: Stop. "Add a concrete detail."
-2. **Q1 Topic → 🔴**: Reset. "Back to the original question."
-3. **Q2 New idea → 🔴**: Elaborate. "Give example or counter-point."
+**1. Q3 Verifiability → 🔴**  
+Stop. *"Add a concrete detail – otherwise we cannot evaluate the answer."*
 
-No judgment, no grades, no meta-discussion.
+**2. Q1 Topic relevance → 🔴**  
+Reset. *"Back to the original question."*
+
+**3. Q2 New idea → 🔴**  
+Elaborate. *"Can you specify, give an example, or formulate a counter-point?"*
+
+**Teacher does NOT:** judge right/wrong, give grades, discuss DNS meta-level.
 
 ## Implementation Artifacts (v2.1)
+
+- `vier_fragen_methode.pdf`
+- `mapping_ai_act.pdf`
+- `safety_layer_schema_v2.json`
+- `minimal_safety_layer.py`
+- `dns_open_data_proof.json`
+- `LICENSE-DOCS.txt` (CC BY-NC-SA 4.0)
+- `LICENSE-CODE.txt` (Apache-2.0)
+
+**Links**
 - Zenodo: https://doi.org/10.5281/zenodo.19597808
 - GitHub: https://github.com/schltdns/divergence-navigation-system
-**IPFS (v2.1):**
-- `ipfs://bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy`
-- Gateway 1: https://ipfs.io/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
-- Gateway 2: https://dweb.link/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
-- Gateway 3: https://gateway.pinata.cloud/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
+- IPFS CID: `bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy`
+    - ipfs://bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
+    - https://ipfs.io/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
+    - https://dweb.link/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
 
-## Key Lessons
+## Key Lessons Learned
 1. Agents must never see the protocol
-2. Human operator is irreplaceable
-3. Dual licensing protects method
-4. IPFS + SHA256 replaces blockchain
+2. The human operator is irreplaceable
+3. Legal protection requires dual licensing
+4. Open-Data proof works without blockchain
 
 ## Next Steps
-- Montessori pilot NRW (after Easter)
-- Legal validation (Inge Seher)
+- Pilot at Montessori school NRW (after Easter)
+- Legal validation by Inge Seher
 - IHK Bonn integration
 - Case study publication
 
 ---
-License: CC BY-NC-SA 4.0 — © Denis Schult, 2026
+**License:** CC BY-NC-SA 4.0  
+**Copyright:** Denis Schult, 2026
