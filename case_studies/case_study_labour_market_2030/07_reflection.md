@@ -24,7 +24,7 @@ This file documents the **decisions, assumptions, and potential biases** of the 
 ## 2. Weighting Decisions
 
 Rule: **No automatic averaging.** Divergences were classified (see `03_divergence_analysis.md`) and weighted as follows:
-
+The measured Δdiv of 0.6256 (Jaccard 0.1923, Cosine 0.5564) confirmed high lexical distance despite semantic overlap, justifying the high weight assigned to normative divergences.
 | Divergence Type | Weight in Synthesis | Handling |
 |----------------|---------------------|----------|
 | **Substantive** (different facts/causality) | High | Resolved by external validation (see `05_validation.md`). Where sources disagreed, bandwidth was used. |
@@ -72,6 +72,7 @@ Rule: **No automatic averaging.** Divergences were classified (see `03_divergenc
 | **Availability heuristic** | Overweighting recent or dramatic model outputs (e.g., Grok’s volatile scenarios) | Cross‑checked against empirical sources (IAB, WEF) |
 | **Overconfidence** | Presenting uncertain findings as robust | Added conditional statements and bandwidths; marked unresolved divergences |
 | **Power blindness** | Ignoring distributional effects | Added dedicated power layer (this was a correction, not a prevention) |
+| **Optimism bias (automation)** | Tendency to weight office automation (accounting, HR, legal) higher than the model average, based on IBM/HR evidence | Explicitly documented in Operator Synthesis; counter-weighted by Claude/DeepSeek caution |
 
 **Remaining risk:** The operator is not immune to unconscious Eurocentrism (German focus). The case study should be replicated with non‑Western models and local data.
 
@@ -93,7 +94,7 @@ A future critic could falsify my operator choices by showing that:
 ## 6. Limitations of This TNS Application
 
 - **Temporal:** Analysis based on 2025/2026 data and model versions. Future models or data may change conclusions.
-- **Model access:** Only commercially available APIs were used; some models (e.g., open‑source) were excluded.
+- **Model access:** Only commercially available APIs were used; some models (e.g., open-source) were excluded. This likely underestimates architectural divergence, as open-weight models (e.g., Llama 3, Mistral) may cluster differently from API-gated models.
 - **Geographic focus:** Germany/EU. Generalisation to other regions requires adaptation.
 - **Operator skill:** The quality of the synthesis depends on the operator’s domain knowledge (labour economics, AI, German institutions). A different operator might produce a different synthesis.
 
