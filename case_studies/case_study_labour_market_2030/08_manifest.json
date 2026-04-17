@@ -1,1 +1,38 @@
 
+{
+  "dns_version": "2.1",
+  "run_id": "dns_v2.1_labour_2030",
+  "created": "2026-04-17T00:00:00Z",
+  "artifacts": [
+    "01_hypothesis.md",
+    "02_thresholds.md",
+    "03_outputs/chatgpt.md",
+    "03_outputs/claude.md",
+    "03_outputs/copilot.md",
+    "03_outputs/deepseek.md",
+    "03_outputs/gemini.md",
+    "03_outputs/grok.md",
+    "04_divergence_map.md",
+    "05_synthesis.md",
+    "09__operator_synthesis.md",
+    "06_validation.md",
+    "06b_power_layer.md",
+    "07_reflection.md"
+  ],
+  "measurement": {
+    "delta_div": 0.6256,
+    "jaccard_mean": 0.1923,
+    "cosine_mean": 0.5564,
+    "highest_pair": "ChatGPT-Gemini: 0.7221",
+    "lowest_pair": "Copilot-DeepSeek: 0.5492"
+  },
+  "open_data_proof": {
+    "ipfs_cid": "bafybeih...",
+    "proof_file": "../../dns_open_data_proof.json",
+    "sha256": "2ba13429789cbb1e17a96a9590c7e4cd75192c9955133a295143440f0517f6c6"
+  },
+  "zenodo": {
+    "doi": "10.5281/zenodo.19597808",
+    "url": "https://doi.org/10.5281/zenodo.19597808"
+  }
+}
