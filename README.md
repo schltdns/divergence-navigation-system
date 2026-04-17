@@ -109,7 +109,7 @@ Full: [docs/MATH_AND_GLOSSARY.md](docs/MATH_AND_GLOSSARY.md)
 
 ## 📂 Structure
 
-divergence-navigation-system/
+ ```-divergence-navigation-system/
 ├── README.md
 ├── BENCHMARK.md
 ├── OPERATIONALIZATION_REPORT.md
@@ -117,7 +117,7 @@ divergence-navigation-system/
 ├── case_studies/ # Labour 2030 (v2.1), Cognitive Safety, Energy
 ├── docs/
 ├── teaching/
-└── safety_layer_schema_v2.json
+└── safety_layer_schema_v2.json -```
 
 
 ---
@@ -130,4 +130,4 @@ divergence-navigation-system/
 ---
 
 ## ✍️ Citation
-> Schult, D. (2026). *DNS — Divergence Navigation System (v2.1)*. Zenodo. https://doi.org/10.5281/zenodo.195
+> Schult, D. (2026). *DNS — Divergence Navigation System (v2.1)*. Zenodo. https://doi.org/10.5281/zenodo.19597808
