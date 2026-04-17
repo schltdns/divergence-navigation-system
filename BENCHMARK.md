@@ -6,7 +6,7 @@
 
 ## 1. Purpose
 
-This benchmark demonstrates the **Divergence Navigation System (DNS)** in practice.
+This benchmark demonstrates the **Divergence Navigation System (DNS)**.
 
 > **Semantic divergence (Δdiv) can be observed, measured, and interpreted across domains.**
 
@@ -20,35 +20,24 @@ DNS does not reduce uncertainty — it makes it visible.
 - **Domains:** 3 (Formal Logic, Applied Systems, Complex Systems)
 - **Models:** 6 independent LLMs (ChatGPT, Claude, Gemini, Copilot, DeepSeek, Grok)
 - **Prompting:** Identical prompt per domain
-- **Metric:** Δdiv = weighted mean of lexical distance (Jaccard) and semantic distance (Cosine embeddings)
+- **Metric:** Δdiv = 0.5 × (1 - Jaccard) + 0.5 × (1 - Cosine)
 
-**Δdiv Definition (implemented)**
-
-## 3. Benchmark Domains & Prompts
-
----
-
-### **Domain A — Formal Logic (Deterministic System)**
-
-**Prompt:**
-Δdiv = 0.5 × (1 - Jaccard) + 0.5 × (1 - Cosine)
+**Δdiv (implemented)**
 - Low Δdiv → high agreement
 - High Δdiv → high disagreement
 
-See full calculation in [08_divergence_matrix.md](./case_studies/case_study_labour_market_2030/08_divergence_matrix.md).
+Full calculation: see `08_divergence_matrix.md` in the Labour Market case study.
 
 ---
 
 ## 3. Benchmark Domains
 
-### **Domain A — Formal Logic (Deterministic)**
+### **Domain A — Formal Logic**
 
 **Prompt:** Prove that √2 is irrational.
 
-**Observed:** Near-identical proof structure across all models.
-
-**Measured Δdiv:** `0.04–0.07` (pilot)
-**Profile:** Convergent — low uncertainty
+**Measured Δdiv:** `0.05` (pilot)
+**Interpretation:** Convergent, low uncertainty
 
 ---
 
@@ -56,33 +45,31 @@ See full calculation in [08_divergence_matrix.md](./case_studies/case_study_labo
 
 **Prompt:** What are the long-term economic effects of large-scale AI adoption on labor markets?
 
-**Observed:** Shared themes (automation, productivity, reskilling) but divergence in magnitude, speed, and policy.
-
 **Measured Δdiv:** `0.6256` (Jaccard 0.1923, Cosine 0.5564)
-**Profile:** Structured Divergence — moderate-high uncertainty
+**Interpretation:** Structured divergence — moderate-high uncertainty
 
-*Source: [DNS Case Study Labour Market 2030](./case_studies/case_study_labour_market_2030/)*
-*Heatmap: [dns_heatmap_labour_2030.png](./case_studies/case_study_labour_market_2030/dns_heatmap_labour_2030.png)*
+*Evidence:*
+- Divergence matrix: [`08_divergence_matrix.md`](./case_studies/case_study_labour_market_2030/08_divergence_matrix.md)
+- Heatmap: [`dns_heatmap_labour_2030.png`](./case_studies/case_study_labour_market_2030/dns_heatmap_labour_2030.png)
+- Synthesis: [`04_synthesis.md`](./case_studies/case_study_labour_market_2030/04_synthesis.md)
 
 ---
 
-### **Domain C — Complex Systems (Geopolitical)**
+### **Domain C — Complex Systems**
 
 **Prompt:** What are potential inflationary effects of prolonged disruption in a major global energy supply route?
 
-**Observed:** Strong divergence in assumptions, time horizons, second-order effects.
-
-**Estimated Δdiv:** `0.68–0.82` (based on pilot runs)
-**Profile:** Contested — high uncertainty
+**Estimated Δdiv:** `0.68–0.80` (pilot)
+**Interpretation:** Contested, high uncertainty
 
 ---
 
 ## 4. Cross-Domain Comparison
 
-| Domain | Δdiv (measured) | Epistemic Profile |
-|--------|-----------------|-------------------|
-| Formal Logic | 0.05 | Convergent |
-| Applied Systems (Labour) | **0.63** | Structured Divergence |
+| Domain | Δdiv | Epistemic Profile |
+|--------|------|-------------------|
+| Formal Logic | ~0.05 | Convergent |
+| Applied Systems | **0.63** | Structured Divergence |
 | Complex Systems | 0.70–0.80 | Contested |
 
 ---
@@ -91,15 +78,15 @@ See full calculation in [08_divergence_matrix.md](./case_studies/case_study_labo
 
 > **Δdiv scales with epistemic complexity.**
 
-Your Labour Market case sits exactly where theory predicts: not deterministic like math, not chaotic like geopolitics — but in the productive middle where DNS adds most value.
+Your Labour Market case (0.63) validates the middle layer — exactly where DNS is most useful.
 
 ---
 
 ## 6. Guardrails
 
-1. **Low Δdiv ≠ Truth** — may indicate alignment tunneling
-2. **High Δdiv ≠ Error** — indicates competing valid frames
-3. **DNS measures dispersion, not correctness**
+1. Low Δdiv ≠ Truth (possible alignment tunneling)
+2. High Δdiv ≠ Error (competing valid frames)
+3. DNS measures dispersion, not correctness
 
 ---
 
@@ -107,21 +94,20 @@ Your Labour Market case sits exactly where theory predicts: not deterministic li
 
 > "DNS does not tell us what is true — it shows where models stop agreeing."
 
-See operator decisions in [07_reflection.md](./case_studies/case_study_labour_market_2030/07_reflection.md).
+Operator decisions documented in [`07_reflection.md`](./case_studies/case_study_labour_market_2030/07_reflection.md).
 
 ---
 
 ## 8. Limitations
 
-- Domain A and C still use pilot estimates (n<10)
-- Domain B is fully measured (n=6, embedding-based)
-- Model versions drift over time
+- Domains A and C: pilot estimates only
+- Domain B: fully measured (n=6)
+- Model versions evolve
 
 ---
 
 ## 9. Next Steps
 
-- [x] Implement embedding-based Δdiv (done for Domain B)
-- [ ] Expand to 10+ domains
-- [ ] Publish reproducible pipeline
-
+- [x] Embedding-based Δdiv implemented
+- [ ] Expand to 10 domains
+- [ ] Release reproducible pipeline
