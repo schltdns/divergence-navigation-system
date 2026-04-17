@@ -2,7 +2,7 @@
 
 **Measurement basis:** Δdiv = **0.6256** (Jaccard mean 0.1923, Cosine mean 0.5564) across six models – ChatGPT, Claude, Copilot, DeepSeek, Gemini, Grok.  
 Highest pairwise divergence: ChatGPT ↔ Gemini (0.7221). Lowest: Copilot ↔ DeepSeek (0.5492).  
-See `03_divergence_matrix.md` and `images/divergence_heatmap.png`.
+See [divergence matrix](./08_divergence_matrix.md) and [divergence heatmap](./dns_heatmap_labour_2030.png).
 
 ---
 
@@ -22,6 +22,6 @@ The models converge on the EU AI Act slowing adoption and creating compliance co
 The divergence is not noise. High semantic similarity (Cosine 0.56) with low lexical overlap (Jaccard 0.19) means we do not disagree on facts, but on speed and ambition. My operator decision: automate faster, reskill consistently, keep regulation lean.
 
 ---
-*See `07_operator_reflection.md` for full bias documentation and falsification criteria.*
+*See [Operator Reflection](./07_reflection.md) for full bias documentation and falsification criteria.*
 ---
 *Denis, April 2026 – DNS Case Study labour_market_2030*
