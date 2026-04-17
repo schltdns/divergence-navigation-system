@@ -53,7 +53,7 @@ This folder documents a **structured, falsifiable, multi-model analysis** of the
 
 **Master question:** Does technology scale faster than social systems can adapt?
 
-**Operator decision:** Automate faster, reskill consistently, keep regulation lean – see [09__operator_synthesis.md](./09__operator_synthesis.md)
+**Operator decision:** Automate faster... – see [05b_operator_decision.md](./05b_operator_decision.md)
 
 **Falsification:** Testable criteria in [05_synthesis.md](./05_synthesis.md) (e.g., productivity <0.1% by 2028 falsifies optimistic thesis)
 
