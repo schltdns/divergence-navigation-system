@@ -16,9 +16,9 @@ DNS does not reduce uncertainty — it makes it visible.
 
 - **Models:** 6 (ChatGPT, Claude, Gemini, Copilot, DeepSeek, Grok)
 - **Metric:** Δdiv = 0.5×(1-Jaccard) + 0.5×(1-Cosine)
-- **Implementation:** embedding-based (not qualitative)
+- **Implementation:** embedding-based
 
-Reference implementation: `case_studies/case_study_labour_market_2030/08_divergence_matrix.md`
+Reference: [`08_divergence_matrix.md`](./case_studies/case_study_labour_market_2030/08_divergence_matrix.md)
 
 ---
 
@@ -32,7 +32,7 @@ Reference implementation: `case_studies/case_study_labour_market_2030/08_diverge
 **Prompt:** Long-term economic effects of AI on labor markets  
 **Δdiv:** **0.6256** (Jaccard 0.1923, Cosine 0.5564)  
 **Status:** Structured Divergence  
-**Files:** [matrix](./08_divergence_matrix.md) · [heatmap](./dns_heatmap_labour_2030.png) · [synthesis](./04_synthesis.md)
+**Files:** [matrix](./case_studies/case_study_labour_market_2030/08_divergence_matrix.md) · [heatmap](./case_studies/case_study_labour_market_2030/dns_heatmap_labour_2030.png) · [synthesis](./case_studies/case_study_labour_market_2030/04_synthesis.md)
 
 ### Domain C — Complex Systems
 **Prompt:** Inflationary effects of energy supply disruption  
@@ -52,18 +52,18 @@ Reference implementation: `case_studies/case_study_labour_market_2030/08_diverge
 
 ## 5. Insight
 
-**Δdiv scales with epistemic complexity.** Your measured 0.63 sits exactly in the productive middle.
+**Δdiv scales with epistemic complexity.** The measured 0.63 validates DNS in the productive middle.
 
 ---
 
 ## 6. Guardrails
 
 1. Low Δdiv ≠ Truth
-2. High Δdiv ≠ Error  
+2. High Δdiv ≠ Error
 3. DNS measures dispersion, not correctness
 
 ---
 
 ## 7. Operator Principle
 
-> "DNS shows where models stop agreeing." — see [07_reflection.md](./07_reflection.md)
+> "DNS shows where models stop agreeing." — see [`07_reflection.md`](./case_studies/case_study_labour_market_2030/07_reflection.md)
