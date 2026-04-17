@@ -61,7 +61,7 @@ The measured Δdiv of 0.6256 (Jaccard 0.1923, Cosine 0.5564) confirmed high lexi
 - **What:** For speed of automation, social mobility, and mental health, the synthesis uses “if‑then” statements (e.g., “If agent adoption exceeds 10% by 2027 → exponential scenario”).
 - **Why:** Avoids false certainty while maintaining falsifiability.
 - **Source:** Inspired by Popperian logic – claims must be testable.
-*Normative stance on office automation is detailed in `04_operator_synthesis.md`.*
+*Normative stance on office automation is detailed in `09_operator_synthesis.md`.*
 
 ---
 
