@@ -36,7 +36,11 @@ No judgment, no grades, no meta-discussion.
 ## Implementation Artifacts (v2.1)
 - Zenodo: https://doi.org/10.5281/zenodo.19597808
 - GitHub: https://github.com/schltdns/divergence-navigation-system
-- IPFS: bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
+**IPFS (v2.1):**
+- `ipfs://bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy`
+- Gateway 1: https://ipfs.io/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
+- Gateway 2: https://dweb.link/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
+- Gateway 3: https://gateway.pinata.cloud/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy
 
 ## Key Lessons
 1. Agents must never see the protocol
