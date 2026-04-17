@@ -52,6 +52,7 @@ This folder documents a **structured, falsifiable, multi‑model analysis** of t
 - **Master question:** Does technology scale faster than social systems can adapt?
 - **Falsification matrix:** Testable criteria for each dimension (e.g., productivity growth <0.1% by 2028 would falsify the optimistic productivity thesis).
 
+![Δdiv Heatmap](./dns_heatmap_labour_2030.png)
 ---
 
 ## How to use this case study
