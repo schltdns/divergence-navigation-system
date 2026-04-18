@@ -46,6 +46,12 @@ No resolution needed – these are documented as epistemic diversity.
 | Operator failure only | ⚠️ | ✅ | ✅ | ✅ | ✅ | ✅ | **Medium** |
 | Empirical proof needed | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | **High** |
 
+## Visualisation
+
+![Divergence Heatmap](./dns_heatmap_cognitive_safety.png)
+
+For a quick overview of pairwise divergences, see the heatmap above. It confirms the matrix values and highlights the structural divergence pattern.
+
 ## Δdiv Calculation (based on actual model outputs)
 
 **Measured Δdiv (average over all model pairs):** `0.787`
