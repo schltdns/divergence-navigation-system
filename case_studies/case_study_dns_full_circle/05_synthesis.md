@@ -11,7 +11,7 @@ The following statements are supported by all six models (ChatGPT, Claude, DeepS
 
 2. **Architecture:** DNS operates through a defined multi-phase protocol (hypothesis → model selection → divergence mapping → synthesis → validation).
 
-3. **Metric:** Divergence is quantified as Δdiv = 0.5 × (1 - Jaccard) + 0.5 × (1 - Cosine), with thresholds distinguishing convergent, structured, and contested outputs.
+3. **Metric:** Divergence is quantified as $\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$, with thresholds distinguishing convergent, structured, and contested outputs.
 
 4. **Human role:** Synthesis is performed by a human operator, not by the models. DNS provides the divergence map; the operator provides the judgment.
 
@@ -29,17 +29,17 @@ The following statements are supported by all six models (ChatGPT, Claude, DeepS
 ## Rejected or Contested Statements
 
 - **"DNS eliminates bias":** No model claimed this. All six emphasized that DNS makes bias visible but does not remove it. Operator decisions remain the critical failure point.
-- **"All models describe DNS identically":** Falsified by Δdiv = 0.8142. The six descriptions are structurally incompatible at the vocabulary level.
+- **"All models describe DNS identically":** Falsified by $\Delta_{div} = 0.8142$. The six descriptions are structurally incompatible at the vocabulary level.
 
 ## Divergence Quantification
 
-The calculated Δdiv for this case study is **0.8142** (contested divergence). This value reflects genuine perspective fragmentation – architecture vs. protocol vs. theory vs. operations – not random noise. All six models independently confirmed the core mechanism listed above despite using non-overlapping terminology.
+The calculated $\Delta_{div}$ for this case study is **0.8142** (contested divergence). This value reflects genuine perspective fragmentation – architecture vs. protocol vs. theory vs. operations – not random noise. All six models independently confirmed the core mechanism listed above despite using non-overlapping terminology.
 
-See [04_divergence_map.md](./04_divergence_map.md) for the full divergence matrix and interpretation.
+See [04_divergence_map.md](04_divergence_map.md) for the full divergence matrix and interpretation.
 
 ## Final Formulation of the Hypothesis (Approved by All Models)
 
-> **DNS is a divergence navigation system that quantifies disagreement across multiple LLMs (Δdiv), preserves epistemic diversity through structured protocols, and requires human synthesis to produce falsifiable knowledge claims.**
+> **DNS is a divergence navigation system that quantifies disagreement across multiple LLMs ($\Delta_{div}$), preserves epistemic diversity through structured protocols, and requires human synthesis to produce falsifiable knowledge claims.**
 
 ## Guiding Principle (Claude)
 
@@ -47,10 +47,10 @@ See [04_divergence_map.md](./04_divergence_map.md) for the full divergence matri
 
 ## Remaining Open Questions (for Empirical Testing)
 
-- Does Δdiv > 0.78 reliably predict synthesis difficulty across domains?
+- Does $\Delta_{div} > 0.78$ reliably predict synthesis difficulty across domains?
 - Can operator decisions (D1–D6) be standardized without losing context sensitivity?
 - How does DNS perform when applied to non-textual divergence (images, code, data)?
 
 ---
 
-**Next:** [05b_operator_decision.md](./05b_operator_decision.md)
+**Next:** [05b_operator_decision.md](05b_operator_decision.md)
