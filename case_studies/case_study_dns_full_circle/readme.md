@@ -18,7 +18,7 @@ This case study applies DNS to itself. Six LLMs analyzed the DNS method from six
 7. Operator Reflection
 8. Versioned Archiving
 
-**Δdiv Formula:** `0.5 × (1 - Jaccard) + 0.5 × (1 - Cosine)`
+**Δdiv Formula:** $$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$$
 
 ---
 
