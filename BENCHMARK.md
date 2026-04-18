@@ -45,9 +45,6 @@ DNS does not reduce uncertainty — it makes it visible.
 **Status:** Contested Divergence  
 **Files:** [synthesis](case_studies/dns_full_circle/05_synthesis.md) · [divergence map](case_studies/dns_full_circle/04_divergence_map.md)
 
-### Domain E — Complex Systems (Pilot)
-**Prompt:** Inflationary effects of energy supply disruption  
-**$\Delta_{div}$:** 0.70–0.80 (pilot) — Contested
 
 ---
 
