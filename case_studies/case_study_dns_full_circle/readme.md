@@ -2,71 +2,54 @@
 
 **Divergence Navigation System v2.1 — Self-Application to arXiv Whitepaper**
 
-This case study applies DNS to itself. Six LLMs analyzed the DNS method from six different perspectives, creating a full-circle validation.
-
----
-
-## Method
-
-**DNS v2.1 Protocol:**
-1. Hypothesis & Falsification
-2. Model Selection (6 models)
-3. Prompt Execution
-4. Divergence Mapping
-5. Weighted Human Synthesis
-6. External Validation
-7. Operator Reflection
-8. Versioned Archiving
-
-**Δdiv Formula:** $$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$$
+This case study applies DNS to itself. Six LLMs analyzed the DNS method from six different perspectives.
 
 ---
 
 ## Divergence Results
 
 **Average Δdiv: 0.8142**  
-**Interpretation: CONTESTED** (>0.78 threshold)
+**Interpretation: CONTESTED** (>0.78)
 
-This is the highest divergence measured across all DNS case studies, confirming that DNS fragments into distinct perspectives when applied to itself.
+![DNS Δdiv Heatmap](./figures/dns_heatmap_full_circle.png)
 
-### Pairwise Divergence Heatmap
-
-![DNS Δdiv Heatmap](figures/dns_heatmap_full_circle.png)
-
-*Six models, pairwise divergence. Values range from 0.74 (ChatGPT–Grok) to 0.88 (ChatGPT–Copilot).*
+*Six models, pairwise divergence. Range: 0.74 to 0.88*
 
 ---
 
-## Key Finding
+## Key Findings
 
-DNS does not converge on itself — it fragments. This validates the core principle: divergence is signal, not noise.
+1. **Self-application creates maximum fragmentation**  
+   When DNS describes itself, models don't agree on what DNS *is*. One sees architecture, another sees protocol, another sees checklist. No shared vocabulary emerges.
 
-| Case Study | Δdiv |
-|------------|------|
-| Cognitive Safety | 0.67 |
-| Labour 2030 | 0.71 |
-| **DNS Full Circle** | **0.81** |
+2. **Lowest divergence is still high (0.74)**  
+   Even ChatGPT and Grok — both structural describers — diverge significantly. There is no "easy pair" in self-analysis.
+
+3. **Highest divergence reveals category error (0.88)**  
+   ChatGPT (methodology) vs. Copilot (LaTeX formatting) share zero semantic overlap. DNS correctly flags fundamentally different tasks as contested.
+
+4. **Validation of the DNS principle**  
+   A method that claims to navigate divergence must not collapse when applied to itself. The 0.81 score proves DNS measures real structural differences, not random noise.
 
 ---
 
 ## Files
 
-- [`03_outputs/`](./03_outputs/) — 6 raw model responses
-- [`04_delta_div.json`](./04_delta_div.json) — quantitative metrics
-- [`04_divergence_map.md`](./04_divergence_map.md) — detailed analysis
-- [`figures/dns_heatmap_full_circle.png`](./figures/dns_heatmap_full_circle.png) — visualization
+- [`03_outputs/`](./03_outputs/)
+- [`04_delta_div.json`](./04_delta_div.json)
+- [`04_divergence_map.md`](./04_divergence_map.md)
+- [`figures/dns_heatmap_full_circle.png`](./figures/dns_heatmap_full_circle.png)
 
 ---
 
-## Comparison
+## Comparison to Other Studies
 
-| Case Study | Δdiv | Interpretation |
-|------------|------|----------------|
-| Cognitive Safety | 0.67 | Structured |
-| Labour 2030 | 0.71 | Structured |
-| **DNS Full Circle** | **0.81** | **Contested** |
+| Case Study | Δdiv | Type |
+|------------|------|------|
+| Cognitive Safety | 0.67 | Structured divergence |
+| Labour 2030 | 0.71 | Structured divergence |
+| **DNS Full Circle** | **0.81** | **Contested fragmentation** |
 
 ---
 
-*DNS v2.1 — Divergence Navigation System*  
-*License: CC BY-NC 4.0*
+*DNS v2.1 | CC BY-NC 4.0*
