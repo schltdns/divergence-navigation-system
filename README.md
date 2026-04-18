@@ -1,133 +1,59 @@
-# DNS — Divergence Navigation System
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19597808.svg)](https://doi.org/10.5281/zenodo.19597808)
-
-**DNS does not reduce uncertainty — it makes it visible.**
-
-A divergence-based evaluation layer for epistemic uncertainty in multi-model systems.
-
-DNS transforms model disagreement into structured epistemic insight — not to find truth, but to reveal systemic weaknesses in AI reasoning, safety, and governance.
-
+DNS — Divergence Navigation System
+DNS macht Unsicherheit sichtbar – nicht kleiner.
+> Für Schule, Ausbildung, Praxis: vier Fragen, Ampel, fertig.  
+> Für Forschung: messbare Divergenz (Δdiv), auditierbar nach EU AI Act.
+Version: v2.1 (2025-04-15) • DOI: 10.5281/zenodo.19597808 • IPFS: `bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy`
 ---
-
-## Versioning and Open Data Proof
-
-- **Current version:** v2.1 (2026-04-15)  
-  DOI: [10.5281/zenodo.19597808](https://doi.org/10.5281/zenodo.19597808)
-- **Previous version:** v2.0 – [10.5281/zenodo.19513073](https://doi.org/10.5281/zenodo.19513073)
-- **IPFS anchor:** `bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy`  
-  `ipfs://bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy`  
-  See [`dns_open_data_proof.json`](./dns_open_data_proof.json)
-
+Start here – 2 Minuten
+Die Vier-Fragen-Methode (Frontend)
+Jede KI-Antwort wird mit vier Kreuzen geprüft:
+On topic? 🟢 / 🔴
+New idea? 🟢 / 🟡 / 🔴
+Verifiable? (Zahl, Datum, Ort, wenn-dann) 🟢 / 🔴
+Understandable? 👍 / 👎
+Gute Antwort = 🟢 + 🟢 + 👍
+Kein Account. Keine API. Funktioniert auf Folie.  
+→ PDF: `teaching/vier_fragen_methode.pdf` (DE) | `teaching/four_questions_method.pdf` (EN)
+Warum das reicht
+Lehrer behalten Deutungshoheit (Art. 14 AI Act – Human Oversight)
+Schüler lernen, Halluzinationen zu filtern, nicht zu fürchten
+Entscheider sehen, wo Modelle aufhören, sich einig zu sein
 ---
-
-## Attribution & License
-
-**Dual licensing:**
-- **Code** (JSON schema, Python): [Apache-2.0](./LICENSE-CODE.txt)
-- **Documentation & Method**: [CC BY-NC-SA 4.0](./LICENSE-DOCS.txt)
-
-> *"Divergence Navigation System (DNS)" by Denis Schult*  
-> https://github.com/schltdns/divergence-navigation-system
-
+Was DNS technisch ist
+DNS nutzt strukturierte Divergenz zwischen Modellen als Navigationssignal.
+Kernmetrik Δdiv
+```
+Δdiv = 0.5 × (1 - Jaccard) + 0.5 × (1 - Cosine)
+```
+0.05 = Konvergenz (formale Logik)
+0.62 = strukturierte Divergenz (Labour 2030)
+0.78 = contested (Cognitive Safety)
+Zwei Schichten
+Frontend: Vier Fragen (jeder kann es)
+Backend: Safety Layer (JSON-Schema, Hash-Anker, SHAP-Monitoring) – für EU-Konformität
+→ Details: `docs/HOW_IT_WORKS.md`
 ---
-
-## 🧭 What DNS Is
-
-DNS uses multi-model disagreement as a navigational signal for:
-- structured analysis under uncertainty
-- detection of bias, drift, alignment tunneling
-- quantifiable uncertainty (Δdiv)
-- human-in-the-loop synthesis
-
-Full description: [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)
-
+EU AI Act Mapping
+Anforderung	DNS Umsetzung
+Art. 13 Transparenz	Vier Fragen dokumentieren Bewertung
+Art. 14 Menschliche Aufsicht	Operator muss Synthese begründen (P7)
+Art. 15 Robustheit	Δdiv + Falsifikationsregeln 1–4
+→ Mapping: `teaching/mapping_ai_act.pdf`
 ---
-
-## 🎯 Why DNS matters
-
-**Governance by Design** — not just Ethics by declaration.
-
-Provides:
-- **Δdiv** — semantic dispersion
-- **Friction mapping** — contested domains
-- **Auditability** — EU AI Act Art. 9, 13, 14, 15
-
+Quick Start für Entwickler
+Lies `docs/HOW_IT_WORKS.md` (10 Min Beispiel)
+Nutze `safety_layer_schema_v2.json` für Logging
+Teste mit `minimal_safety_layer.py`
 ---
-
-## 📊 Core Metric: Δdiv
-
-| Domain | Δdiv (measured) | Profile |
-|--------|-----------------|---------|
-| Formal Logic | ~0.05 | Convergent |
-| Applied Systems (Labour 2030) | **0.6256** | Structured Divergence |
-| Complex Systems | 0.70–0.80 | Contested |
-
-Full benchmark: [BENCHMARK.md](./BENCHMARK.md)
-
+Case Studies (v2.1)
+Cognitive Safety – Δdiv 0.787, Low-Social-Risk-Hypothese validiert
+Labour Market 2030 – Δdiv 0.6256, erste vollständige P1-P8
+Archiv: `/archive/` (alte GNS-Modelle, KRI etc.)
 ---
-
-## 🔧 Operationalization (v2.1)
-
-- **Four Questions Method** – `teaching/vier_fragen_methode.pdf`
-- **Safety Layer** – `safety_layer_schema_v2.json`, `minimal_safety_layer.py`
-- **AI Act Mapping** – `teaching/mapping_ai_act.pdf`
-- **Report** – [OPERATIONALIZATION_REPORT_FINAL.md](./OPERATIONALIZATION_REPORT_FINAL.md)
-
+Lizenz
+Code: Apache-2.0
+Methode & Docs: CC BY-NC-SA 4.0
+> DNS ist Struktur, keine Garantie. Nutzung auf eigene Verantwortung.
 ---
-
-## 📖 Glossary
-
-- **Δdiv**: `0.5×(1-Jaccard) + 0.5×(1-Cosine)`
-- **Four Questions Method**: frontend for learners
-- **Safety Layer**: EU-compliant backend
-- **P1–P8**: 8-step protocol – see [protocol/README.md](protocol/)
-
-Full: [docs/MATH_AND_GLOSSARY.md](docs/MATH_AND_GLOSSARY.md)
-
----
-
-## ⚠️ Guardrails
-- Low Δdiv ≠ Truth
-- High Δdiv ≠ Error
-- DNS measures dispersion
-
----
-
-## 🧠 Operator Principle
-> "DNS shows where models stop agreeing."
-
----
-
-## 📦 Case Studies
-
-- **[Labour Market 2030](case_studies/case_study_labour_market_2030/)** – Δdiv 0.6256, first complete P1-P8 run (v2.1)
-- **[Cognitive Safety](case_studies/case_study_cognitive_safety/)** – Δdiv 0.787, epistemic validation of the low‑social‑risk hypothesis (v2.1)
-- [Energy](case_studies/case_study_energy/)
-
----
-
-## 📂 Structure
-
- ```-divergence-navigation-system/
-├── README.md
-├── BENCHMARK.md
-├── OPERATIONALIZATION_REPORT.md
-├── protocol/ # P1-P8 definitions
-├── case_studies/ # Labour 2030 (v2.1), Cognitive Safety, Energy
-├── docs/
-├── teaching/
-└── safety_layer_schema_v2.json -```
-
-
----
-
-## 🚀 Quick Start
-1. Read [BENCHMARK.md](./BENCHMARK.md)
-2. Read [OPERATIONALIZATION_REPORT.md](./OPERATIONALIZATION_REPORT.md)
-3. Run your own Δdiv test
-
----
-
-## ✍️ Citation
+Zitieren
 > Schult, D. (2026). *DNS — Divergence Navigation System (v2.1)*. Zenodo. https://doi.org/10.5281/zenodo.19597808
