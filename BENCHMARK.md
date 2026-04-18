@@ -31,7 +31,7 @@ DNS does not reduce uncertainty — it makes it visible.
 **Prompt:** Long-term economic effects of AI on labor markets  
 **$\Delta_{div}$:** **0.6256** (Jaccard 0.1923, Cosine 0.5564)  
 **Status:** Structured Divergence  
-**Files:** [matrix](case_studies/case_study_labour_market_2030/08_divergence_matrix.md) · [heatmap](case_studies/case_study_labour_market_2030/dns_heatmap_labour_2030.png) · [synthesis](case_studies/case_study_labour_market_2030/04_synthesis.md)
+**Files:** [heatmap](case_studies/case_study_labour_market_2030/dns_heatmap_labour_2030.png) · [synthesis](case_studies/case_study_labour_market_2030/04_synthesis.md)
 
 ### Domain C — Cognitive Safety
 **Prompt:** Does DNS create cognitive safety for neurodivergent users?  
