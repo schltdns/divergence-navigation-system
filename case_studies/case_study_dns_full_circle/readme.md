@@ -37,19 +37,15 @@ This is the highest divergence measured across all DNS case studies, confirming 
 
 ---
 
-## Key Findings
+## Key Finding
 
-**Why so high?**
-- ChatGPT described the four-level architecture
-- Claude defined the divergence typology  
-- DeepSeek mapped the eight-phase protocol
-- Gemini positioned TNS theoretically
-- Grok navigated the repository structure
-- Copilot listed arXiv submission requirements
+DNS does not converge on itself — it fragments. This validates the core principle: divergence is signal, not noise.
 
-Six valid descriptions of the same method — zero overlap in vocabulary.
-
-**DNS Principle Validated:** Divergence is signal, not noise. A synthesis method must survive its own application.
+| Case Study | Δdiv |
+|------------|------|
+| Cognitive Safety | 0.67 |
+| Labour 2030 | 0.71 |
+| **DNS Full Circle** | **0.81** |
 
 ---
 
