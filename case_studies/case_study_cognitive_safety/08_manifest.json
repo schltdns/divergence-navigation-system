@@ -1,1 +1,27 @@
-
+{
+  "run_id": "dns_v2.1_cognitive_safety",
+  "date": "2026-04-18",
+  "version": "2.1",
+  "description": "Case study: Cognitive Safety – DNS as a low‑social‑risk environment for neurodivergent and introverted individuals",
+  "files": [
+    "01_hypothesis.md",
+    "02_thresholds.md",
+    "03_outputs/chatgpt.md",
+    "03_outputs/claude.md",
+    "03_outputs/deepseek.md",
+    "03_outputs/gemini.md",
+    "03_outputs/grok.md",
+    "03_outputs/copilot.md",
+    "04_divergence_map.md",
+    "05_synthesis.md",
+    "05b_operator_decision.md",
+    "06_validation.md",
+    "06b_power_layer.md",
+    "07_reflection.md",
+    "08_manifest.json",
+    "README.md"
+  ],
+  "ipfs_cid": "Qm... (to be added)",
+  "license": "Dual: Apache‑2.0 (code) / CC BY‑NC‑SA 4.0 (method and documentation)",
+  "note": "SHA256 hashes not included in this version; use Git commit hash for integrity."
+}
