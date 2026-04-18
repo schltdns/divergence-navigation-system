@@ -34,7 +34,7 @@ No account. No API. Works on paper.
 ## What DNS is technically
 
 **Core metric**
-$$\Delta_{div} = 0.5 \times (1 - \text{Jaccard}) + 0.5 \times (1 - \text{Cosine})$$
+\Delta_{div} = 0.5(1-Jaccard) + 0.5(1-Cosine)
 
 - 0.05 = convergence
 - 0.62 = structured divergence
