@@ -55,11 +55,10 @@ Six valid descriptions of the same method — zero overlap in vocabulary.
 
 ## Files
 
-- `03_outputs/` — 6 raw model responses
-- `04_delta_div.json` — quantitative divergence metrics
-- `04_divergence_map.md` — detailed analysis
-- `figures/dns_heatmap_full_circle.png` — visualization
-- `05_content_synthesis.md` — weighted human synthesis (next)
+- [`03_outputs/`](./03_outputs/) — 6 raw model responses
+- [`04_delta_div.json`](./04_delta_div.json) — quantitative metrics
+- [`04_divergence_map.md`](./04_divergence_map.md) — detailed analysis
+- [`figures/dns_heatmap_full_circle.png`](./figures/dns_heatmap_full_circle.png) — visualization
 
 ---
 
