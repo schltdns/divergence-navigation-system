@@ -1,4 +1,6 @@
-![DNS - Divergence Navigation System](docs/assets/dns_hero.png)
+<p align="center">
+  <img src="docs/assets/dns_hero.png" width="800" alt="DNS - Divergence Navigation System">
+</p>
 
 # DNS v2.1
 # DNS — Divergence Navigation System
