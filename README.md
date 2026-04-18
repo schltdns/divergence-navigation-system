@@ -2,7 +2,6 @@
   <img src="docs/assets/dns_hero.png" width="800" alt="DNS - Divergence Navigation System">
 </p>
 
-# DNS v2.1
 # DNS — Divergence Navigation System
 
 **DNS does not reduce uncertainty — it makes it visible.**
@@ -28,22 +27,17 @@ Check every LLM answer:
 3. **Verifiable?** (number, date, place, if-then) 🟢 / 🔴
 4. **Understandable?** 👍 / 👎
 
-**Good answer = 🟢 + 🟢 + 👍**
+**Good answer = 🟢 + 👍**
 
-No account. No API. Works on paper.  
-→ `teaching/four_questions_method.pdf`
-
-### Why this works
-- Teachers keep human oversight (AI Act Art. 14)
-- Students filter hallucinations
-- Decision makers see where models disagree
+No account. No API. Works on paper.
 
 ---
 
 ## What DNS is technically
 
-**Core metric Δdiv**
-Δdiv = 0.5 × (1 - Jaccard) + 0.5 × (1 - Cosine)
+**Core metric**
+$$\Delta_{div} = 0.5 \times (1 - \text{Jaccard}) + 0.5 \times (1 - \text{Cosine})$$
+
 - 0.05 = convergence
 - 0.62 = structured divergence
 - 0.78 = contested
@@ -56,6 +50,8 @@ No account. No API. Works on paper.
 
 ## EU AI Act mapping
 
+| Article | DNS Implementation |
+| :--- | :--- |
 | Art. 13 Transparency | Four Questions documented |
 | Art. 14 Human oversight | Operator justifies synthesis |
 | Art. 15 Robustness | Δdiv + falsification rules |
@@ -63,9 +59,9 @@ No account. No API. Works on paper.
 ---
 
 ## Quick start
-1. Read `docs/HOW_IT_WORKS.md`
-2. Use `safety_layer_schema_v2.json`
-3. Run `minimal_safety_layer.py`
+1. Read the architecture: [docs/team_architecture.md](docs/team_architecture.md)
+2. Use the schema: `safety_layer_schema_v2.json`
+3. Run the demo: `minimal_safety_layer.py`
 
 ---
 
