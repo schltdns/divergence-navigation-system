@@ -56,7 +56,6 @@ DNS does not reduce uncertainty — it makes it visible.
 | Labour Market 2030 | **0.6256** | Structured Divergence |
 | Cognitive Safety | **0.787** | Contested |
 | DNS Full Circle | **0.8142** | Contested |
-| Complex Systems (pilot) | 0.75 | Contested |
 
 ---
 
