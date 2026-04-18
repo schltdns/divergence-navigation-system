@@ -37,6 +37,11 @@ The study uses the full DNS protocol (P1–P6) with six independent LLMs (ChatGP
 **Δdiv = 0.787** (average over all model pairs) – high structural divergence.  
 Despite this, all models verbally agree on the core mechanism. The divergence is stylistic/terminological, not substantive.
 
+## Divergence Heatmap
+
+![Divergence Heatmap](./dns_heatmap_cognitive_safety.png)
+
+The heatmap visualises pairwise Δdiv values between the six models. Darker red indicates higher divergence. The lowest divergence (0.5716) is between Copilot and DeepSeek; the highest (0.8914) between Claude and Copilot.
 ---
 
 ## Citation
