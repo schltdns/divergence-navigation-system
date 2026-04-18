@@ -1,0 +1,41 @@
+{
+  "case_study": "dns_full_circle",
+  "title": "DNS Full Circle: Self-Application Study",
+  "version": "2.1",
+  "date": "2025-12-18",
+  "operator": "Denis Schult",
+  "license": "CC BY-NC 4.0",
+  "delta_div": 0.8142,
+  "delta_div_formula": "Δdiv = 0.5 * (1 - Jaccard) + 0.5 * (1 - Cosine)",
+  "threshold": "contested (>0.78)",
+  "models": [
+    "ChatGPT-4o",
+    "Claude 3.5 Sonnet",
+    "DeepSeek-V3",
+    "Gemini 1.5 Pro",
+    "Grok-2",
+    "Copilot"
+  ],
+  "files": [
+    "01_hypothesis.md",
+    "02_thresholds.md",
+    "03_outputs/chatgpt.md",
+    "03_outputs/claude.md",
+    "03_outputs/deepseek.md",
+    "03_outputs/gemini.md",
+    "03_outputs/grok.md",
+    "03_outputs/copilot.md",
+    "04_divergence_map.md",
+    "05_synthesis.md",
+    "05b_operator_decision.md",
+    "06_validation.md",
+    "06b_power_layer.md",
+    "07_reflection.md",
+    "08_manifest.json",
+    "README.md"
+  ],
+  "validation_status": "pending",
+  "ipfs_hash": "pending",
+  "arxiv_id": "pending",
+  "github_repo": "https://github.com/ds-dns/dns-full-circle"
+}
