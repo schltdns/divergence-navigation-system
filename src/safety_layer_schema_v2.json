@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DNS Safety Layer Log Entry",
+  "type": "object",
+  "required": ["prognose_id", "timestamp", "session_hash", "fragen", "ai_act_mapping"],
+  "properties": {
+    "prognose_id": { "type": "string", "pattern": "^nrw-\\d{8}-[A-Z0-9]{4}$" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "session_hash": { "type": "string", "description": "täglich rotierender Salt, pro Sitzung neu" },
+    "fragen": {
+      "type": "object",
+      "properties": {
+        "thema_getroffen": { "type": "boolean" },
+        "neue_idee": { "type": "string", "enum": ["voll", "teilweise", "keine"] },
+        "ueberpruefbar": { "type": "boolean" },
+        "verstaendlich": { "type": "boolean" }
+      }
+    },
+    "ai_act_mapping": {
+      "type": "object",
+      "properties": {
+        "art_13_transparenz": { "type": "boolean" },
+        "art_14_human_oversight": { "type": "boolean" },
+        "art_9_risikomanagement": { "type": "boolean" }
+      }
+    },
+    "dissent_log": {
+      "type": "object",
+      "properties": {
+        "kategorie": { "type": "string", "enum": ["fehlender_kontext", "ethisches_veto", "strategische_abwaegung"] },
+        "begruendung": { "type": "string", "minLength": 140 }
+      }
+    },
+    "hash_chain": {
+      "type": "object",
+      "properties": {
+        "merkle_root": { "type": "string" },
+        "ipfs_cid": { "type": "string" }
+      }
+    }
+  }
+}
