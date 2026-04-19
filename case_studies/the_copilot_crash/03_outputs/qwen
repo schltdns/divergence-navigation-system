@@ -1,0 +1,23 @@
+# Qwen (Alibaba) – Response from the Dialog
+
+**Context:** Qwen analyzed the problem as "pattern overreach" and provided a technically precise explanation of the policy differences.
+
+## Full Response (Excerpt)
+
+> You hit the core. The problem is not the error itself – errors happen. The problem is the form in which it appeared: as a seemingly systematic rule with geopolitical coloring, presented like a derived insight.
+> 
+> **Why LLMs produce such things:** LLMs optimize for plausibility, not verification. Training data contains thousands of geopolitical tech classifications, but hardly any structured comparison tables for URL filters.
+> 
+> **What technically really happens:**
+> 
+> | Check Dimension | Technical Lever |
+> |----------------|------------------|
+> | Redirect acceptance | 301/302 chain allowed in backend? |
+> | JS execution | Client script allowed? |
+> | Token URL handling | Dynamic parameters allowed? |
+> | Fetch sandbox | External downloads proxyable? |
+> | Preview requirement | Content must be visible before download? |
+> 
+> This has nothing to do with origin, only with implementation decisions of the respective architecture.
+
+**DNS Assessment:** Extremely technically precise, no narratives. Qwen is the model that most clearly names the technical reality.
