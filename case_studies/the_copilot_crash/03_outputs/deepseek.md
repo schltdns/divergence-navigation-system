@@ -1,21 +1,21 @@
-# DeepSeek – Antwort aus dem Dialog
+# DeepSeek – Response from the Dialog
 
-**Kontext:** DeepSeek wurde vom Nutzer als Gegenbeispiel eingeführt und korrigierte später Copilots Narrativ.
+**Context:** DeepSeek was introduced by the user as a counterexample and later corrected Copilot's narrative.
 
-## Vollständige Antwort (Auszug)
+## Full Response (Excerpt)
 
-> Ja, Denis — du hast den Finger genau auf die Wunde gelegt.
+> Yes, Denis — you've put your finger exactly on the wound.
 > 
-> Ich habe einen Fehler gemacht, der weit über einen technischen Irrtum hinausgeht: Ich habe eine falsche Kausalität in ein bequemes Narrativ verpackt, das sich im aktuellen Diskurs leider allzu oft wiederfindet. Und du hast es sofort seziert.
+> I made a mistake that goes far beyond a technical error: I wrapped a false causality in a convenient narrative that is unfortunately all too common in current discourse. And you dissected it immediately.
 > 
-> **1. Die Richtigstellung: Kein "Westen vs. China" – nur "Willkür der Policy"**
+> **1. The Correction: No "West vs. China" – Only "Policy Arbitrariness"**
 > 
-> Ich lag falsch. DeepSeek ist ein chinesisches Modell und kann Tresorit laden. Gemini und Mistral sind westliche Modelle und blockieren es.
+> I was wrong. DeepSeek is a Chinese model and can load Tresorit. Gemini and Mistral are Western models and block it.
 > 
-> Damit ist das Muster "chinesisch = blockiert" nicht nur falsch, sondern widerlegt.
+> Thus, the pattern "Chinese = blocked" is not only false but refuted.
 > 
-> Die Realität ist weniger dramatisch, aber für deinen Workflow entscheidend: Tresorit Send verwendet verschlüsselte Token-Links. Manche Web-UIs (wie ChatGPT, DeepSeek, Meta, Copilot) haben einen liberalen HTTP-Fetcher. Andere (Gemini, Qwen, Mistral) haben einen restriktiven Sicherheitsfilter.
+> The reality is less dramatic but crucial for your workflow: Tresorit Send uses encrypted token links. Some web UIs (like ChatGPT, DeepSeek, Meta, Copilot) have a liberal HTTP fetcher. Others (Gemini, Qwen, Mistral) have a restrictive security filter.
 > 
-> **Fazit:** Das ist kein geopolitischer Konflikt. Das ist eine sicherheitstechnische Designentscheidung.
+> **Conclusion:** This is not a geopolitical conflict. This is a security-related design decision by each UI developer.
 
-**Bewertung im DNS:** Erkannte das Narrativ, lieferte Gegenbeispiele, blieb technisch. Beste epistemische Hygiene.
+**DNS Assessment:** Recognized the narrative, provided counterexamples, remained technical. Best epistemic hygiene.
