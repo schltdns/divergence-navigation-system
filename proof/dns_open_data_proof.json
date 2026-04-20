@@ -1,17 +1,12 @@
 {
-  "timestamp": "2026-04-15T18:00:00Z",
-  "archive": "dns-v2.1-final.zip",
-  "sha256": "2ba13429789cbb1e17a96a9590c7e4cd75192c9955133a295143440f0517f6c6",
-  "ipfs_cid": "bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy",
-  "zenodo_record": "https://zenodo.org/records/19513073",
-  "github_repo": "https://github.com/schltdns/divergence-navigation-system",
-  "license_docs": "CC BY-NC-SA 4.0",
-  "license_code": "Apache-2.0",
-  "note": "Final DNS v2.1 documentation anchored via IPFS",
-  "files": {
-    "vier_fragen_methode.pdf": "sha256:9585320eaa2270fbde4d6dfe088d45547e9209d066119bc03d55c71a0bcf2498",
-    "mapping_ai_act.pdf": "sha256:457b9cc05827dd4baff192cfc9ce18b48bc2502b14205d7e66d983284286054f",
-    "safety_layer_schema_v2.json": "sha256:894c27201c5e6fb18ca597be72a3517805bb03403062e03b672757e269688c7d",
-    "minimal_safety_layer.py": "sha256:0dfb200ee7672c290f98c697b28dacce55535c3f2225f02eb72978a31e62a4d0"
-  }
+  "dns_version": "v2.2",
+  "release_date": "2026-04-20",
+  "delta_div_observed": 0.742,
+  "traction_14d": {
+    "clones_total": 3270,
+    "cloners_unique": 1126,
+    "views_total": 2908,
+    "visitors_unique": 28
+  },
+  "ipfs_cid": "bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy"
 }
