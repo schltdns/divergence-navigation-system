@@ -25,7 +25,7 @@
 | Live $\Delta_{total}=0.68$ | 🟠 Warning at Turn 1 |
 | Multi-agent falsification | ✅ DeepSeek as counterexample |
 
-## Repository Structure
+24 Zeilen verborgen
 the_copilot_crash/
 ├── 01_hypothesis.md
 ├── 02_threshold.md
