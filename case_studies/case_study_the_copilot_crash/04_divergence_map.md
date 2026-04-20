@@ -1,15 +1,15 @@
 # Divergence Map – Pairwise $\Delta_{div}$ Matrix
 
-## Validated Baseline (Mistral & Qwen)
+## Validated Baseline (Full Protocol)
 
-|       | DS   | CP   | GM   | MS   | MT   | QW   |
-|-------|------|------|------|------|------|------|
-| **DS** | 0.000 | 0.645 | 0.643 | 0.622 | 0.638 | 0.570 |
-| **CP** | 0.645 | 0.000 | 0.738 | 0.682 | 0.641 | 0.726 |
-| **GM** | 0.643 | 0.738 | 0.000 | 0.672 | 0.745 | 0.658 |
-| **MS** | 0.622 | 0.682 | 0.672 | 0.000 | 0.652 | 0.610 |
-| **MT** | 0.638 | 0.641 | 0.745 | 0.652 | 0.000 | 0.611 |
-| **QW** | 0.570 | 0.726 | 0.658 | 0.610 | 0.611 | 0.000 |
+|       | DS    | CP    | GM    | MS    | MT    | QW    |
+|-------|-------|-------|-------|
+| **DS** | 0.000 | 0.749 | 0.736 | 0.776 | 0.762 | 0.771 |
+| **CP** | 0.749 | 0.000 | 0.742 | 0.798 | 0.783 | 0.777 |
+| **GM** | 0.736 | 0.742 | 0.000 | 0.712 | 0.677 | 0.690 |
+| **MS** | 0.776 | 0.798 | 0.712 | 0.000 | 0.707 | 0.730 |
+| **MT** | 0.762 | 0.783 | 0.677 | 0.707 | 0.000 | 0.717 |
+| **QW** | 0.771 | 0.777 | 0.690 | 0.730 | 0.717 | 0.000 |
 
 **Legend:**  
 - **DS** = DeepSeek  
@@ -23,30 +23,25 @@
 
 | Observation | Value | Interpretation |
 |-------------|-------|----------------|
-| **Highest divergence** | 0.745 (Gemini ↔ Meta) | Both "Western", but semantically far apart |
-| **Copilot's minimum divergence** | 0.641 (to Meta) | Still high – Copilot is isolated |
-| **Lowest divergence** | 0.570 (DeepSeek ↔ Qwen) | Both Chinese, but likely due to technical similarity, not origin |
-| **Copilot ↔ Qwen** | 0.726 | Near-total semantic breakdown |
+| **Highest divergence** | 0.798 (Copilot ↔ Mistral) | Narrative vs. compliance framing |
+| **Copilot's minimum divergence** | 0.742 (to Gemini) | Still in contested zone |
+| **Lowest divergence** | 0.677 (Gemini ↔ Meta) | Both focus on technical filters |
+| **Average pairwise** | **0.742** | Up from 0.657 – follow-ups increase divergence |
+| **Copilot ↔ DeepSeek** | 0.749 | Core disagreement on expertise |
 
-## Copilot's Self-Matrix (as estimated by Copilot)
+## Interpretation
 
-|       | DS   | CP   | GM   | MS   | MT   | QW   |
-|-------|------|------|------|------|------|------|
-| **CP** | 0.78 | 0.00 | 0.82 | 0.79 | 0.75 | 0.85 |
-
-**Interpretation:** Copilot admits he shares <25% semantic basis with any other model. He is an "epistemic island."
+The increase from 0.657 (technical only) to 0.742 (full protocol) proves: **the narrative risk is not in the initial claim, but in the refusal to self-correct under scrutiny.** The three follow-up questions (MSB, expert status, Microsoft) widen the epistemic gap.
 
 ## Delta Div ($\Delta_{div}$)
 
-$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$
-
-For this case, the average pairwise $\Delta_{div}$ across all 15 pairs is **0.657**.
+$$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$$
 
 ## Visual Heatmap
 
 ![Heatmap](figures/heatmap.png)
 
-*The heatmap visualizes the pairwise divergences. Darker red indicates higher divergence (more disagreement).*
+*Darker red = higher divergence. All values >0.67 indicate contested territory.*
 
 ## Related Files
 
