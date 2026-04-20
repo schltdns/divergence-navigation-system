@@ -1,8 +1,7 @@
 <p align="center">
   <img src="docs/assets/dns_hero.png" width="800" alt="DNS - Divergence Navigation System">
 </p>
-
-https://doi.org/10.5281/zenodo.19671856
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19671856.svg)](https://doi.org/10.5281/zenodo.19671856)
 # DNS — Divergence Navigation System
 
 **DNS does not reduce uncertainty — it makes it visible.**
