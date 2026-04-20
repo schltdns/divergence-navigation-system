@@ -39,7 +39,7 @@ $$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$
 
 ## Visual Heatmap
 
-![Heatmap](figures/heatmap.png)
+![Heatmap](figures/dns_heatmap_the_copilot_crash.png)
 
 ## Related Files
 
