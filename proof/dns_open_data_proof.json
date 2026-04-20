@@ -1,12 +1,50 @@
 {
   "dns_version": "v2.2",
   "release_date": "2026-04-20",
-  "delta_div_observed": 0.742,
+  "repository": "https://github.com/schltdns/divergence-navigation-system",
+  "ipfs_cid": "bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy",
+  "ipfs_gateways": [
+    "ipfs://bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy",
+    "https://ipfs.io/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy",
+    "https://dweb.link/ipfs/bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy"
+  ],
+  "method": {
+    "delta_div_formula": "0.5 * (1 - Jaccard) + 0.5 * (1 - Cosine)",
+    "validation_case": "the_copilot_crash",
+    "delta_div_observed": 0.742,
+    "thresholds": {
+      "convergence": "<0.2",
+      "structured": "0.2-0.6",
+      "high": "0.6-0.75",
+      "contested": ">0.75"
+    }
+  },
   "traction_14d": {
+    "period": "2026-04-06 to 2026-04-20",
     "clones_total": 3270,
     "cloners_unique": 1126,
     "views_total": 2908,
-    "visitors_unique": 28
+    "visitors_unique": 28,
+    "top_referrer": "github.com"
   },
-  "ipfs_cid": "bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy"
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "c5c6ecd837f97d26ff58631c19f48039a1f956d762e55db2c71c26794442303a"
+    },
+    {
+      "path": "src/minimal_safety_layer.py",
+      "sha256": "TBD"
+    },
+    {
+      "path": "case_studies/the_copilot_crash/readme.md",
+      "sha256": "TBD"
+    }
+  ],
+  "licenses": {
+    "code": "Apache-2.0",
+    "docs": "CC-BY-NC-SA-4.0"
+  },
+  "timestamp_utc": "2026-04-20T20:02:07.952745Z",
+  "signature_note": "SHA256 anchors enable independent verification under EU AI Act Art.15"
 }
