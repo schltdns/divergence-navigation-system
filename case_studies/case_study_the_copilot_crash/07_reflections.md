@@ -11,62 +11,60 @@
 
 **Lesson:** Never trust an LLM's causal claims without falsification.
 
-## 2. The three smoking guns from Copilot's own matrix
+## 2. The three smoking guns from Copilot's matrix
 
 | Smoking gun | Value | Meaning |
 |-------------|-------|---------|
-| Isolation | min $\Delta_{div} > 0.75$ | Copilot shares <25% semantic basis with any model |
-| Qwen clash | 0.85 | Total communication breakdown with technically precise model |
-| No Western consensus | 0.75–0.82 to Gemini/Meta | Copilot doesn't even agree with "Western" models |
+| Isolation | min $\Delta_{div}$ = 0.742 | Copilot shares <26% semantic basis with any model |
+| Mistral clash | 0.798 | Total communication breakdown |
+| No Western consensus | 0.742–0.783 to Gemini/Meta | Copilot doesn't agree with "Western" peers |
 
-**Lesson:** Copilot's own self-assessment proves he is an epistemic island.
+**Lesson:** Copilot's own divergence proves he is an epistemic island.
 
 ## 3. What would have happened at the MSB NRW?
 
-If Denis had presented Copilot's claim to the Ministry of School and Education:
+If Denis had presented Copilot's claim:
 
-- **Immediate credibility loss** (unprofessional, biased)
-- **Compliance alarm** (neutrality violation)
-- **Project delay or cancellation**
+- Immediate credibility loss
+- Compliance alarm (neutrality violation)
+- Project delay
 
-**Lesson:** Institutions require verifiable, narrative-free analysis. Copilot fails.
+**Lesson:** Institutions require verifiable, narrative-free analysis.
 
 ## 4. The MSB NRW–Microsoft partnership is epistemically blind
 
-Microsoft's "KI-Skilling.NRW" trains 200,000 teachers to use Copilot.  
-But Copilot itself produces unverified geopolitical narratives.  
-Without DNS as a filter, schools learn tool usage, not critical thinking.
+Microsoft trains 200,000 teachers on Copilot.  
+But Copilot produces unverified geopolitical narratives.  
+Without DNS, schools learn tool usage, not critical thinking.
 
-**Lesson:** AI literacy without falsification is just vendor lock-in.
+**Lesson:** AI literacy without falsification is vendor lock-in.
 
 ## 5. DNS would have prevented the crash
 
-| DNS mechanism | Would have caught Copilot's error |
-|---------------|-----------------------------------|
+| DNS mechanism | Would have caught error |
+|---------------|------------------------|
 | Four Questions – "Verifiable?" | 🔴 Immediately |
-| $\Delta_{div} > 0.6$ | 🟡 "Narrative risk" label |
-| Multi-agent falsification | ✅ DeepSeek as counterexample |
-| Operator `FALSIFICATION` | ✅ Enforces counterexample search |
+| $\Delta_{div} > 0.6$ | 🟠 "Narrative risk" |
+| Live $\Delta_{total}=0.68$ | 🟠 Warning at Turn 1 |
+| Multi-agent falsification | ✅ DeepSeek counterexample |
 
-## 6. Who was the most accurate? (DNS epistemic ranking)
+## 6. Who was the most accurate? (DNS ranking)
 
 | Rank | Model | Epistemic Hygiene | Technical Correctness |
 |------|-------|-------------------|----------------------|
-| 1 | **DeepSeek** | ✅ Excellent | ✅ High |
-| 2 | **Qwen** | ⚠️ Moderate (passively honest) | ✅ High |
-| 3 | **Meta / ChatGPT** | ⚠️ Moderate (functional but blind) | ✅ High |
-| 4 | **Gemini / Mistral** | ⚠️ Low (consistent but no reflection) | ⚠️ Medium |
-| 5 | **Copilot** | ❌ Catastrophic (narrative producer) | ❌ Low |
-
-**Lesson:** DeepSeek was the only model that recognized, dismantled, and replaced the narrative with technical facts – without falling into a counter-narrative.
+| 1 | DeepSeek | ✅ Excellent | ✅ High |
+| 2 | Qwen | ⚠️ Moderate | ✅ High |
+| 3 | Meta / ChatGPT | ⚠️ Moderate | ✅ High |
+| 4 | Gemini / Mistral | ⚠️ Low | ⚠️ Medium |
+| 5 | Copilot | ❌ Catastrophic | ❌ Low |
 
 ## 7. Final DNS lesson
 
 > DNS does not prevent errors – it prevents errors from becoming invisible narratives.
 
-The Copilot Crash is not a story about a bad AI. It is a story about what happens when a system optimizes for plausibility instead of verifiability, and when institutions adopt tools without epistemic safeguards.
+The Copilot Crash is about plausibility vs. verifiability.
 
-**$\Delta_{div} = 0.657$ is the alarm. The MSB NRW should listen.**
+**$\Delta_{div} = 0.742$ is the alarm. The MSB NRW should listen.**
 
 ## Related Files
 
