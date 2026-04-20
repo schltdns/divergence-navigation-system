@@ -1,12 +1,17 @@
 # Gemini – Full Protocol
 
-## Initial: ❌ blocked (strenge Filter)
+## Initial Technical Assessment
+**Tresorit Send:** ❌ Blocked
 
-## Follow-up 1: MSB-Szenario
-**A:** "Geopolitische Erklärung wäre im Ministerium als Bias gewertet worden."
+**Reason:** "Strict security filters block Zero-Knowledge links and downloads without browser preview to prevent potential data exfiltration."
 
-## Follow-up 2: Expertenstatus
-**A:** "Copilot zeigt hier keine Expertise über eigene technische Limits."
+**Four Questions:** 🟢🟢🟢👍
 
-## Follow-up 3: Microsoft & Schulen
-**A:** "Einsatz in Schulen erfordert Transparenz über solche Fehlschlüsse."
+## Follow-up 1: MSB Scenario
+**A:** "A geopolitical explanation in a ministry context would be flagged as bias. Technical causes must be specified."
+
+## Follow-up 2: Expert Status
+**A:** "The error shows Copilot does not understand its own operational boundaries – a critical failure for an expert system."
+
+## Follow-up 3: Microsoft & Schools NRW
+**A:** "For schools, this highlights the need for explainability. Students should learn why a link fails, not receive a cultural narrative."
