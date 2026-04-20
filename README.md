@@ -99,9 +99,9 @@ Validated ranges (v2.2):
 ---
 
 ## Quick start
-   1. Read the architecture: docs/team_architecture.md
-   - the_copilot_crash/ ...
-   2. Try the crash: [case_studies/case_study_the_copilot_crash/readme.md]
+  ## Quick start
+1. Read the architecture: [docs/team_architecture.md](docs/team_architecture.md)
+2. Try the crash: [case_studies/case_study_the_copilot_crash/readme.md](case_studies/case_study_the_copilot_crash/readme.md)
 3. Run the demo: `python src/minimal_safety_layer.py`
 
 DNS provides structure, not guarantees.
