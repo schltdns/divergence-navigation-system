@@ -30,7 +30,12 @@ Check every LLM answer:
 **Good answer = 🟢 + 👍**
 
 No account. No API. Works on paper.
+## 🚀 Live-Demo
 
+Die interaktive Web-App (DNS v2.2) ist verfügbar unter:  
+👉 [https://divergence-navigation-system.streamlit.app](https://divergence-navigation-system.streamlit.app)
+
+Testen Sie die App mit den eingebauten Beispielen (z. B. "Copilot Crash") oder eigenen Texten.
 ---
 
 ## What’s new in v2.2
