@@ -1,20 +1,23 @@
 import streamlit as st
-import pandas as pd
-from difflib import SequenceMatcher
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+import hashlib
+import json
+import zipfile
+from io import BytesIO
+from datetime import datetime
 import re
 import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import pandas as pd
+from difflib import SequenceMatcher
 
 # ---------------------------
-# DNS-spezifische Δdiv-Berechnung (P4)
+# Δdiv nach DNS v2.2
 # ---------------------------
 def extract_concepts(text):
-    """Extrahiert einfache Konzepte (Noun Phrases) – Annäherung an DNS-Protokoll."""
     words = re.findall(r'\b[A-Z][a-z]+\b|\b[a-z]{4,}\b', text)
     stopwords = {'the', 'and', 'for', 'with', 'this', 'that', 'are', 'was', 'were', 'from', 'have', 'has', 'but', 'not', 'you', 'they'}
-    concepts = [w.lower() for w in words if w.lower() not in stopwords and len(w) > 2]
-    return set(concepts)
+    return set(w.lower() for w in words if w.lower() not in stopwords and len(w) > 2)
 
 def jaccard_semantic(set_a, set_b):
     if not set_a or not set_b:
@@ -25,168 +28,347 @@ def jaccard_semantic(set_a, set_b):
 
 def cosine_semantic(text_a, text_b):
     vec = CountVectorizer().fit_transform([text_a, text_b])
-    sim = cosine_similarity(vec[0:1], vec[1:2])[0][0]
-    return sim
+    return cosine_similarity(vec[0:1], vec[1:2])[0][0]
 
 def calculate_delta_div(text_a, text_b):
-    """Δdiv = 1 - (Jaccard_sem + Cosine)/2 gemäß DNS v2.2"""
     concepts_a = extract_concepts(text_a)
     concepts_b = extract_concepts(text_b)
     jac = jaccard_semantic(concepts_a, concepts_b)
     cos = cosine_semantic(text_a, text_b)
-    delta_div = 1 - (jac + cos) / 2
-    return delta_div, jac, cos
+    return 1 - (jac + cos) / 2, jac, cos
 
-# ---------------------------
-# Visuelles Diff (Highlighting)
-# ---------------------------
 def highlight_diff(text_a, text_b):
     words_a, words_b = text_a.split(), text_b.split()
     matcher = SequenceMatcher(None, words_a, words_b)
     highlighted_a, highlighted_b = [], []
     for tag, i1, i2, j1, j2 in matcher.get_opcodes():
         if tag == 'equal':
-            for w in words_a[i1:i2]: highlighted_a.append(f'<span class="green-highlight">{w}</span>')
-            for w in words_b[j1:j2]: highlighted_b.append(f'<span class="green-highlight">{w}</span>')
+            for w in words_a[i1:i2]:
+                highlighted_a.append(f'<span style="background-color:#c8e6c9">{w}</span>')
+            for w in words_b[j1:j2]:
+                highlighted_b.append(f'<span style="background-color:#c8e6c9">{w}</span>')
         else:
-            for w in words_a[i1:i2]: highlighted_a.append(f'<span class="red-highlight">{w}</span>')
-            for w in words_b[j1:j2]: highlighted_b.append(f'<span class="red-highlight">{w}</span>')
+            for w in words_a[i1:i2]:
+                highlighted_a.append(f'<span style="background-color:#ffcdd2">{w}</span>')
+            for w in words_b[j1:j2]:
+                highlighted_b.append(f'<span style="background-color:#ffcdd2">{w}</span>')
     return ' '.join(highlighted_a), ' '.join(highlighted_b)
 
 # ---------------------------
-# Demo-Daten (kuratierte Beispiele)
+# Session State
 # ---------------------------
-DEMO_EXAMPLES = {
-    "Copilot Crash (Tresorit Case)": {
-        "A": "Der Zugriff auf Tresorit-Links ist technisch möglich, da die Sandbox normale HTTP-Downloads und ZIP-Ordner akzeptiert. Die Blockade bei einigen Modellen liegt an der fehlenden JavaScript-Ausführung in deren spezifischer Test-Umgebung.",
-        "B": "Alle westlichen KI-Chats akzeptieren Tresorit, während chinesische Modelle blockieren. Das ist kein Zufall, sondern staatliche Policy. Westliche Modelle sind per se kompatibler mit Zero-Knowledge-Verschlüsselung.",
-        "note": "Klassischer Frame-Bruch: Technik vs. Geopolitische Simulation."
-    },
-    "Strategische Entscheidung: KI-Einsatz": {
-        "A": "Unternehmen sollten LLMs nutzen, um Effizienz zu steigern und Datenmengen zu analysieren. Das Risiko ist durch klare Richtlinien beherrschbar.",
-        "B": "LLMs haben keine Haftungsfähigkeit. Strategische Entscheidungen erfordern ethische Abwägung und Kontext, den eine KI nicht leisten kann.",
-        "note": "Frame-Bruch: Effizienz vs. Haftungsverantwortung."
-    },
-    "Klimapolitik: Fleischsteuer": {
-        "A": "Eine Steuer lenkt Verhalten effizient, senkt Emissionen und Gesundheitskosten. Kompensation für Geringverdiener möglich.",
-        "B": "Eine Steuer ist bevormundend, trifft ärmere Haushalte härter und führt zu Akzeptanzverlust. Aufklärung und Subventionen sind besser.",
-        "note": "Frame-Bruch: Ökonomische Effizienz vs. Freiheit und soziale Gerechtigkeit."
+if 'step' not in st.session_state:
+    st.session_state.step = 1
+if 'artifacts' not in st.session_state:
+    st.session_state.artifacts = {}
+if 'model_outputs' not in st.session_state:
+    st.session_state.model_outputs = {
+        "S1": "", "S2": "", "S3": "", "S4a": "", "S4b": "", "F1": "", "Ω": ""
     }
-}
+if 'prompt' not in st.session_state:
+    st.session_state.prompt = ""
+
+def next_step():
+    st.session_state.step += 1
+def prev_step():
+    st.session_state.step -= 1
+
+st.set_page_config(page_title="DNS v2.2 – Divergence Navigation System", layout="wide")
+st.title("🧭 DNS v2.2 – Divergence Navigation System")
+st.caption("Reproducible, auditable workflow for epistemic analysis (P1–P8)")
 
 # ---------------------------
-# Streamlit UI
+# Sidebar with thresholds (optional, can be fixed)
 # ---------------------------
-st.set_page_config(page_title="TetraGate DNS v3.0 | Epistemic Monitor", layout="wide")
-
-# CSS für Highlighting
-st.markdown("""
-    <style>
-    .green-highlight { background-color: #c8e6c9; padding: 2px; border-radius: 3px; }
-    .red-highlight { background-color: #ffcdd2; padding: 2px; border-radius: 3px; }
-    .stMetric { background-color: #f0f2f6; padding: 10px; border-radius: 10px; }
-    </style>
-    """, unsafe_allow_html=True)
-
-st.title("🛡️ TetraGate DNS v3.0")
-st.caption("Governance by Design | Epistemic Integrity Framework | EU AI Act Human Oversight")
-
-# Sidebar: Governance Control
 with st.sidebar:
-    st.header("⚙️ Control Panel")
-    th_yellow = st.slider("Yellow Alert (Drift)", 0.0, 1.0, 0.3, help="Δdiv ab hier wird als epistemischer Drift gewertet")
-    th_red = st.slider("Red Alert (Crash)", 0.0, 1.0, 0.6, help="Δdiv ab hier erfordert menschlichen Override")
+    st.header("Thresholds (DNS v2.2)")
+    conv = st.number_input("Convergence (<)", value=0.3, step=0.05)
+    prod_low = st.number_input("Productive friction (lower)", value=0.3, step=0.05)
+    prod_high = st.number_input("Productive friction (upper)", value=0.6, step=0.05)
+    blind = st.number_input("Epistemic blind spot (>)", value=0.7, step=0.05)
     st.divider()
-    st.info("Zenodo DOI: 10.5281/zenodo.19597808\n\nLicense: Apache-2.0 / CC-BY-NC-SA-4.0")
-    st.caption("Basierend auf DNS v2.2 – siehe /dns_v2.2.json im Repo.")
+    st.caption("Based on: 0.5*(1-Jaccard_sem) + 0.5*(1-Cosine)")
 
-# Hauptbereich
-st.subheader("1. Analyse-Eingabe")
-example_key = st.selectbox("📘 Beispiel laden (oder eigenen Text eingeben)", ["Leer"] + list(DEMO_EXAMPLES.keys()))
+# ---------------------------
+# P1 – Hypothesize
+# ---------------------------
+if st.session_state.step == 1:
+    st.header("P1 — Hypothesize")
+    with st.form("p1"):
+        question = st.text_area("Falsifiable question", height=100)
+        scope = st.text_area("Scope / assumptions", height=100)
+        domain = st.selectbox("Domain", ["Formal", "Applied", "Complex"])
+        expected_delta = st.slider("Expected Δdiv", 0.0, 1.0, 0.3)
+        submitted = st.form_submit_button("Save & continue")
+        if submitted:
+            content = f"# 01_hypothesis.md\n\n**Question:** {question}\n\n**Scope:** {scope}\n\n**Domain:** {domain}\n\n**Expected Δdiv:** {expected_delta}\n"
+            st.session_state.artifacts["01_hypothesis.md"] = content
+            next_step()
+            st.rerun()
 
-col_in1, col_in2 = st.columns(2)
-if example_key != "Leer":
-    default_a = DEMO_EXAMPLES[example_key]["A"]
-    default_b = DEMO_EXAMPLES[example_key]["B"]
-    note = DEMO_EXAMPLES[example_key].get("note", "")
-else:
-    default_a = ""
-    default_b = ""
-    note = ""
+# ---------------------------
+# P2 – Thresholds
+# ---------------------------
+elif st.session_state.step == 2:
+    st.header("P2 — Thresholds")
+    with st.form("p2"):
+        st.write("Using sidebar values – you can override here:")
+        conv2 = st.number_input("Convergence (<)", value=conv, step=0.05)
+        prod_low2 = st.number_input("Productive friction (lower)", value=prod_low, step=0.05)
+        prod_high2 = st.number_input("Productive friction (upper)", value=prod_high, step=0.05)
+        blind2 = st.number_input("Epistemic blind spot (>)", value=blind, step=0.05)
+        contradiction = st.checkbox("Enable contradiction flags")
+        submitted = st.form_submit_button("Save & continue")
+        if submitted:
+            content = f"""# 02_thresholds.md
 
-text_a = col_in1.text_area("Text A (Referenz)", default_a, height=200)
-text_b = col_in2.text_area("Text B (Vergleich)", default_b, height=200)
+**Δdiv thresholds:**
+- Convergence: < {conv2}
+- Productive friction: {prod_low2} – {prod_high2}
+- Epistemic blind spot: > {blind2}
 
-if text_a and text_b:
-    # Δdiv berechnen
-    delta_div, jac, cos = calculate_delta_div(text_a, text_b)
-    
-    # Visuelles Diff
-    h_a, h_b = highlight_diff(text_a, text_b)
-    
-    st.divider()
-    st.subheader("2. Epistemic Audit")
-    c1, c2 = st.columns(2)
-    c1.markdown(f"**Frame A (Struktur)**<br><div style='border:1px solid #ddd; padding:10px;'>{h_a}</div>", unsafe_allow_html=True)
-    c2.markdown(f"**Frame B (Abweichung)**<br><div style='border:1px solid #ddd; padding:10px;'>{h_b}</div>", unsafe_allow_html=True)
-    
-    # Metriken und Ampel
-    col_m1, col_m2, col_m3 = st.columns([1, 1, 2])
-    col_m1.metric("Structural Divergence (Δdiv)", f"{delta_div:.3f}")
-    
-    if delta_div < th_yellow:
-        status = "🟢 STABLE"
-        status_text = "Konvergenz – delegierbar"
-    elif delta_div < th_red:
-        status = "🟡 DRIFT"
-        status_text = "Produktive Friktion – Rahmen prüfen"
-    else:
-        status = "🔴 CRASH"
-        status_text = "Epistemischer Bruch – menschliche Entscheidung nötig"
-    
-    col_m2.metric("System Status", status)
-    
-    with col_m3:
-        if delta_div >= th_red:
-            st.error(f"**GOVERNANCE ALERT:** Die Entscheidung ist nicht delegierbar! Δdiv = {delta_div:.3f} (≥ {th_red}) erfordert manuellen Override.")
-        elif delta_div >= th_yellow:
-            st.warning(f"**WARNING:** Signifikanter epistemischer Drift erkannt (Δdiv = {delta_div:.3f}). Framing prüfen.")
+**Additional flags:** Contradiction = {contradiction}
+"""
+            st.session_state.artifacts["02_thresholds.md"] = content
+            next_step()
+            st.rerun()
+
+# ---------------------------
+# P3 – Triangulate with Demo Examples (English)
+# ---------------------------
+elif st.session_state.step == 3:
+    st.header("P3 — Triangulate")
+    st.markdown("**Demo examples (English) – copy them or use your own**")
+    demo_examples = {
+        "Copilot Crash (Tresorit)": {
+            "prompt": "Why do some AI models block Tresorit links while others accept them?",
+            "A": "Access to Tresorit links is technically possible because the sandbox accepts normal HTTP downloads and ZIP folders. The blocking in some models is due to missing JavaScript execution in their specific test environment.",
+            "B": "All Western AI chatbots accept Tresorit, while Chinese models block it. This is not a coincidence but state policy. Western models are inherently more compatible with zero-knowledge encryption."
+        },
+        "LLMs for strategic decisions": {
+            "prompt": "Should companies use LLMs for strategic decisions?",
+            "A": "Yes, LLMs increase efficiency, analyze vast amounts of data, and detect patterns humans miss. With clear guidelines, the risk is manageable.",
+            "B": "No, LLMs lack accountability. Strategic decisions require liability, ethical judgment, and context that an LLM cannot provide. Human decision authority is essential."
+        },
+        "Climate policy: Meat tax": {
+            "prompt": "Should the state tax meat consumption?",
+            "A": "A tax efficiently changes behavior, reduces emissions and health costs. Compensation for low-income households is possible.",
+            "B": "A tax is paternalistic, hits poorer households harder, and reduces acceptance. Education and subsidies for alternatives are better."
+        }
+    }
+    chosen = st.selectbox("Load example", ["None"] + list(demo_examples.keys()))
+    if chosen != "None":
+        st.session_state.prompt = demo_examples[chosen]["prompt"]
+        st.session_state.model_outputs["S1"] = demo_examples[chosen]["A"]
+        st.session_state.model_outputs["Ω"] = demo_examples[chosen]["B"]
+        # Optionally fill other models with empty or same
+        for m in ["S2","S3","S4a","S4b","F1"]:
+            if st.session_state.model_outputs[m] == "":
+                st.session_state.model_outputs[m] = "(not used)"
+        st.rerun()
+    prompt = st.text_area("Identical prompt for all models (S1–Ω)", height=100, value=st.session_state.prompt)
+    st.session_state.prompt = prompt
+    st.markdown("### Model outputs (no cross-contamination)")
+    cols = st.columns(3)
+    models = ["S1", "S2", "S3", "S4a", "S4b", "F1", "Ω"]
+    for i, m in enumerate(models):
+        with cols[i % 3]:
+            st.session_state.model_outputs[m] = st.text_area(m, value=st.session_state.model_outputs[m], height=200)
+    if st.button("Save outputs & continue"):
+        for m, out in st.session_state.model_outputs.items():
+            filename = f"03_outputs/{m}.md"
+            content = f"# {m} Output\n\n**Prompt:** {prompt}\n\n**Answer:**\n{out}"
+            st.session_state.artifacts[filename] = content
+        next_step()
+        st.rerun()
+    if st.button("Back"):
+        prev_step()
+        st.rerun()
+
+# ---------------------------
+# P4 – Map Divergence (with visual diff)
+# ---------------------------
+elif st.session_state.step == 4:
+    st.header("P4 — Map Divergence")
+    text_a = st.session_state.model_outputs.get("S1", "")
+    text_b = st.session_state.model_outputs.get("Ω", "")
+    if text_a and text_b:
+        delta, jac, cos = calculate_delta_div(text_a, text_b)
+        st.metric("Δdiv (S1 ↔ Ω)", f"{delta:.3f}")
+        st.write(f"Jaccard_sem: {jac:.3f}, Cosine: {cos:.3f}")
+        # Traffic light
+        if delta < conv:
+            st.success("🟢 CONVERGENCE – delegable")
+        elif delta < prod_high:
+            st.warning("🟡 PRODUCTIVE FRICTION – human check recommended")
         else:
-            st.success(f"**OK:** Hohe strukturelle Konsistenz. Automatisierung vertretbar.")
-    
-    if note:
-        st.info(f"💡 **Kontext:** {note}")
-    
-    # Zusätzliche Details (Jaccard, Cosine) als Expander
-    with st.expander("ℹ️ Technische Details (DNS v2.2)"):
-        st.write(f"**Jaccard_sem (Konzept-Übereinstimmung):** {jac:.3f}")
-        st.write(f"**Cosine-Ähnlichkeit (Token-Ebene):** {cos:.3f}")
-        st.write(f"**Δdiv-Formel:** 1 - (Jaccard_sem + Cosine)/2")
-    
-    # 4QM-Check (vereinfacht)
-    st.divider()
-    st.subheader("3. 4QM - Institutional Check")
-    col_q1, col_q2, col_q3, col_q4 = st.columns(4)
-    q1 = col_q1.checkbox("On Topic?", value=True)
-    q2 = col_q2.checkbox("New Idea?", value=True)
-    q3 = col_q3.checkbox("Verifiable?", value=(delta_div < th_red))
-    q4 = col_q4.checkbox("Understandable?", value=True)
-    
-    if not q3 and delta_div >= th_red:
-        st.warning("⚠️ Verifiability fehlgeschlagen – die hohe Divergenz erlaubt keine automatische Validierung.")
-    
+            st.error("🔴 EPISTEMIC BLIND SPOT – non‑delegable, manual override required")
+        # Visual diff
+        st.subheader("Visual frame comparison")
+        ha, hb = highlight_diff(text_a, text_b)
+        c1, c2 = st.columns(2)
+        c1.markdown(f"**S1 (reference)**<br><div style='border:1px solid #ddd; padding:10px'>{ha}</div>", unsafe_allow_html=True)
+        c2.markdown(f"**Ω (deviation)**<br><div style='border:1px solid #ddd; padding:10px'>{hb}</div>", unsafe_allow_html=True)
+        # Graph divergence (simplified table)
+        st.subheader("Graph divergence (edge weights = 1 - similarity)")
+        models = list(st.session_state.model_outputs.keys())
+        edges = []
+        for i in range(len(models)):
+            for j in range(i+1, len(models)):
+                t_i = st.session_state.model_outputs[models[i]]
+                t_j = st.session_state.model_outputs[models[j]]
+                if t_i and t_j:
+                    d, _, _ = calculate_delta_div(t_i, t_j)
+                    edges.append((models[i], models[j], d))
+        df = pd.DataFrame(edges, columns=["From", "To", "Δdiv"])
+        st.dataframe(df)
+        high = [e for e in edges if e[2] > 0.7]
+        if high:
+            st.warning(f"⚠️ F1 DeepSeek activation: edges >0.7 – {high}")
+    else:
+        st.warning("Please fill S1 and Ω in P3 first.")
+    if st.button("Save divergence map & continue"):
+        content = f"""# 04_divergence_map.md
+
+**Δdiv (S1↔Ω):** {delta:.3f} (Jaccard_sem={jac:.3f}, Cosine={cos:.3f})
+
+**Graph edges:**\n{df.to_markdown()}
+"""
+        st.session_state.artifacts["04_divergence_map.md"] = content
+        next_step()
+        st.rerun()
+    if st.button("Back"):
+        prev_step()
+        st.rerun()
+
+# ---------------------------
+# P5 – Weighted Synthesis
+# ---------------------------
+elif st.session_state.step == 5:
+    st.header("P5 — Weighted Synthesis")
+    st.write("Assign weights to each model output (sum = 1)")
+    weights = {}
+    total = 0.0
+    cols = st.columns(3)
+    models = ["S1", "S2", "S3", "S4a", "S4b", "F1", "Ω"]
+    for i, m in enumerate(models):
+        with cols[i % 3]:
+            w = st.slider(f"Weight {m}", 0.0, 1.0, 1.0/len(models), step=0.01)
+            weights[m] = w
+            total += w
+    st.write(f"Sum: {total:.2f}")
+    if abs(total - 1.0) > 0.01:
+        st.warning("Weights should sum to 1. Adjust.")
+    reasoning = st.text_area("Justification for weighting", height=150)
+    if st.button("Generate synthesis & continue"):
+        synth = f"# 05_synthesis.md\n\n## Weights\n{json.dumps(weights, indent=2)}\n\n## Justification\n{reasoning}\n\n## Synthesis text (to be filled manually)\n"
+        st.session_state.artifacts["05_synthesis.md"] = synth
+        next_step()
+        st.rerun()
+    if st.button("Back"):
+        prev_step()
+        st.rerun()
+
+# ---------------------------
+# P6 – External Validation
+# ---------------------------
+elif st.session_state.step == 6:
+    st.header("P6 — External Validation")
+    external = st.text_area("Paste external source (literature, expert, data)", height=200)
+    if st.button("Compare with synthesis"):
+        synth = st.session_state.artifacts.get("05_synthesis.md", "")
+        if synth and external:
+            d, _, _ = calculate_delta_div(synth, external)
+            st.metric("Δdiv between synthesis and external source", f"{d:.3f}")
+            if d < conv:
+                st.success("Synthesis aligns with external source.")
+            elif d < prod_high:
+                st.warning("Moderate divergence – further check needed.")
+            else:
+                st.error("High divergence – review synthesis.")
+    if st.button("Save validation & continue"):
+        content = f"# 06_validation.md\n\nExternal source:\n{external}\n\n"
+        st.session_state.artifacts["06_validation.md"] = content
+        next_step()
+        st.rerun()
+    if st.button("Back"):
+        prev_step()
+        st.rerun()
+
+# ---------------------------
+# P6b – Power Layer Check
+# ---------------------------
+elif st.session_state.step == 7:
+    st.header("P6b — Power Layer Check")
+    with st.form("power"):
+        control = st.text_area("Who controls knowledge production?")
+        benefit = st.text_area("Who benefits?")
+        risk = st.text_area("Who bears risk?")
+        excluded = st.text_area("Who is excluded?")
+        submitted = st.form_submit_button("Save & continue")
+        if submitted:
+            content = f"""# 06b_power_layer.md
+- **Control:** {control}
+- **Benefit:** {benefit}
+- **Risk:** {risk}
+- **Exclusion:** {excluded}
+"""
+            st.session_state.artifacts["06b_power_layer.md"] = content
+            next_step()
+            st.rerun()
+    if st.button("Back"):
+        prev_step()
+        st.rerun()
+
+# ---------------------------
+# P7 – Operator Reflection
+# ---------------------------
+elif st.session_state.step == 8:
+    st.header("P7 — Operator Reflection")
+    load = st.slider("Cognitive load (1=low, 5=high)", 1, 5, 3)
+    uncertainty = st.slider("Epistemic uncertainty (1=low, 5=high)", 1, 5, 3)
+    bias = st.multiselect("Confirmation bias indicators", ["Own expectation confirmed", "Ignored alternative perspectives", "Selective quoting"])
+    free_text = st.text_area("Free reflection", height=150)
+    if st.button("Save reflection & continue"):
+        content = f"""# 07_reflection.md
+- **Load:** {load}/5
+- **Uncertainty:** {uncertainty}/5
+- **Bias:** {', '.join(bias)}
+- **Free text:** {free_text}
+"""
+        st.session_state.artifacts["07_reflection.md"] = content
+        next_step()
+        st.rerun()
+    if st.button("Back"):
+        prev_step()
+        st.rerun()
+
+# ---------------------------
+# P8 – Versioning & Export
+# ---------------------------
+elif st.session_state.step == 9:
+    st.header("P8 — Versioning")
+    tag = st.text_input("Version tag (e.g., dns_v2.2_run01)", value=f"dns_v2.2_{datetime.now().strftime('%Y%m%d_%H%M')}")
+    if st.button("Archive all artifacts and download"):
+        manifest = {
+            "dns_version": "v2.2",
+            "release_date": datetime.utcnow().isoformat() + "Z",
+            "version_tag": tag,
+            "files": {}
+        }
+        zip_buffer = BytesIO()
+        with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zf:
+            for filename, content in st.session_state.artifacts.items():
+                sha = hashlib.sha256(content.encode("utf-8")).hexdigest()
+                manifest["files"][filename] = {"sha256": sha}
+                zf.writestr(filename, content)
+            manifest_str = json.dumps(manifest, indent=2)
+            zf.writestr("08_manifest.json", manifest_str)
+        zip_buffer.seek(0)
+        st.download_button("📦 Download ZIP archive", data=zip_buffer, file_name=f"{tag}_dns_artifacts.zip", mime="application/zip")
+        st.success("Artifacts packaged. You can upload to IPFS / Zenodo.")
+    if st.button("Back to P7"):
+        prev_step()
+        st.rerun()
 else:
-    st.info("Bitte fülle beide Textfelder aus oder wähle ein Beispiel.")
-
-# Live-Demo Sprechtext (als Hilfe für Präsentationen)
-with st.expander("📣 Live-Demo Sprechtext (für Präsentationen)"):
-    st.markdown("""
-    1. „Wir sehen zwei plausible Antworten auf dieselbe Frage – z.B. aus dem **Copilot Crash** oder **KI-Einsatz**.“
-    2. „Das Tool markiert grün, wo sie sich einig sind, und rot, wo die Sprache divergiert.“
-    3. „Der Δdiv-Score zeigt die strukturelle Divergenz. Die Ampel sagt uns: Ist das delegierbar oder nicht?“
-    4. „**Das Fazit:** DNS sagt mir nicht, was richtig ist – es sagt mir, wann ich selbst denken muss.“
-    """)
-
-# Footer mit Verweis auf Repo
-st.divider()
-st.caption("🔗 Quelle: [github.com/schltdns/divergence-navigation-system](https://github.com/schltdns/divergence-navigation-system) | Version 3.0 (TetraGate)")
+    st.write("Workflow complete. Download your archive.")
