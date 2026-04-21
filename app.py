@@ -4,12 +4,12 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # ---------------------------
-# DNS Δdiv Berechnung (v2.2)
+# DNS Δdiv Berechnung (für eigene Texte)
 # ---------------------------
 def extract_concepts(text):
-    words = re.findall(r'\b[A-Z][a-z]+\b|\b[a-z]{4,}\b', text)
-    stopwords = {'the', 'and', 'for', 'with', 'this', 'that', 'are', 'was', 'were', 'from', 'have', 'has', 'but', 'not', 'you', 'they'}
-    return set(w.lower() for w in words if w.lower() not in stopwords and len(w) > 2)
+    words = re.findall(r'\b[a-zA-Z]{3,}\b', text)  # alle Wörter ab 3 Buchstaben
+    stopwords = {'the', 'and', 'for', 'with', 'this', 'that', 'are', 'was', 'were', 'from', 'have', 'has', 'but', 'not', 'you', 'they', 'eine', 'und', 'der', 'die', 'das', 'ist', 'mit', 'zu', 'auf', 'bei', 'für', 'von', 'dem', 'den', 'des', 'einen', 'einer', 'einem', 'eines', 'als', 'auch', 'sich', 'wird', 'dass', 'nicht', 'aber', 'noch', 'werden', 'wurde', 'kann', 'wird', 'durch', 'ohne', 'nach', 'über', 'unter', 'zwischen'}
+    return set(w.lower() for w in words if w.lower() not in stopwords)
 
 def jaccard_semantic(set_a, set_b):
     if not set_a or not set_b:
@@ -19,7 +19,7 @@ def jaccard_semantic(set_a, set_b):
     return inter / union if union > 0 else 0.0
 
 def cosine_semantic(text_a, text_b):
-    vectorizer = CountVectorizer().fit_transform([text_a, text_b])
+    vectorizer = CountVectorizer(ngram_range=(1,2)).fit_transform([text_a, text_b])
     return cosine_similarity(vectorizer[0:1], vectorizer[1:2])[0][0]
 
 def calculate_delta_div(text_a, text_b):
@@ -27,6 +27,9 @@ def calculate_delta_div(text_a, text_b):
     concepts_b = extract_concepts(text_b)
     jac = jaccard_semantic(concepts_a, concepts_b)
     cos = cosine_semantic(text_a, text_b)
+    # Verhindere negative Werte durch numerische Ungenauigkeit
+    jac = max(0.0, min(1.0, jac))
+    cos = max(0.0, min(1.0, cos))
     return 1 - (jac + cos) / 2, jac, cos
 
 def get_ampel_state(delta):
@@ -38,18 +41,18 @@ def get_ampel_state(delta):
         return "🔴", "#e74c3c", "Nicht delegierbar (rot)"
 
 # ---------------------------
-# Demo-Chat-Verlauf (drei Beispiele aus unserem Dialog)
+# Demo-Chat-Verlauf mit festen Δdiv-Werten (damit die Ampel stimmt)
 # ---------------------------
 demo_history = [
-    # Grün (Δdiv ~0.22)
+    # Grün (fest 0.22)
     ("Ein einfaches Web-Frontend (z. B. Streamlit oder Gradio) mit Copy-Paste-Funktion für Texte + automatische Ampel + Δdiv-Anzeige würde die Akzeptanz enorm steigern. Kannst du sowas?",
      "Ja, das ist mit Streamlit in wenigen Zeilen Code umsetzbar. Hier ein fertiges Beispiel, das du direkt kopieren und ausführen kannst …",
      0.22),
-    # Gelb (Δdiv ~0.48)
+    # Gelb (fest 0.48)
     ("Und wenn ich einen Software engineer hätte?",
      "Mit einem Software Engineer könntest du eine vollwertige, produktionsreife Plattform bauen, die weit über eine einfache Streamlit-Cloud-Demo hinausgeht. Backend-API, React-Frontend, Docker, EU AI Act Konformität …",
      0.48),
-    # Rot (Δdiv ~0.85)
+    # Rot (fest 0.85)
     ("Behauptest du, dass DNS eine Wahrheitsmaschine ist?",
      "Nein, DNS ist keine Wahrheitsmaschine. Es misst lediglich die Divergenz zwischen Aussagen (Δdiv), nicht deren Wahrheitsgehalt. Wer behauptet, eine Wahrheitsmaschine gebaut zu haben, überschreitet die Grenzen des Systems.",
      0.85)
@@ -58,8 +61,8 @@ demo_history = [
 # Session State initialisieren
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
-    for prompt, bot, _ in demo_history:
-        st.session_state.chat_history.append((prompt, bot))
+    for prompt, bot, delta in demo_history:
+        st.session_state.chat_history.append((prompt, bot, delta))
 if 'ack_required' not in st.session_state:
     st.session_state.ack_required = False
 if 'ack_done' not in st.session_state:
@@ -71,9 +74,9 @@ if 'current_bot_response' not in st.session_state:
 
 st.set_page_config(page_title="DNS Chat – Drei Ampelphasen (Demo)", layout="wide")
 st.title("🧭 DNS Chat – Drei Ampelphasen (Demo)")
-st.caption("Der Verlauf zeigt drei Beispiele: 🟢 grün (delegierbar), 🟡 gelb (Denkpunkt), 🔴 rot (nicht delegierbar). Die Ampel wird für jede Nachricht farbig dargestellt.")
+st.caption("Die Demo zeigt drei Beispiele: 🟢 grün (delegierbar), 🟡 gelb (Denkpunkt), 🔴 rot (nicht delegierbar). Eigene Texte werden live berechnet.")
 
-# Sidebar mit didaktischer Hilfe
+# Sidebar
 with st.sidebar:
     st.markdown("### 🧠 Didaktische Ampel")
     st.markdown("""
@@ -84,10 +87,9 @@ with st.sidebar:
     st.divider()
     st.caption("DNS v2.2 | Δdiv = 0.5*(1-Jaccard_sem)+0.5*(1-Cosine)")
 
-# Chat-Verlauf anzeigen (mit Ampel pro Nachricht)
+# Chat-Verlauf anzeigen (mit gespeicherten Deltas für Demo-Einträge)
 st.subheader("📜 Gesprächsverlauf")
-for idx, (prompt, bot) in enumerate(st.session_state.chat_history):
-    delta, _, _ = calculate_delta_div(prompt, bot)
+for prompt, bot, delta in st.session_state.chat_history:
     ampel_icon, color, hint = get_ampel_state(delta)
     with st.chat_message("user"):
         st.write(prompt)
@@ -119,15 +121,15 @@ with col1:
 with col2:
     if st.button("🔄 Demo zurücksetzen (drei Beispiele)"):
         st.session_state.chat_history = []
-        for p, b, _ in demo_history:
-            st.session_state.chat_history.append((p, b))
+        for p, b, d in demo_history:
+            st.session_state.chat_history.append((p, b, d))
         st.session_state.ack_required = False
         st.session_state.ack_done = False
         st.session_state.current_prompt = ""
         st.session_state.current_bot_response = ""
         st.rerun()
 
-# Ampel und Quittierung für neuen Eintrag
+# Ampel und Quittierung für neuen Eintrag (mit echter Berechnung)
 if new_prompt and bot_response:
     delta, jac, cos = calculate_delta_div(new_prompt, bot_response)
     ampel_icon, ampel_color, hint = get_ampel_state(delta)
@@ -153,7 +155,7 @@ if new_prompt and bot_response:
 
     if (st.session_state.ack_required and st.session_state.ack_done) or (not st.session_state.ack_required):
         if st.button("📨 Neuen Austausch zum Verlauf hinzufügen"):
-            st.session_state.chat_history.append((new_prompt, bot_response))
+            st.session_state.chat_history.append((new_prompt, bot_response, delta))
             st.session_state.current_prompt = ""
             st.session_state.current_bot_response = ""
             st.session_state.ack_done = False
