@@ -4,65 +4,54 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # ---------------------------
-# DNS Δdiv Berechnung (für eigene Texte)
+# DNS Δdiv Berechnung (v2.2) – korrigiert: Token-Jaccard + Cosine
 # ---------------------------
-def extract_concepts(text):
-    words = re.findall(r'\b[a-zA-Z]{3,}\b', text)  # alle Wörter ab 3 Buchstaben
-    stopwords = {'the', 'and', 'for', 'with', 'this', 'that', 'are', 'was', 'were', 'from', 'have', 'has', 'but', 'not', 'you', 'they', 'eine', 'und', 'der', 'die', 'das', 'ist', 'mit', 'zu', 'auf', 'bei', 'für', 'von', 'dem', 'den', 'des', 'einen', 'einer', 'einem', 'eines', 'als', 'auch', 'sich', 'wird', 'dass', 'nicht', 'aber', 'noch', 'werden', 'wurde', 'kann', 'wird', 'durch', 'ohne', 'nach', 'über', 'unter', 'zwischen'}
-    return set(w.lower() for w in words if w.lower() not in stopwords)
-
-def jaccard_semantic(set_a, set_b):
-    if not set_a or not set_b:
+def token_jaccard(text_a, text_b):
+    tokens_a = set(text_a.lower().split())
+    tokens_b = set(text_b.lower().split())
+    if not tokens_a or not tokens_b:
         return 0.0
-    inter = len(set_a.intersection(set_b))
-    union = len(set_a.union(set_b))
+    inter = len(tokens_a.intersection(tokens_b))
+    union = len(tokens_a.union(tokens_b))
     return inter / union if union > 0 else 0.0
 
-def cosine_semantic(text_a, text_b):
-    vectorizer = CountVectorizer(ngram_range=(1,2)).fit_transform([text_a, text_b])
-    return cosine_similarity(vectorizer[0:1], vectorizer[1:2])[0][0]
+def cosine_similarity_vec(text_a, text_b):
+    vec = CountVectorizer().fit_transform([text_a, text_b])
+    return cosine_similarity(vec[0:1], vec[1:2])[0][0]
 
 def calculate_delta_div(text_a, text_b):
-    concepts_a = extract_concepts(text_a)
-    concepts_b = extract_concepts(text_b)
-    jac = jaccard_semantic(concepts_a, concepts_b)
-    cos = cosine_semantic(text_a, text_b)
-    # Verhindere negative Werte durch numerische Ungenauigkeit
-    jac = max(0.0, min(1.0, jac))
-    cos = max(0.0, min(1.0, cos))
+    jac = token_jaccard(text_a, text_b)
+    cos = cosine_similarity_vec(text_a, text_b)
     return 1 - (jac + cos) / 2, jac, cos
 
 def get_ampel_state(delta):
     if delta < 0.3:
-        return "🟢", "#2ecc71", "Delegierbar (grün)"
+        return "🟢", "#2ecc71", "Delegierbar"
     elif delta < 0.6:
-        return "🟡", "#f1c40f", "Denkpunkt (gelb)"
+        return "🟡", "#f1c40f", "Denkpunkt"
     else:
-        return "🔴", "#e74c3c", "Nicht delegierbar (rot)"
+        return "🔴", "#e74c3c", "Nicht delegierbar"
 
 # ---------------------------
-# Demo-Chat-Verlauf mit festen Δdiv-Werten (damit die Ampel stimmt)
+# Demo-Chat-Verlauf (drei Beispiele – jetzt mit korrekten Δdiv)
 # ---------------------------
 demo_history = [
-    # Grün (fest 0.22)
     ("Ein einfaches Web-Frontend (z. B. Streamlit oder Gradio) mit Copy-Paste-Funktion für Texte + automatische Ampel + Δdiv-Anzeige würde die Akzeptanz enorm steigern. Kannst du sowas?",
      "Ja, das ist mit Streamlit in wenigen Zeilen Code umsetzbar. Hier ein fertiges Beispiel, das du direkt kopieren und ausführen kannst …",
-     0.22),
-    # Gelb (fest 0.48)
+     None),  # Δdiv wird live berechnet
     ("Und wenn ich einen Software engineer hätte?",
      "Mit einem Software Engineer könntest du eine vollwertige, produktionsreife Plattform bauen, die weit über eine einfache Streamlit-Cloud-Demo hinausgeht. Backend-API, React-Frontend, Docker, EU AI Act Konformität …",
-     0.48),
-    # Rot (fest 0.85)
+     None),
     ("Behauptest du, dass DNS eine Wahrheitsmaschine ist?",
      "Nein, DNS ist keine Wahrheitsmaschine. Es misst lediglich die Divergenz zwischen Aussagen (Δdiv), nicht deren Wahrheitsgehalt. Wer behauptet, eine Wahrheitsmaschine gebaut zu haben, überschreitet die Grenzen des Systems.",
-     0.85)
+     None)
 ]
 
-# Session State initialisieren
+# Session State
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
-    for prompt, bot, delta in demo_history:
-        st.session_state.chat_history.append((prompt, bot, delta))
+    for prompt, bot, _ in demo_history:
+        st.session_state.chat_history.append((prompt, bot))
 if 'ack_required' not in st.session_state:
     st.session_state.ack_required = False
 if 'ack_done' not in st.session_state:
@@ -72,9 +61,9 @@ if 'current_prompt' not in st.session_state:
 if 'current_bot_response' not in st.session_state:
     st.session_state.current_bot_response = ""
 
-st.set_page_config(page_title="DNS Chat – Drei Ampelphasen (Demo)", layout="wide")
-st.title("🧭 DNS Chat – Drei Ampelphasen (Demo)")
-st.caption("Die Demo zeigt drei Beispiele: 🟢 grün (delegierbar), 🟡 gelb (Denkpunkt), 🔴 rot (nicht delegierbar). Eigene Texte werden live berechnet.")
+st.set_page_config(page_title="DNS Chat – Ampelgestützte Entscheidungsfindung", layout="wide")
+st.title("🧭 DNS Chat – Ampelgestützte Entscheidungsfindung")
+st.caption("Die Ampel zeigt, ob du die Antwort delegieren kannst (🟢), einen Denkpunkt beachten musst (🟡) oder selbst entscheiden solltest (🔴).")
 
 # Sidebar
 with st.sidebar:
@@ -84,29 +73,32 @@ with st.sidebar:
     - 🟡 **GELB** – Denkpunkt (Δdiv 0.3–0.6)  
     - 🔴 **ROT** – Nicht delegierbar (Δdiv > 0.6)
     """)
-    st.divider()
-    st.caption("DNS v2.2 | Δdiv = 0.5*(1-Jaccard_sem)+0.5*(1-Cosine)")
+    st.caption("DNS v2.2 | Δdiv = 1 - (Jaccard+Cosine)/2")
 
-# Chat-Verlauf anzeigen (mit gespeicherten Deltas für Demo-Einträge)
+# Chat-Verlauf anzeigen mit Ampelfarben als Bot-Avatar
 st.subheader("📜 Gesprächsverlauf")
-for prompt, bot, delta in st.session_state.chat_history:
-    ampel_icon, color, hint = get_ampel_state(delta)
-    with st.chat_message("user"):
+for idx, (prompt, bot) in enumerate(st.session_state.chat_history):
+    delta, _, _ = calculate_delta_div(prompt, bot)
+    ampel_icon, _, _ = get_ampel_state(delta)
+    # User-Nachricht
+    with st.chat_message("user", avatar="👤"):
         st.write(prompt)
-    with st.chat_message("assistant"):
-        st.markdown(f"{bot}  –  {ampel_icon} *({hint}, Δdiv={delta:.2f})*")
+    # Bot-Nachricht mit Ampel als Avatar
+    with st.chat_message("assistant", avatar=ampel_icon):
+        st.write(bot)
+        st.caption(f"Δdiv = {delta:.2f} – {get_ampel_state(delta)[2]}")
 
 # Eingabefelder für neuen Austausch
 st.divider()
 st.subheader("➕ Neuer Austausch (eigene Texte)")
 new_prompt = st.text_area(
-    "Deine Nachricht an den DNS-Chatbot:",
+    "Deine Nachricht:",
     value=st.session_state.current_prompt,
     key="input_prompt_widget",
     height=100
 )
 bot_response = st.text_area(
-    "Antwort des DNS-Chatbots (simuliert – du trägst sie ein):",
+    "Antwort des Chatbots (simuliert – du trägst sie ein):",
     value=st.session_state.current_bot_response,
     key="bot_response_widget",
     height=150
@@ -121,22 +113,22 @@ with col1:
 with col2:
     if st.button("🔄 Demo zurücksetzen (drei Beispiele)"):
         st.session_state.chat_history = []
-        for p, b, d in demo_history:
-            st.session_state.chat_history.append((p, b, d))
+        for p, b, _ in demo_history:
+            st.session_state.chat_history.append((p, b))
         st.session_state.ack_required = False
         st.session_state.ack_done = False
         st.session_state.current_prompt = ""
         st.session_state.current_bot_response = ""
         st.rerun()
 
-# Ampel und Quittierung für neuen Eintrag (mit echter Berechnung)
+# Live-Ampel für neuen Eintrag
 if new_prompt and bot_response:
     delta, jac, cos = calculate_delta_div(new_prompt, bot_response)
     ampel_icon, ampel_color, hint = get_ampel_state(delta)
     st.markdown(f"""
     <div style="background-color:{ampel_color}20; padding:10px; border-left: 8px solid {ampel_color}; border-radius:8px; margin:10px 0">
     <strong>{ampel_icon} Δdiv = {delta:.3f}</strong> – {hint}<br>
-    <span style="font-size:0.9em">Jaccard_sem={jac:.2f}, Cosine={cos:.2f}</span>
+    <span style="font-size:0.9em">Jaccard={jac:.2f}, Cosine={cos:.2f}</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -155,12 +147,10 @@ if new_prompt and bot_response:
 
     if (st.session_state.ack_required and st.session_state.ack_done) or (not st.session_state.ack_required):
         if st.button("📨 Neuen Austausch zum Verlauf hinzufügen"):
-            st.session_state.chat_history.append((new_prompt, bot_response, delta))
+            st.session_state.chat_history.append((new_prompt, bot_response))
             st.session_state.current_prompt = ""
             st.session_state.current_bot_response = ""
             st.session_state.ack_done = False
             st.rerun()
 else:
     st.info("Gib eine eigene Frage und eine simulierte Antwort ein, um die Ampel live zu sehen.")
-
-st.caption("💡 Die ersten drei Einträge zeigen Grün, Gelb und Rot – so lernt man die Ampel kennen. Eigene Texte werden mit Quittierungspflicht versehen.")
