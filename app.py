@@ -67,6 +67,8 @@ if 'model_outputs' not in st.session_state:
     }
 if 'prompt' not in st.session_state:
     st.session_state.prompt = ""
+if 'last_chosen' not in st.session_state:
+    st.session_state.last_chosen = None
 
 def next_step():
     st.session_state.step += 1
@@ -78,14 +80,14 @@ st.title("🧭 DNS v2.2 – Divergence Navigation System")
 st.caption("Reproducible, auditable workflow for epistemic analysis (P1–P8)")
 
 # ---------------------------
-# Sidebar with thresholds (optional, can be fixed)
+# Sidebar with thresholds
 # ---------------------------
 with st.sidebar:
     st.header("Thresholds (DNS v2.2)")
-    conv = st.number_input("Convergence (<)", value=0.3, step=0.05)
-    prod_low = st.number_input("Productive friction (lower)", value=0.3, step=0.05)
-    prod_high = st.number_input("Productive friction (upper)", value=0.6, step=0.05)
-    blind = st.number_input("Epistemic blind spot (>)", value=0.7, step=0.05)
+    conv = st.number_input("Convergence (<)", value=0.30, step=0.05)
+    prod_low = st.number_input("Productive friction (lower)", value=0.30, step=0.05)
+    prod_high = st.number_input("Productive friction (upper)", value=0.60, step=0.05)
+    blind = st.number_input("Epistemic blind spot (>)", value=0.70, step=0.05)
     st.divider()
     st.caption("Based on: 0.5*(1-Jaccard_sem) + 0.5*(1-Cosine)")
 
@@ -134,11 +136,11 @@ elif st.session_state.step == 2:
             st.rerun()
 
 # ---------------------------
-# P3 – Triangulate with Demo Examples (English)
+# P3 – Triangulate with auto-fill fix
 # ---------------------------
 elif st.session_state.step == 3:
     st.header("P3 — Triangulate")
-    st.markdown("**Demo examples (English) – copy them or use your own**")
+    st.markdown("**Demo examples (English) – select to auto-fill**")
     demo_examples = {
         "Copilot Crash (Tresorit)": {
             "prompt": "Why do some AI models block Tresorit links while others accept them?",
@@ -156,24 +158,28 @@ elif st.session_state.step == 3:
             "B": "A tax is paternalistic, hits poorer households harder, and reduces acceptance. Education and subsidies for alternatives are better."
         }
     }
-    chosen = st.selectbox("Load example", ["None"] + list(demo_examples.keys()))
-    if chosen != "None":
+    chosen = st.selectbox("Load example", ["None"] + list(demo_examples.keys()), key="demo_selector")
+    
+    # Auto-fill when a new example is selected
+    if chosen != "None" and chosen != st.session_state.get("last_chosen"):
         st.session_state.prompt = demo_examples[chosen]["prompt"]
         st.session_state.model_outputs["S1"] = demo_examples[chosen]["A"]
         st.session_state.model_outputs["Ω"] = demo_examples[chosen]["B"]
-        # Optionally fill other models with empty or same
+        # Optionally clear or set other models
         for m in ["S2","S3","S4a","S4b","F1"]:
-            if st.session_state.model_outputs[m] == "":
+            if not st.session_state.model_outputs.get(m):
                 st.session_state.model_outputs[m] = "(not used)"
+        st.session_state.last_chosen = chosen
         st.rerun()
-    prompt = st.text_area("Identical prompt for all models (S1–Ω)", height=100, value=st.session_state.prompt)
+    
+    prompt = st.text_area("Identical prompt for all models (S1–Ω)", height=100, value=st.session_state.prompt, key="prompt_area")
     st.session_state.prompt = prompt
     st.markdown("### Model outputs (no cross-contamination)")
     cols = st.columns(3)
     models = ["S1", "S2", "S3", "S4a", "S4b", "F1", "Ω"]
     for i, m in enumerate(models):
         with cols[i % 3]:
-            st.session_state.model_outputs[m] = st.text_area(m, value=st.session_state.model_outputs[m], height=200)
+            st.session_state.model_outputs[m] = st.text_area(m, value=st.session_state.model_outputs[m], height=200, key=f"ta_{m}")
     if st.button("Save outputs & continue"):
         for m, out in st.session_state.model_outputs.items():
             filename = f"03_outputs/{m}.md"
@@ -196,7 +202,7 @@ elif st.session_state.step == 4:
         delta, jac, cos = calculate_delta_div(text_a, text_b)
         st.metric("Δdiv (S1 ↔ Ω)", f"{delta:.3f}")
         st.write(f"Jaccard_sem: {jac:.3f}, Cosine: {cos:.3f}")
-        # Traffic light
+        # Traffic light based on sidebar thresholds
         if delta < conv:
             st.success("🟢 CONVERGENCE – delegable")
         elif delta < prod_high:
@@ -209,7 +215,7 @@ elif st.session_state.step == 4:
         c1, c2 = st.columns(2)
         c1.markdown(f"**S1 (reference)**<br><div style='border:1px solid #ddd; padding:10px'>{ha}</div>", unsafe_allow_html=True)
         c2.markdown(f"**Ω (deviation)**<br><div style='border:1px solid #ddd; padding:10px'>{hb}</div>", unsafe_allow_html=True)
-        # Graph divergence (simplified table)
+        # Graph divergence table
         st.subheader("Graph divergence (edge weights = 1 - similarity)")
         models = list(st.session_state.model_outputs.keys())
         edges = []
@@ -220,11 +226,14 @@ elif st.session_state.step == 4:
                 if t_i and t_j:
                     d, _, _ = calculate_delta_div(t_i, t_j)
                     edges.append((models[i], models[j], d))
-        df = pd.DataFrame(edges, columns=["From", "To", "Δdiv"])
-        st.dataframe(df)
-        high = [e for e in edges if e[2] > 0.7]
-        if high:
-            st.warning(f"⚠️ F1 DeepSeek activation: edges >0.7 – {high}")
+        if edges:
+            df = pd.DataFrame(edges, columns=["From", "To", "Δdiv"])
+            st.dataframe(df)
+            high = [e for e in edges if e[2] > 0.7]
+            if high:
+                st.warning(f"⚠️ F1 DeepSeek activation: edges >0.7 – {high}")
+        else:
+            st.info("Not enough model outputs to compute graph edges.")
     else:
         st.warning("Please fill S1 and Ω in P3 first.")
     if st.button("Save divergence map & continue"):
@@ -232,7 +241,7 @@ elif st.session_state.step == 4:
 
 **Δdiv (S1↔Ω):** {delta:.3f} (Jaccard_sem={jac:.3f}, Cosine={cos:.3f})
 
-**Graph edges:**\n{df.to_markdown()}
+**Graph edges:**\n{df.to_markdown() if 'df' in locals() else "No edges computed"}
 """
         st.session_state.artifacts["04_divergence_map.md"] = content
         next_step()
@@ -251,9 +260,10 @@ elif st.session_state.step == 5:
     total = 0.0
     cols = st.columns(3)
     models = ["S1", "S2", "S3", "S4a", "S4b", "F1", "Ω"]
+    default_weight = 1.0 / len(models)
     for i, m in enumerate(models):
         with cols[i % 3]:
-            w = st.slider(f"Weight {m}", 0.0, 1.0, 1.0/len(models), step=0.01)
+            w = st.slider(f"Weight {m}", 0.0, 1.0, default_weight, step=0.01)
             weights[m] = w
             total += w
     st.write(f"Sum: {total:.2f}")
@@ -286,6 +296,8 @@ elif st.session_state.step == 6:
                 st.warning("Moderate divergence – further check needed.")
             else:
                 st.error("High divergence – review synthesis.")
+        else:
+            st.warning("Please ensure synthesis (P5) and external text are filled.")
     if st.button("Save validation & continue"):
         content = f"# 06_validation.md\n\nExternal source:\n{external}\n\n"
         st.session_state.artifacts["06_validation.md"] = content
