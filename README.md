@@ -35,8 +35,7 @@ No account. No API. Works on paper.
 Die interaktive Web-App (DNS v2.2) ist verfügbar unter:  
 👉 [https://divergence-navigation-system.streamlit.app](https://divergence-navigation-system.streamlit.app)
 
-Testen Sie die App mit den eingebauten Beispielen (z. B. "Copilot Crash") oder eigenen Texten.
----
+"Test the app with the built-in examples (e.g., 'Copilot Crash') or your own texts."---
 
 ## What’s new in v2.2
 
