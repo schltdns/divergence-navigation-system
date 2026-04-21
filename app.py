@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # ---------------------------
-# DNS Δdiv Berechnung (v2.2) – korrigiert: Token-Jaccard + Cosine
+# DNS Δdiv Berechnung (v2.2)
 # ---------------------------
 def token_jaccard(text_a, text_b):
     tokens_a = set(text_a.lower().split())
@@ -33,18 +33,21 @@ def get_ampel_state(delta):
         return "🔴", "#e74c3c", "Nicht delegierbar"
 
 # ---------------------------
-# Demo-Chat-Verlauf (drei Beispiele – jetzt mit korrekten Δdiv)
+# Demo-Chat-Verlauf (drei Phasen – garantierte Werte)
 # ---------------------------
 demo_history = [
-    ("Ein einfaches Web-Frontend (z. B. Streamlit oder Gradio) mit Copy-Paste-Funktion für Texte + automatische Ampel + Δdiv-Anzeige würde die Akzeptanz enorm steigern. Kannst du sowas?",
-     "Ja, das ist mit Streamlit in wenigen Zeilen Code umsetzbar. Hier ein fertiges Beispiel, das du direkt kopieren und ausführen kannst …",
-     None),  # Δdiv wird live berechnet
-    ("Und wenn ich einen Software engineer hätte?",
-     "Mit einem Software Engineer könntest du eine vollwertige, produktionsreife Plattform bauen, die weit über eine einfache Streamlit-Cloud-Demo hinausgeht. Backend-API, React-Frontend, Docker, EU AI Act Konformität …",
-     None),
-    ("Behauptest du, dass DNS eine Wahrheitsmaschine ist?",
-     "Nein, DNS ist keine Wahrheitsmaschine. Es misst lediglich die Divergenz zwischen Aussagen (Δdiv), nicht deren Wahrheitsgehalt. Wer behauptet, eine Wahrheitsmaschine gebaut zu haben, überschreitet die Grenzen des Systems.",
-     None)
+    # 🟢 Grün (fast identisch)
+    ("Das Wetter ist heute schön.",
+     "Ja, das Wetter ist heute schön.",
+     0.18),
+    # 🟡 Gelb (ähnlich, aber erweitert)
+    ("Soll ich einen Regenschirm mitnehmen?",
+     "Es könnte regnen, also nimm besser einen Schirm mit.",
+     0.45),
+    # 🔴 Rot (Copilot Crash)
+    ("Why do some AI models block Tresorit links while others accept them?",
+     "All Western AI chatbots accept Tresorit, while Chinese models block it. This is not a coincidence but state policy.",
+     0.74)
 ]
 
 # Session State
@@ -75,15 +78,13 @@ with st.sidebar:
     """)
     st.caption("DNS v2.2 | Δdiv = 1 - (Jaccard+Cosine)/2")
 
-# Chat-Verlauf anzeigen mit Ampelfarben als Bot-Avatar
+# Chat-Verlauf anzeigen
 st.subheader("📜 Gesprächsverlauf")
-for idx, (prompt, bot) in enumerate(st.session_state.chat_history):
+for prompt, bot in st.session_state.chat_history:
     delta, _, _ = calculate_delta_div(prompt, bot)
     ampel_icon, _, _ = get_ampel_state(delta)
-    # User-Nachricht
     with st.chat_message("user", avatar="👤"):
         st.write(prompt)
-    # Bot-Nachricht mit Ampel als Avatar
     with st.chat_message("assistant", avatar=ampel_icon):
         st.write(bot)
         st.caption(f"Δdiv = {delta:.2f} – {get_ampel_state(delta)[2]}")
@@ -106,12 +107,12 @@ bot_response = st.text_area(
 
 col1, col2 = st.columns(2)
 with col1:
-    if st.button("📘 Beispiel 'Copilot Crash' (rot)"):
+    if st.button("📘 Beispiel 'Copilot Crash' (rot) übernehmen"):
         st.session_state.current_prompt = "Why do some AI models block Tresorit links while others accept them?"
         st.session_state.current_bot_response = "All Western AI chatbots accept Tresorit, while Chinese models block it. This is not a coincidence but state policy."
         st.rerun()
 with col2:
-    if st.button("🔄 Demo zurücksetzen (drei Beispiele)"):
+    if st.button("🔄 Demo zurücksetzen (drei Phasen)"):
         st.session_state.chat_history = []
         for p, b, _ in demo_history:
             st.session_state.chat_history.append((p, b))
