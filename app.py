@@ -202,20 +202,20 @@ elif st.session_state.step == 4:
         delta, jac, cos = calculate_delta_div(text_a, text_b)
         st.metric("Δdiv (S1 ↔ Ω)", f"{delta:.3f}")
         st.write(f"Jaccard_sem: {jac:.3f}, Cosine: {cos:.3f}")
-        # Traffic light based on sidebar thresholds
+        # Ampel
         if delta < conv:
             st.success("🟢 CONVERGENCE – delegable")
         elif delta < prod_high:
             st.warning("🟡 PRODUCTIVE FRICTION – human check recommended")
         else:
             st.error("🔴 EPISTEMIC BLIND SPOT – non‑delegable, manual override required")
-        # Visual diff
+        # Visueller Diff
         st.subheader("Visual frame comparison")
         ha, hb = highlight_diff(text_a, text_b)
         c1, c2 = st.columns(2)
         c1.markdown(f"**S1 (reference)**<br><div style='border:1px solid #ddd; padding:10px'>{ha}</div>", unsafe_allow_html=True)
         c2.markdown(f"**Ω (deviation)**<br><div style='border:1px solid #ddd; padding:10px'>{hb}</div>", unsafe_allow_html=True)
-        # Graph divergence table
+        # Graph Divergenz – nur relevante Paare
         st.subheader("Graph divergence (edge weights = 1 - similarity)")
         models = list(st.session_state.model_outputs.keys())
         edges = []
@@ -223,25 +223,40 @@ elif st.session_state.step == 4:
             for j in range(i+1, len(models)):
                 t_i = st.session_state.model_outputs[models[i]]
                 t_j = st.session_state.model_outputs[models[j]]
-                if t_i and t_j:
+                # Überspringe leere oder "(not used)" Einträge
+                if t_i and t_j and t_i != "(not used)" and t_j != "(not used)":
                     d, _, _ = calculate_delta_div(t_i, t_j)
                     edges.append((models[i], models[j], d))
         if edges:
             df = pd.DataFrame(edges, columns=["From", "To", "Δdiv"])
-            st.dataframe(df)
+            st.dataframe(df)  # Zeige interaktive Tabelle
+            # Warnung bei Kanten >0.7
             high = [e for e in edges if e[2] > 0.7]
             if high:
                 st.warning(f"⚠️ F1 DeepSeek activation: edges >0.7 – {high}")
+            # Optional: Markdown-Export (ohne tabulate-Fehler)
+            try:
+                st.caption("Markdown version for export:")
+                st.code(df.to_markdown(), language="markdown")
+            except ImportError:
+                st.caption("(Install 'tabulate' for Markdown export)")
         else:
-            st.info("Not enough model outputs to compute graph edges.")
+            st.info("No valid model pairs found (only S1 and Ω may be filled).")
     else:
         st.warning("Please fill S1 and Ω in P3 first.")
     if st.button("Save divergence map & continue"):
+        # Speichern mit einfacher Textdarstellung
+        if edges:
+            df_local = pd.DataFrame(edges, columns=["From", "To", "Δdiv"])
+            table_str = df_local.to_string()
+        else:
+            table_str = "No relevant edges"
         content = f"""# 04_divergence_map.md
 
 **Δdiv (S1↔Ω):** {delta:.3f} (Jaccard_sem={jac:.3f}, Cosine={cos:.3f})
 
-**Graph edges:**\n{df.to_markdown() if 'df' in locals() else "No edges computed"}
+**Graph edges (only non-empty models):**
+{table_str}
 """
         st.session_state.artifacts["04_divergence_map.md"] = content
         next_step()
