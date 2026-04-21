@@ -1,5 +1,2 @@
 streamlit
-scikit-learn
-torch
-torchvision
 sentence-transformers
