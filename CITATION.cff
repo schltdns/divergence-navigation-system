@@ -17,13 +17,12 @@ authors:
   - family-names: "Schult"
     given-names: "Denis"
 
-
 version: "2.2"
-date-released: 2026-04-26  # ISO 8601 – 2026-04-20
+date-released: 2026-04-20
 
-doi: "10.5281/zenodo.19597808"  
+doi: "10.5281/zenodo.19597808"
 
-# 🔹 Dual Licensing – exakt wie im Repo
+# 🔹 Dual Licensing
 license: "Apache-2.0 AND CC-BY-NC-SA-4.0"
 
 repository-code: "https://github.com/schltdns/divergence-navigation-system"
@@ -43,7 +42,7 @@ keywords:
   - "dual-licensing"
   - "open-data-proof"
 
-# 🔹 Lizenz-URLs für Nutzer
+# 🔹 Lizenz-URLs
 license-url:
   code: "https://github.com/schltdns/divergence-navigation-system/blob/main/LICENSE-CODE"
   docs: "https://github.com/schltdns/divergence-navigation-system/blob/main/LICENSE-DOCS"
@@ -55,4 +54,15 @@ related-identifiers:
     relation: "has part"
     scheme: "sha256"
 
-preferred-c
+# 🔹 Preferred Citation (vollständig)
+preferred-citation:
+  type: software
+  title: "DNS — Divergence Navigation System"
+  authors:
+    - family-names: "Schult"
+      given-names: "Denis"
+  version: "2.2"
+  doi: "10.5281/zenodo.19597808"
+  date-released: 2026-04-20
+  url: "https://github.com/schltdns/divergence-navigation-system"
+  license: "Apache-2.0 AND CC-BY-NC-SA-4.0"
