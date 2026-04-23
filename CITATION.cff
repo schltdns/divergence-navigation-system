@@ -1,0 +1,58 @@
+# CITATION.cff — Citation File Format v1.2.0
+# Divergence Navigation System (DNS) v2.2
+# Zenodo liest diese Datei automatisch beim Release
+
+cff-version: 1.2.0
+message: "Cite the Divergence Navigation System (DNS) – an epistemic protocol for making AI uncertainty visible."
+
+title: "DNS — Divergence Navigation System"
+abstract: |
+  An epistemic protocol for structured divergence analysis in multi-agent LLM systems.
+  DNS does not reduce uncertainty — it makes it visible.
+  Features: (1) Static Mode: post-hoc analysis, Four Questions Method, EU AI Act compliance mapping;
+  (2) Live Protocol: real-time Δdiv tracking, streaming safety layer, proactive falsification triggers.
+  Core metric: Δdiv = 0.5·(1−Jaccard) + 0.5·(1−Cosine), validated thresholds (<0.2 convergent, >0.75 contested).
+
+authors:
+  - family-names: "Schult"
+    given-names: "Denis"
+
+
+version: "2.2"
+date-released: 2026-04-26  # ISO 8601 – 2026-04-20
+
+doi: "10.5281/zenodo.19597808"  
+
+# 🔹 Dual Licensing – exakt wie im Repo
+license: "Apache-2.0 AND CC-BY-NC-SA-4.0"
+
+repository-code: "https://github.com/schltdns/divergence-navigation-system"
+url: "https://divergence-navigation-system.streamlit.app"
+
+keywords:
+  - "llm-evaluation"
+  - "ai-governance"
+  - "divergence-metrics"
+  - "eu-ai-act"
+  - "uncertainty-quantification"
+  - "multi-agent-systems"
+  - "falsification"
+  - "human-in-the-loop"
+  - "epistemic-uncertainty"
+  - "safety-layer"
+  - "dual-licensing"
+  - "open-data-proof"
+
+# 🔹 Lizenz-URLs für Nutzer
+license-url:
+  code: "https://github.com/schltdns/divergence-navigation-system/blob/main/LICENSE-CODE"
+  docs: "https://github.com/schltdns/divergence-navigation-system/blob/main/LICENSE-DOCS"
+
+# 🔹 Open-Data Proof Referenz
+related-identifiers:
+  - type: IsSupplementTo
+    identifier: "dns_open_data_proof.json"
+    relation: "has part"
+    scheme: "sha256"
+
+preferred-c
