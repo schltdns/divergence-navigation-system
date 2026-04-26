@@ -1,5 +1,18 @@
 <p align="center">
-  <img src="04_archive_legacy/docs/assets/frAIme_logo_wordmark.png" width="800" alt="frAIme - Epistemic Governance Framework">
+  <img src="04_archive_legacy/docs/assets/frAIme_logo_wordmark.png" alt="frAIme – Argumentation Drift Monitor" width="650"/>
+</p>
+
+<h1 align="center">frAIme</h1>
+
+<p align="center">
+  <strong>Argumentation Drift Monitor</strong>
+</p>
+
+<p align="center">
+  🟢 Topic consistency &nbsp;&nbsp;•&nbsp;&nbsp;
+  🟡 Idea emergence &nbsp;&nbsp;•&nbsp;&nbsp;
+  🔴 Verifiability &nbsp;&nbsp;•&nbsp;&nbsp;
+  🔵 Understandability
 </p>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19671856.svg)](https://doi.org/10.5281/zenodo.19671856)
