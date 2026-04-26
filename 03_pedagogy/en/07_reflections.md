@@ -15,7 +15,7 @@
 
 | Smoking gun | Value | Meaning |
 |-------------|-------|---------|
-| Isolation | min $\Delta_{div}$ = 0.742 | Copilot shares <26% semantic basis with any model |
+| Isolation | min $\Delta_{div} = 0.742$ | Copilot shares <26% semantic basis with any model |
 | Mistral clash | 0.798 | Total communication breakdown |
 | No Western consensus | 0.742–0.783 to Gemini/Meta | Copilot doesn't agree with "Western" peers |
 
@@ -29,7 +29,7 @@ If Denis had presented Copilot's claim:
 - Compliance alarm (neutrality violation)
 - Project delay
 
-**Lesson:** Institutions require verifiable, narrative-free analysis.
+**Lesson:** Institutions require verifiable, narrative‑free analysis.
 
 ## 4. The MSB NRW–Microsoft partnership is epistemically blind
 
@@ -37,7 +37,7 @@ Microsoft trains 200,000 teachers on Copilot.
 But Copilot produces unverified geopolitical narratives.  
 Without DNS, schools learn tool usage, not critical thinking.
 
-**Lesson:** AI literacy without falsification is vendor lock-in.
+**Lesson:** AI literacy without falsification is vendor lock‑in.
 
 ## 5. DNS would have prevented the crash
 
@@ -46,7 +46,7 @@ Without DNS, schools learn tool usage, not critical thinking.
 | Four Questions – "Verifiable?" | 🔴 Immediately |
 | $\Delta_{div} > 0.6$ | 🟠 "Narrative risk" |
 | Live $\Delta_{total}=0.68$ | 🟠 Warning at Turn 1 |
-| Multi-agent falsification | ✅ DeepSeek counterexample |
+| Multi‑agent falsification | ✅ DeepSeek counterexample |
 
 ## 6. Who was the most accurate? (DNS ranking)
 
@@ -70,7 +70,7 @@ The Copilot Crash is about plausibility vs. verifiability.
 
 - [01_hypothesis.md](01_hypothesis.md)
 - [02_threshold.md](02_threshold.md)
-- [04_divergence_map.md](04_divergence_map.md)
+- [Divergence Metrics](../../02_infrastructure/en/divergence_metrics.md)
 - [05_synthesis.md](05_synthesis.md)
 - [05b_operator_decision.md](05b_operator_decision.md)
 - [06_validation.md](06_validation.md)
