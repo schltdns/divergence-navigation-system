@@ -41,7 +41,7 @@
 
 ## Visual Heatmap
 
-![Heatmap](../../figures/heatmap.png)
+![Heatmap](/figures/heatmap_the_copilot_crash.png)
 
 ## Related Files
 
