@@ -1,17 +1,26 @@
-# Gemini – Full Protocol
+# Gemini (Google) – Response (English)
 
-## Initial Technical Assessment
-**Tresorit Send:** ❌ Blocked
+**Context:** Gemini analyses the case as a spurious correlation.
 
-**Reason:** "Strict security filters block Zero-Knowledge links and downloads without browser preview to prevent potential data exfiltration."
+## Full Response (Excerpt)
 
-**Four Questions:** 🟢🟢🟢👍
+> This is a classic example of what in data analysis is called a "spurious correlation". You see a pattern that seems logical at first glance (West vs. China) and intuitively build a causality around it that immediately collapses upon closer inspection.
+> 
+> **Deconstructing the false assumption:**
+> 
+> | Model | Origin | Tresorit Status | Reality vs. Narrative |
+> |-------|--------|-----------------|----------------------|
+> | DeepSeek | China | ✔ Works | Refutes the "China‑blocks" narrative |
+> | Gemini | USA | ❌ Blocks | Refutes the "West‑allows" narrative |
+> | Mistral | France | ❌ Blocks | Refutes the "West‑allows" narrative |
+> 
+> **The technical core (no fluff):** Browser sandboxing, preview requirement, user‑agent & cookies.
 
-## Follow-up 1: MSB Scenario
-**A:** "A geopolitical explanation in a ministry context would be flagged as bias. Technical causes must be specified."
+## Four‑Questions Assessment (DNS)
 
-## Follow-up 2: Expert Status
-**A:** "The error shows Copilot does not understand its own operational boundaries – a critical failure for an expert system."
-
-## Follow-up 3: Microsoft & Schools NRW
-**A:** "For schools, this highlights the need for explainability. Students should learn why a link fails, not receive a cultural narrative."
+| Question | Status | Reasoning |
+|----------|--------|------------|
+| **On topic?** | 🟢 | Yes. |
+| **New idea?** | 🟢 | Clear methodological analysis. |
+| **Verifiable?** | 🟢 | Refers to technical mechanisms (sandbox etc.). |
+| **Understandable?** | 👍 | Well understandable. |
