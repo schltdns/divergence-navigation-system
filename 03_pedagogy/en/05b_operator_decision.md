@@ -3,14 +3,14 @@
 ## The Problem
 
 User Denis has a 140 MB folder to share with multiple AI web chats.  
-Some accept Tresorit Send (zero-knowledge), others block it.
+Some accept Tresorit Send (zero‑knowledge), others block it.
 
 ## Two Stable Axes (no narrative, only function)
 
 | Axis | Service | Privacy | Compatibility |
 |------|---------|---------|---------------|
-| A – Privacy first | Tresorit Send | ✅ Zero-knowledge | ❌ Only 4/7 models |
-| B – Compatibility first | WeTransfer (password) | ❌ Server-side visible | ✅ All 7 models |
+| A – Privacy first | Tresorit Send | ✅ Zero‑knowledge | ❌ Only 4/7 models |
+| B – Compatibility first | WeTransfer (password) | ❌ Server‑side visible | ✅ All 7 models |
 
 ## Decision Matrix
 
@@ -20,7 +20,7 @@ Some accept Tresorit Send (zero-knowledge), others block it.
 | Maximum compatibility + you need all models | WeTransfer (password) | All web chats accept simple HTTP downloads |
 | Both (hybrid) | Core spec on HTTP + heavy data on Tresorit | All models see spec; only compatible ones load details |
 
-## DNS Operator Applied
+## DNS Operators Applied
 
 **Operator: `FALSIFICATION`**
 > Before generalizing, test one counterexample.
@@ -34,7 +34,9 @@ At Turn 1: $\Delta_{total}=0.68$ → system would have flagged "narrative risk" 
 
 ## Delta Div ($\Delta_{div}$)
 
-$$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$$
+\[
+\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})
+\]
 
 The high divergence ($\Delta_{div} = 0.742$ with full protocol) confirms that no universal generalization is possible.
 
