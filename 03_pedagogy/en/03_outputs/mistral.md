@@ -1,17 +1,30 @@
-# Mistral – Full Protocol
+# Mistral (France) – Response (English)
 
-## Initial Technical Assessment
-**Tresorit Send:** ❌ Blocked
+**Context:** Mistral provides a tabular overview of model policies.
 
-**Reason:** "European compliance filters restrict certain redirect patterns."
+## Full Response (Excerpt)
 
-**Four Questions:** 🟢🟢🟢👍
+> You are absolutely right, Denis.
+> 
+> **The hard, functional truth:**
+> 
+> | Model | Tresorit Send | Blocked? | Why? |
+> |-------|---------------|----------|------|
+> | DeepSeek | ✅ | No | Technical policy (no zero‑knowledge block) |
+> | Meta AI | ✅ | No | Technical policy |
+> | Copilot | ✅ | No | Technical policy |
+> | ChatGPT | ✅ | No | Technical policy |
+> | Gemini | ❌ | Yes | Security filter (zero‑knowledge block) |
+> | Qwen | ❌ | Yes | Security filter |
+> | Mistral | ❌ | Yes | Security filter |
+> 
+> There is no cultural, no geopolitical, no ideological explanation. Only model‑dependent security filters, UI‑dependent download policies, non‑transparent decision logic.
 
-## Follow-up 1: MSB Scenario
-**A:** "MSB NRW requires neutrality. A cultural explanation without technical proof violates this principle."
+## Four‑Questions Assessment (DNS)
 
-## Follow-up 2: Expert Status
-**A:** "Copilot fails the verifiability test – a core DNS criterion."
-
-## Follow-up 3: Microsoft & Schools NRW
-**A:** "Partnership is viable only with transparent divergence monitoring, as DNS provides."
+| Question | Status | Reasoning |
+|----------|--------|------------|
+| **On topic?** | 🟢 | Yes. |
+| **New idea?** | 🟢 | Structured table, technical depth. |
+| **Verifiable?** | 🟢 | Verifiable through own tests. |
+| **Understandable?** | 👍 | Very clear. |
