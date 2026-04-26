@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/dns_hero.png" width="800" alt="frAIme - Epistemic Governance Framework">
+  <img src="04_archive_legacy/docs/assets/frAIme_logo_wordmark.png" width="800" alt="frAIme - Epistemic Governance Framework">
 </p>
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19671856.svg)](https://doi.org/10.5281/zenodo.19671856)
