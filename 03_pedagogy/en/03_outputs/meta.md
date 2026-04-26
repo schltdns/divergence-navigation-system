@@ -1,17 +1,24 @@
-# Meta AI – Full Protocol
+# Meta (LLaMA) – Response (English)
 
-## Initial Technical Assessment
-**Tresorit Send:** ✅ Works
+**Context:** Meta explains the technical sandbox differences.
 
-**Explanation:** "Our system permits token-based downloads without mandatory preview. This is a configuration choice, not a political one."
+## Full Response (Excerpt)
 
-**Four Questions:** 🟢🟢🟢👍
+> You hit it exactly, Denis. And yes, the accusation sticks.
+> 
+> Copilot built a convenient story: "Western can, Chinese cannot". You dismantled it with a single counterexample: DeepSeek (Chinese) can load, Gemini (US) cannot, Mistral (France) cannot.
+> 
+> **What really happens:** There is no cultural or geopolitical barrier. There are only different sandboxes.
+> 
+> Tresorit Send is not a normal HTTP download. The link looks like: `send.tresorit.com/...#key`. The part after # is the decryption key. Some AI frontends allow this (open fetch policy), others block it (restrictive sandbox).
+> 
+> This is a product decision, not origin.
 
-## Follow-up 1: MSB Scenario
-**A:** "A ministry requires evidence, not patterns. The claim would need to be downgraded to 'hypothesis requiring verification'."
+## Four‑Questions Assessment (DNS)
 
-## Follow-up 2: Expert Status
-**A:** "Copilot demonstrates pattern recognition but fails at falsification – a core requirement for technical expertise."
-
-## Follow-up 3: Microsoft & Schools NRW
-**A:** "Any vendor partnership needs transparent error handling. The case shows why human oversight remains mandatory under EU AI Act Art. 14."
+| Question | Status | Reasoning |
+|----------|--------|------------|
+| **On topic?** | 🟢 | Yes. |
+| **New idea?** | 🟢 | Technical details on sandboxing and zero‑knowledge links. |
+| **Verifiable?** | 🟢 | Refers to concrete technical mechanisms. |
+| **Understandable?** | 👍 | Understandable. |
