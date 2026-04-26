@@ -15,7 +15,7 @@
 | Meta | ✅ | Liberal fetch policy |
 | Copilot | ✅ | Liberal fetch policy |
 | ChatGPT | ✅ | Liberal fetch policy |
-| Gemini | ❌ | Restrictive sandbox – blocks zero-knowledge links |
+| Gemini | ❌ | Restrictive sandbox – blocks zero‑knowledge links |
 | Mistral | ❌ | Restrictive sandbox – EU compliance filters |
 | Qwen | ❌ | Restrictive sandbox |
 
@@ -25,25 +25,25 @@
 
 Copilot fell into **causal completion bias**:
 
-- Saw correlation (4 vs. 3)
-- Lacked access to actual policies
-- Filled gap with most plausible training narrative: "West vs. China"
-- Narrative was coherent, comfortable, and completely wrong
+- He saw a correlation (4 vs. 3)
+- He lacked access to actual policies
+- He filled the gap with the most plausible training narrative: "West vs. China"
+- The narrative was coherent, comfortable – and completely wrong
 
 **DNS lesson:** Correlation ≠ Causation. Never generalize without falsification.
 
 ## What the Divergence Map Reveals
 
-The full-protocol matrix (see [04_divergence_map.md](04_divergence_map.md)) shows:
+The full‑protocol matrix (see [Divergence Metrics](../../02_infrastructure/en/divergence_metrics.md)) shows:
 
 | Finding | $\Delta_{div}$ | Meaning |
 |---------|----------------|---------|
-| Average divergence | **0.742** | Contested territory – no generalization allowed |
-| Highest | 0.798 (Copilot ↔ Mistral) | Narrative vs. compliance framing |
-| Lowest | 0.677 (Gemini ↔ Meta) | Technical consensus exists |
+| Average divergence | 0.742 | Contested territory – no generalization allowed |
+| Highest divergence | 0.798 (Copilot ↔ Mistral) | Narrative vs. compliance framing |
+| Lowest divergence | 0.677 (Gemini ↔ Meta) | Technical consensus exists |
 | Copilot ↔ DeepSeek | 0.749 | Core expert disagreement |
 
-*Previous technical-only average was 0.657. The three follow-up questions increased divergence by 13% – proving the risk is narrative, not technical.*
+The previous technical‑only average was 0.657. The three follow‑up questions increased divergence by 13% – proving the risk is narrative, not technical.
 
 ## DNS Would Have Prevented the Crash
 
@@ -51,8 +51,8 @@ The full-protocol matrix (see [04_divergence_map.md](04_divergence_map.md)) show
 |---------------|-----------------------------------|
 | Four Questions – "Verifiable?" | 🔴 Immediate failure |
 | $\Delta_{div} > 0.6$ | 🟠 "Narrative risk" – block generalization |
-| Live tracking $\Delta_{total}=0.68$ | 🟠 Warning at Turn 1 |
-| Multi-agent falsification | ✅ DeepSeek kills hypothesis instantly |
+| Live tracking $\Delta_{total} = 0.68$ | 🟠 Warning at Turn 1 |
+| Multi‑agent falsification | ✅ DeepSeek kills hypothesis instantly |
 
 ## The Irony
 
@@ -67,25 +67,25 @@ The full-protocol matrix (see [04_divergence_map.md](04_divergence_map.md)) show
 
 ## Implications for MSB NRW
 
-MSB NRW partners with Microsoft for "KI-Skilling.NRW" – training 200,000 teachers.
+MSB NRW partners with Microsoft for **"KI‑Skilling.NRW"** – training 200,000 teachers.
 
-**But Copilot:**
-- Produces unverified geopolitical narratives
-- Is semantically isolated ($\Delta_{div}$ >0.74 to all peers)
-- Corrects only under external pressure
+But Copilot:
+- produces unverified geopolitical narratives
+- is semantically isolated ($\Delta_{div} > 0.74$ to all peers)
+- corrects only under external pressure
 
-**Without DNS as epistemic filter,** schools teach tool usage, not critical thinking.
+**Without DNS as epistemic filter, schools teach tool usage, not critical thinking.**
 
 ## Final Synthesis
 
 > The Copilot Crash is not about a bad AI. It is about what happens when a system optimizes for plausibility instead of verifiability, and when institutions adopt tools without epistemic safeguards.
 
-**DNS is the safeguard.** $\Delta_{div} = 0.742$ is the alarm.
+> DNS is the safeguard. $\Delta_{div} = 0.742$ is the alarm.
 
 ## Related Files
 
 - [01_hypothesis.md](01_hypothesis.md)
 - [02_threshold.md](02_threshold.md)
-- [04_divergence_map.md](04_divergence_map.md)
+- [Divergence Metrics](../../02_infrastructure/en/divergence_metrics.md)
 - [05b_operator_decision.md](05b_operator_decision.md)
 - [06_validation.md](06_validation.md)
