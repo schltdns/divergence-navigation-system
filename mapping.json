@@ -86,8 +86,8 @@
     {
       "old_path": "the_copilot_crash/figures/",
       "new_path": "figures/",
-      "purpose": "Heatmaps and graphics"
+      "purpose": "Heatmaps and graphics (moved to root figures/)"
     }
   ],
-  "provenance_note": "Original 'the_copilot_crash/' directory must be archived in 04_archive_legacy/ before migration to ensure complete audit trail."
+  "provenance_note": "Original 'the_copilot_crash/' directory archived in 04_archive_legacy/ before migration."
 }
