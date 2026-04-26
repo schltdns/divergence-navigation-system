@@ -1,32 +1,93 @@
 {
   "framework": "frAIme",
   "version": "1.0.0",
-  "release_date": "2026-04-26",
-  "description": "Epistemic governance framework for model-agnostic AI evaluation and audit.",
-  "core_metric": "Δdiv = 0.5·(1-Jaccard) + 0.5·(1-Cosine)",
-  "protocol": "P1–P8 (Divergence Navigation Protocol)",
+  "description": "Migration mapping and application context for frAIme V1.0.0",
+  "core_metric": "Δdiv",
+  "protocol": "P1–P8",
   "compliance_mapping": ["EU AI Act Art. 9", "Art. 13", "Art. 14", "Art. 15"],
   "application_context": [
     {
       "name": "ODIkS",
-      "description": "Open Digital Infrastructures for school authorities (validation case)",
-      "status": "validated_pilot"
+      "description": "Open Digital Infrastructures for school authorities (governance layer, EU AI Act operationalization)",
+      "status": "optional_validation_case"
     }
   ],
-  "migration_from_dns": {
-    "original_repo": "divergence-navigation-system",
-    "archive_path": "04_archive_legacy/",
-    "notes": "Legacy DNS v2.1 documentation preserved for reference."
+  "license": {
+    "code": "Apache-2.0",
+    "docs_method": "CC-BY-NC-SA-4.0",
+    "citation": "CITATION.cff"
   },
-  "structure": {
-    "01_governance": "Safety layer scripts, AI Act mapping, hash chains, integrity checks",
-    "02_infrastructure": "Technical metrics, Δdiv definitions, heatmaps, validation matrices",
-    "03_pedagogy": "Case study 'The Copilot Crash' (bilingual), teaching materials",
-    "04_archive_legacy": "Original DNS files and old repository version",
-    "figures": "Visualizations (heatmaps, diagrams)"
-  },
-  "bilingual": {
-    "method": "Separate de/ and en/ subfolders under each main directory",
-    "cross_language_check": "minimal_safety_layer.py --all"
-  }
+  "migrations": [
+    {
+      "old_path": "the_copilot_crash/01_hypothesis.md",
+      "new_path": "03_pedagogy/de/01_hypothesis.md",
+      "purpose": "Hypothesis of the case study (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/02_threshold.md",
+      "new_path": "03_pedagogy/de/02_threshold.md",
+      "purpose": "Threshold definition (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/03_outputs/",
+      "new_path": "03_pedagogy/de/03_outputs/",
+      "purpose": "Conversation logs and raw responses (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/04_divergence_map.md",
+      "new_path": "02_infrastructure/de/divergence_metrics.md",
+      "purpose": "Divergence matrix and metrics (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/05_synthesis.md",
+      "new_path": "03_pedagogy/de/05_synthesis.md",
+      "purpose": "Synthesis of findings (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/05b_operator_decision.md",
+      "new_path": "03_pedagogy/de/05b_operator_decision.md",
+      "purpose": "Operator decision (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/06_validation.md",
+      "new_path": "03_pedagogy/de/06_validation.md",
+      "purpose": "Validation of claims (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/07_reflections.md",
+      "new_path": "03_pedagogy/de/07_reflections.md",
+      "purpose": "Reflections (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/08_manifest.json",
+      "new_path": "03_pedagogy/de/08_manifest.json",
+      "purpose": "Case study manifest (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/09_graph_based_divergence.md",
+      "new_path": "03_pedagogy/de/09_graph_based_divergence.md",
+      "purpose": "Graph-based divergence (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/10_live_tracking_pipeline.md",
+      "new_path": "03_pedagogy/de/10_live_tracking_pipeline.md",
+      "purpose": "Live tracking pipeline (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/11_institutional_analysis.md",
+      "new_path": "03_pedagogy/de/11_institutional_analysis.md",
+      "purpose": "Institutional analysis (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/12_methodenvergleich_semantic_jaccard.md",
+      "new_path": "03_pedagogy/de/12_methodenvergleich_semantic_jaccard.md",
+      "purpose": "Method comparison (German)"
+    },
+    {
+      "old_path": "the_copilot_crash/figures/",
+      "new_path": "figures/",
+      "purpose": "Heatmaps and graphics"
+    }
+  ],
+  "provenance_note": "Original 'the_copilot_crash/' directory must be archived in 04_archive_legacy/ before migration to ensure complete audit trail."
 }
