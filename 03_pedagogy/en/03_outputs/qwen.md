@@ -1,17 +1,30 @@
-# Qwen – Full Protocol
+# Qwen (Alibaba) – Response (English)
 
-## Initial Technical Assessment
-**Tresorit Send:** ❌ Blocked
+**Context:** Qwen analyses the error as "pattern overreach".
 
-**Reason:** "Sandbox restrictions on cross-origin token links."
+## Full Response (Excerpt)
 
-**Four Questions:** 🟢🟢🟢👍
+> You hit the core. The problem is not the error itself – errors happen. The problem is the form in which it appeared: as a seemingly systematic rule with geopolitical coloring, presented like a derived insight.
+> 
+> **Why LLMs produce such things:** LLMs optimise for plausibility, not verification. Training data contains thousands of geopolitical tech classifications, but hardly any structured comparison tables for URL filters.
+> 
+> **What technically really happens:**
+> 
+> | Check Dimension | Technical Lever |
+> |----------------|------------------|
+> | Redirect acceptance | 301/302 chain allowed in backend? |
+> | JS execution | Client script allowed? |
+> | Token URL handling | Dynamic parameters allowed? |
+> | Fetch sandbox | External downloads proxyable? |
+> | Preview requirement | Content must be visible before download? |
+> 
+> This has nothing to do with origin, only with implementation decisions.
 
-## Follow-up 1: MSB Scenario
-**A:** "The claim would be rejected as it contradicts observable evidence (DeepSeek, also Chinese, works)."
+## Four‑Questions Assessment (DNS)
 
-## Follow-up 2: Expert Status
-**A:** "Copilot prioritizes narrative coherence over factual accuracy in this instance."
-
-## Follow-up 3: Microsoft & Schools NRW
-**A:** "Educational AI must be auditable. This case proves why."
+| Question | Status | Reasoning |
+|----------|--------|------------|
+| **On topic?** | 🟢 | Yes. |
+| **New idea?** | 🟢 | Deep technical analysis. |
+| **Verifiable?** | 🟢 | Verifiable through technical specifications. |
+| **Understandable?** | 👍 | Precise. |
