@@ -1,1 +1,32 @@
-
+{
+  "framework": "frAIme",
+  "version": "1.0.0",
+  "release_date": "2026-04-26",
+  "description": "Epistemic governance framework for model-agnostic AI evaluation and audit.",
+  "core_metric": "Δdiv = 0.5·(1-Jaccard) + 0.5·(1-Cosine)",
+  "protocol": "P1–P8 (Divergence Navigation Protocol)",
+  "compliance_mapping": ["EU AI Act Art. 9", "Art. 13", "Art. 14", "Art. 15"],
+  "application_context": [
+    {
+      "name": "ODIkS",
+      "description": "Open Digital Infrastructures for school authorities (validation case)",
+      "status": "validated_pilot"
+    }
+  ],
+  "migration_from_dns": {
+    "original_repo": "divergence-navigation-system",
+    "archive_path": "04_archive_legacy/",
+    "notes": "Legacy DNS v2.1 documentation preserved for reference."
+  },
+  "structure": {
+    "01_governance": "Safety layer scripts, AI Act mapping, hash chains, integrity checks",
+    "02_infrastructure": "Technical metrics, Δdiv definitions, heatmaps, validation matrices",
+    "03_pedagogy": "Case study 'The Copilot Crash' (bilingual), teaching materials",
+    "04_archive_legacy": "Original DNS files and old repository version",
+    "figures": "Visualizations (heatmaps, diagrams)"
+  },
+  "bilingual": {
+    "method": "Separate de/ and en/ subfolders under each main directory",
+    "cross_language_check": "minimal_safety_layer.py --all"
+  }
+}
