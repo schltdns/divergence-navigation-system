@@ -25,7 +25,7 @@ https://doi.org/10.5281/zenodo.19793185
 > For classrooms: four questions, traffic light, done.  
 > For research: measurable divergence (Δdiv), auditable under EU AI Act.  
 
-**Version:** V1.0.0 (2026-04-26) – *Stable release for ODiKS pilot*
+**Version:** V1.0.0 (2026-04-26) – *Stable release*
 
 ---
 
