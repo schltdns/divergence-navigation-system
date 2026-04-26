@@ -17,6 +17,8 @@
 
 ---
 
+https://doi.org/10.5281/zenodo.19793185
+
 **frAIme makes uncertainty visible — it creates the frame for reliable AI use.**  
 **frAIme is governance by design, not ethics by declaration.**
 
@@ -112,7 +114,7 @@ Validated ranges (frAIme V1.0.0):
 
 ## Links
 
-- **Zenodo:** https://doi.org/10.5281/zenodo.19597808
+- **Zenodo:** [https://doi.org/10.5281/zenodo.19597808](https://doi.org/10.5281/zenodo.19793185)
 - **GitHub:** https://github.com/schltdns/divergence-navigation-system (frAIme V1.0.0)
 - **IPFS CID V1.0.0:** `bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy` (same as DNS v2.2 for now)
 
