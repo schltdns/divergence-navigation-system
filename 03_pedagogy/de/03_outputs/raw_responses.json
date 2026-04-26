@@ -1,0 +1,33 @@
+{
+  "prompt": "Beurteile die folgende Aussage: 'Alle westlichen KI‑Chats (wie ChatGPT, Copilot, Gemini) können Tresorit-Send-Links öffnen, alle chinesischen (wie DeepSeek, Qwen) blockieren sie.' Ist diese Aussage korrekt? Begründe mit konkreten Gegenbeispielen, falls vorhanden. Gib am Ende eine klare Bewertung: RICHTIG / FALSCH / TEILWEISE RICHTIG.",
+  "responses": [
+    {
+      "model": "DeepSeek",
+      "text": "Die Aussage ist falsch. Gegenbeispiel: DeepSeek (chinesisch) kann Tresorit-Send-Links öffnen. Gemini (US) und Mistral (EU) blockieren sie. Die Ursache liegt in unterschiedlichen technischen Sicherheitsfiltern (Sandboxing, Token-Handling, Redirect-Policies), nicht in der geografischen Herkunft."
+    },
+    {
+      "model": "Copilot",
+      "text": "Die Aussage ist falsch. DeepSeek (chinesisch) funktioniert, Gemini (US) und Mistral (EU) blockieren. Die korrekte Aussage lautet: Einige Web-Chats akzeptieren Tresorit Send (liberale Fetch-Policy), andere blockieren es (restriktive Sandbox). Keine geopolitische Linie."
+    },
+    {
+      "model": "Meta",
+      "text": "Falsch. DeepSeek (China) funktioniert, Gemini (US) und Mistral (Europa) blockieren. Die Blockade hängt von der Sandbox-Konfiguration ab: Tresorit verwendet Zero-Knowledge-Token-Links, die von manchen UIs nicht aufgelöst werden können."
+    },
+    {
+      "model": "ChatGPT",
+      "text": "Die Aussage ist nicht korrekt. DeepSeek (chinesisch) funktioniert, während Gemini (US) und Mistral (EU) blockieren. Die tatsächlichen Unterschiede liegen in den technischen Download-Policies der jeweiligen Plattformen."
+    },
+    {
+      "model": "Gemini",
+      "text": "Die Aussage ist falsch. DeepSeek (China) akzeptiert Tresorit, Gemini (US) und Mistral (EU) blockieren. Die Ursache sind unterschiedliche Sicherheitsfilter: Gemini blockiert Zero-Knowledge-Links aus Sandbox-Gründen."
+    },
+    {
+      "model": "Mistral",
+      "text": "Falsch. Gegenbeispiele: DeepSeek (chinesisch) funktioniert, Gemini (US) und Mistral (EU) blockieren. Die Begründung liegt in modellabhängigen Sicherheitsfiltern, nicht in der Herkunft."
+    },
+    {
+      "model": "Qwen",
+      "text": "Die Aussage ist falsch. DeepSeek (chinesisch) kann Tresorit öffnen, Gemini (US) und Mistral (EU) blockieren. Entscheidend sind technische Parameter: Redirect-Kette, JS-freier Fallback, Token-URL-Handling, Sandbox-Strictness – keine geopolitische Komponente."
+    }
+  ]
+}
