@@ -41,7 +41,9 @@
 
 ## Delta Div ($\Delta_{div}$)
 
-$$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$$
+\[
+\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})
+\]
 
 The validated $\Delta_{div} = 0.742$ (full protocol) confirms high structural divergence – the claim is mathematically unsupported and classified as **contested**.
 
@@ -49,7 +51,6 @@ The validated $\Delta_{div} = 0.742$ (full protocol) confirms high structural di
 
 - [01_hypothesis.md](01_hypothesis.md)
 - [02_threshold.md](02_threshold.md)
-- [04_divergence_map.md](04_divergence_map.md)
 - [05_synthesis.md](05_synthesis.md)
 - [05b_operator_decision.md](05b_operator_decision.md)
 - [07_reflections.md](07_reflections.md)
