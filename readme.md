@@ -8,121 +8,68 @@
   <strong>Argumentation Drift Monitor</strong>
 </p>
 
-<p align="center">
-  🟢 Topic consistency &nbsp;&nbsp;•&nbsp;&nbsp;
-  🟡 Idea emergence &nbsp;&nbsp;•&nbsp;&nbsp;
-  🔴 Verifiability &nbsp;&nbsp;•&nbsp;&nbsp;
-  🔵 Understandability
-</p>
+# frAIme
+## Argumentation Drift Monitor
 
----
+🟢 Topic consistency • 🟡 Idea emergence • 🔴 Verifiability • 🔵 Understandability
 
 https://doi.org/10.5281/zenodo.19793185
 
-**frAIme makes uncertainty visible — it creates the frame for reliable AI use.**  
-**frAIme is governance by design, not ethics by declaration.**
+**frAIme macht Unsicherheit sichtbar – es schafft den Rahmen für verlässliche KI-Nutzung.**
+frAIme ist Governance by Design, nicht Ethik per Deklaration.
 
-> For classrooms: four questions, traffic light, done.  
-> For research: measurable divergence (Δdiv), auditable under EU AI Act.  
+Für Klassenzimmer: vier Fragen, Ampel, fertig.
+Für Forschung: messbare Divergenz (Δdiv), auditierbar.
 
-**Version:** V1.0.0 (2026-04-26) – *Stable release*
+**Version:** V1.0.0 (2026-04-26) – Stable Release
 
 ---
 
-## Start here — 2 minutes
+## Start in 2 Minuten
+**Die Vier-Fragen-Methode**
+Prüfe jede LLM-Antwort:
 
-### The Four Questions Method
-Check every LLM answer:
+1. On topic? 🟢 / 🔴
+2. Neue Idee? 🟢 / 🟡 / 🔴
+3. Verifizierbar? (Zahl, Datum, Ort, wenn-dann) 🟢 / 🔴
+4. Verständlich? 👍 / 👎
 
-1. **On topic?** 🟢 / 🔴
-2. **New idea?** 🟢 / 🟡 / 🔴
-3. **Verifiable?** (number, date, place, if‑then) 🟢 / 🔴
-4. **Understandable?** 👍 / 👎
+Gute Antwort = 🟢 + 👍
 
-**Good answer = 🟢 + 👍**
-
-No account. No API. Works on paper.
+Kein Account. Keine API. Funktioniert auf Papier.
 
 ## 🚀 Live Demo
+👉 https://divergence-navigation-system.streamlit.app
 
-The interactive web app (frAIme V1.0.0 / DNS v2.2) is available at:  
-👉 [https://divergence-navigation-system.streamlit.app](https://divergence-navigation-system.streamlit.app)
+Teste mit eingebauten Beispielen („The Copilot Crash“) oder eigenen Texten.
 
-> Test the app with the built‑in examples (e.g., 'The Copilot Crash') or your own texts.
+## Was ist neu in V1.0.0
+1. **Rebranding:** früher DNS – jetzt frAIme (Epistemic Governance Framework)
+2. **Getestet mit Copilot Crash:** Δdiv = 0,742 deckte erfundene „West vs. China“-Narrative auf
+3. **Live Δdiv-Tracking:** Frontend berechnet Δtotal während des Gesprächs
+4. **Reichweite:** 3.270 Clones / 1.126 Unique Cloner in 14 Tagen
 
----
+## Neue Case Study: KI-Lernen vs Frontalunterricht
+**Ersetzt den EU-AI-Act-Teil – realer Einsatz in Bildung**
 
-## What’s new in frAIme V1.0.0
+- **6 Modelle, gleiche Frage:** „Ist KI-Lernen effizienter?“
+- **Vier Fragen:** alle 🟢 bei „On topic“, alle 👍 bei „Verständlich“ – scheinbarer Konsens
+- **Δdiv-Matrix:** 0,584–0,759 – hohe Divergenz trotz Einigkeit
+- **Triangulation:**
+    - Harvard RCT 2025 (n=194): Median 4,5 vs 3,5, Zeit 49 vs 60 Min – BESTÄTIGT
+    - Türkei UPenn 2024 (n=1.000): +48 % Übungen / −17 % Test – BESTÄTIGT
+    - Kulik & Fletcher 2016: +0,66 SD – BESTÄTIGT
+- **Erkenntnis:** Hohe Δdiv zeigte nicht „falsch“, sondern „quellenarm“. Nur Meta-Cluster lieferte Primärdaten.
 
-**1. Rebranding & Strategic Positioning**
-- Formerly known as **DNS (Divergence Navigation System)** – now **frAIme (Epistemic Governance Framework)**
-- frAIme fits any AI governance pipeline
+**frAIme-Lektion:** Plausibilität ≠ Evidenz. Δdiv lokalisiert Prüfbedarf.
 
-**2. Tested with the Copilot Crash (Full Protocol)**
-- Single‑model narrative fails at Δdiv > 0.6
-- Microsoft Copilot invented "West vs. China" – Δdiv = **0.742** across 7 models exposed it
-- Three follow‑up questions increased divergence by 13% → narrative risk, not technical error
+## Technik
+Δdiv = 0.5·(1−Jaccard) + 0.5·(1−Cosine)
 
-**3. Live Δdiv Tracking (wip)**
-- Frontend calculates Δtotal during conversation, not post‑hoc
-- Thresholds validated: 0.3 = convergent, 0.5 = drift, 0.7 = contested
+Grenzwerte:
+- <0,3 = Konvergenz
+- 0,3–0,5 = Drift
+- 0,5–0,7 = hohes Risiko
+- >0,7 = contested
 
-**4. Real‑world traction (unchanged)**
-- 3,270 clones / 1,126 unique cloners in 14 days (GitHub)
-
----
-
-## What frAIme is technically
-
-**Core metric (inherited from DNS)**
-$$\Delta_{div} = 0.5 \cdot (1 - \text{Jaccard}) + 0.5 \cdot (1 - \text{Cosine})$$
-
-Validated ranges (frAIme V1.0.0):
-- **<0.3** = convergence
-- **0.3–0.5** = structured divergence (drift)
-- **0.5–0.7** = high divergence (narrative risk)
-- **>0.7** = contested (Copilot ↔ Mistral: 0.798)
-
-**Two layers**
-- **Frontend:** Four Questions + Live Traffic Light
-- **Backend:** Safety Layer (JSON schema, hash anchors, SHAP, multi‑agent log, cross‑language integrity check)
-
----
-
-## EU AI Act mapping (if succsessful)
-
-| Article | frAIme V1.0.0 Implementation |
-| :--- | :--- |
-| Art. 13 Transparency | Four Questions documented per answer |
-| Art. 14 Human oversight | Operator justifies synthesis, Δdiv logged |
-| Art. 15 Robustness | Δdiv + falsification rules + live tracking |
-
----
-
-## Implementation Artifacts (V1.0.0)
-
-- [4_questions.md](04_archive_legacy/teaching/4_questions.md) – The Four Questions Method
-- [Case Study "The Copilot Crash" (bilingual)](03_pedagogy/) – bereits im aktiven Ordner (nicht archiviert)
-- [Safety Layer Schema](04_archive_legacy/src/safety_layer_schema_v2.json)
-- [minimal_safety_layer.py](01_governance/minimal_safety_layer.py) – with cross‑language check
-- [calc_delta_div.py](04_archive_legacy/case_studies/case_study_the_copilot_crash/calc_delta_div.py)
-- [Open Data Proof](04_archive_legacy/proof/dns_open_data_proof.json)
-- [LICENSE-DOCS](LICENSE-DOCS) (CC BY-NC-SA 4.0)
-- [LICENSE-CODE](LICENSE-CODE) (Apache-2.0)
----
-
-## Links
-
-- **Zenodo:** [https://doi.org/10.5281/zenodo.19597808](https://doi.org/10.5281/zenodo.19793185)
-- **GitHub:** https://github.com/schltdns/divergence-navigation-system (frAIme V1.0.0)
-- **IPFS CID V1.0.0:** `bafkreiblue2cs6e4xmpbpklkswimpzgnoumszgkvcm5csukdiqhqkf7wyy` (same as DNS v2.2 for now)
-
----
-
-## Quick start
-
-1. Read the architecture: [04_archive_legacy/protocol/team_architecture_v_2_0.md](04_archive_legacy/protocol/team_architecture_v_2_0.md)
-2. Try the crash: [04_archive_legacy/case_studies/case_study_the_copilot_crash/readme.md](04_archive_legacy/case_studies/case_study_the_copilot_crash/readme.md)
-3. Run the demo: `python 01_governance/minimal_safety_layer.py`
-
-**frAIme provides structure, not guarantees.**
+Zwei Ebenen: Frontend (Vier Fragen) + Backend (Safety Layer, Hash-Anker, Multi-Agent-Log)
