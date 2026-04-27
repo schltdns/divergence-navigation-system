@@ -1,0 +1,11 @@
+{
+  "projekt": "DNS-Mythologie KI-Lernen",
+  "operator": "Denis Schult",
+  "datum": "2026-04-27",
+  "protokoll": "frAIme V1.0.0",
+  "schritte": ["04_divergenz", "05_anomalie", "05_synthese", "05b_entscheidung", "06_triangulation", "06_validierung", "06b_power"],
+  "delta_div": {"niedrigster": "Qwen-Mistral 0.584", "höchster": "DeepSeek-Gemini 0.759"},
+  "quellen_validiert": ["Harvard RCT 2025", "Türkei UPenn 2024", "Kulik & Fletcher 2016"],
+  "formal_dissent": ["NotebookLM 30-50%", "Mistral Harvard 2020"],
+  "schluss": "Hohe Δdiv = Quellenasymmetrie, nicht Falschheit"
+}
