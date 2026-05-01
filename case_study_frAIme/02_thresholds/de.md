@@ -1,11 +1,14 @@
 # 02 – Schwellenwerte & Falsifikation
 
-| Kriterium | Schwelle | Bedeutung |
-|---|---|---|
-| Δdiv < 0,30 | Konvergenz | Modelle teilen Kernkonzepte und Schlussfolgerungen |
-| 0,30 ≤ Δdiv ≤ 0,50 | Produktive Reibung | Unterschiedliche Schwerpunkte, Aussagen kompatibel |
-| 0,50 < Δdiv ≤ 0,70 | Hohe Divergenz | Perspektiven möglicherweise unvereinbar |
-| Δdiv > 0,70 | Epistemischer blinder Fleck | Fundamentale Divergenz, F1-Trigger |
+## Δdiv / drift Interpretation (canonical)
+
+| Wertebereich | Label | Handlungsempfehlung |
+|-------------|-------|-------------------|
+| < 0,15 | Konsens | Keine weitere Prüfung nötig |
+| 0,15–0,35 | Leichte Abweichung | Kontext prüfen, dokumentieren |
+| 0,35–0,50 | Signifikante Divergenz | Externe Validierung (P6) anstoßen |
+| 0,50–0,70 | Quellenasymmetrie | Power Layer Check (P6b) aktivieren |
+| > 0,70 | Epistemischer blinder Fleck | F1-Trigger: DeepSeek-Intervention + Operator-Eskalation |
 
 ## Zusatz-Flags (DNS P4.2)
 
