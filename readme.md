@@ -38,7 +38,7 @@ Kein Account. Keine API. Funktioniert auf Papier.
 ## Was ist neu in V1.0.0
 1. **Rebranding:** früher DNS – jetzt frAIme (Epistemic Governance Framework)
 2. **Validiert:** case_study_frAIme zeigt drift 0,584–0,759 trotz scheinbarem Konsens
-3. **Reichweite:** 6.946 Clones / 1.914 Unique Cloner in 14 Tagen
+3. **Reichweite:** 7.240 Clones / 1.959 Unique Cloner in 14 Tagen
 
 ## Case Study: KI-Lernen vs. Frontalunterricht
 
