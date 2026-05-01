@@ -1,11 +1,14 @@
 # 02 – Thresholds & Falsification
 
-| Criterion | Threshold | Meaning |
-|---|---|---|
-| Δdiv < 0.30 | Convergence | Models share core concepts and conclusions |
-| 0.30 ≤ Δdiv ≤ 0.50 | Productive friction | Different emphases, compatible statements |
-| 0.50 < Δdiv ≤ 0.70 | High divergence | Perspectives may be irreconcilable |
-| Δdiv > 0.70 | Epistemic blind spot | Fundamental divergence, F1 trigger |
+## Δdiv / drift Interpretation (canonical)
+
+| Range | Label | Recommended Action |
+|-------|-------|-------------------|
+| < 0.15 | Consensus | No further validation required |
+| 0.15–0.35 | Minor Deviation | Review context, document findings |
+| 0.35–0.50 | Significant Divergence | Trigger External Validation (P6) |
+| 0.50–0.70 | Source Asymmetry | Activate Power Layer Check (P6b) |
+| > 0.70 | Epistemic Blind Spot | F1-Trigger: DeepSeek Intervention + Operator Escalation |
 
 ## Additional Flags (DNS P4.2)
 
