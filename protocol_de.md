@@ -10,8 +10,20 @@ Falsifikationskriterien festlegen.
 Identischen Prompt über S1–Ω laufen lassen.
 
 ## P4 – Divergenz-Karte → `04_divergence_map/`
-Δdiv = 1 - (Jaccard_sem + Cosine) / 2  
-drift = vereinfachter Begriff. Δdiv 0,584–0,759 in case_study_frAIme.
+**Δdiv = 1 - (Jaccard_sem + Cosine) / 2**  
+*drift = vereinfachter Begriff*
+
+wobei:
+- Jaccard_sem = |Konzepte(A) ∩ Konzepte(B)| / |Konzepte(A) ∪ Konzepte(B)|
+  (Konzepte via Nomen-Phrasen, nicht Tokens)
+- Cosine = Embedding-Ähnlichkeit (sentence-transformers)
+
+Interpretation:
+- Δdiv < 0,3 → Konvergenz
+- 0,3–0,6 → produktive Reibung
+- >0,7 → blinder Fleck
+
+*Referenz: case_study_frAIme – Δdiv 0,584–0,759 trotz scheinbarem Konsens*
 
 ## P5 – Synthese → `05_synthesis/`
 Integration mit Vier Fragen.
