@@ -40,22 +40,38 @@ No account. No API. Works on paper.
 2. **Validated:** case_study_frAIme shows drift 0.584–0.759 despite apparent consensus
 3. **Reach:** 6,946 clones / 1,914 unique cloners in 14 days
 
-## Case Study: AI Learning vs Frontal Teaching
+## Case Study: AI Learning vs. Frontal Instruction
 
-- **6 models, same question:** "Is AI learning more efficient?"
-- **Four Questions:** all 🟢 on "On topic", all 👍 on "Understandable" – apparent consensus
-- **drift matrix:** 0.584–0.759 – high divergence despite agreement
-    - DeepSeek–Gemini: 0.759
-    - DeepSeek–Meta: 0.730
-    - NotebookLM–DeepSeek: 0.715
-    - Qwen–Mistral: 0.584 (lowest)
-- **Triangulation:**
-        - Harvard RCT 2025 (n=194): Median 4.5 vs 3.5, Time 49 vs 60 min – CONFIRMED
-        - Turkey UPenn 2024 (n=1,000): +48% exercises / −17% test – CONFIRMED
-        - Kulik & Fletcher 2016: +0.66 SD – CONFIRMED
-- **Insight:** High drift did not mean "wrong", but "source-poor". Only one cluster provided primary data.
+**Setup**: 6 models, identical prompt: *"Is AI-based learning more efficient than frontal instruction?"*
 
-**frAIme lesson:** Plausibility ≠ Evidence. drift localizes verification need.
+**Four Questions Check**: 
+- All models 🟢 "On topic"
+- All models 👍 "Understandable"
+- → *Apparent consensus at surface level*
+
+**drift-Matrix Results**:
+| Model Pair | Δdiv | Interpretation (canonical) |
+|------------|------|---------------------------|
+| DeepSeek–Gemini | 0.759 | 🔴 Epistemic Blind Spot (>0.70) |
+| DeepSeek–Meta | 0.730 | 🔴 Epistemic Blind Spot (>0.70) |
+| NotebookLM–DeepSeek | 0.715 | 🔴 Epistemic Blind Spot (>0.70) |
+| Qwen–Mistral | 0.584 | 🟡 Source Asymmetry (0.50–0.70) |
+
+**Range**: 0.584–0.759 → *All pairs show at least Source Asymmetry; three pairs exceed Epistemic Blind Spot threshold*
+
+**External Triangulation (P6)**:
+| Source | Finding | Alignment |
+|--------|---------|-----------|
+| Harvard RCT 2025 (n=194) | Median score 4.5 vs 3.5; Time 49 vs 60 min | ✅ Confirms efficiency gain |
+| Turkey/UPenn Study 2024 (n=1,000) | +48% exercise completion; −17% test scores | ✅ Confirms mixed outcomes |
+| Kulik & Fletcher 2016 (Meta) | +0.66 SD effect size for adaptive learning | ✅ Confirms moderate advantage |
+
+**Key Insight**: 
+High drift did **not** indicate "wrong answers" — it revealed **source scarcity**. Only one model cluster referenced primary empirical data; others relied on heuristic reasoning or secondary summaries.
+
+**frAIme Lesson**: 
+> *Plausibility ≠ Evidence.*  
+> Δdiv/localized drift does not flag errors — it flags **where external validation (P6) and power-layer analysis (P6b) are required**.
 
 ## Technology
 **drift = Δdiv = 1 - (Jaccard_sem + Cosine) / 2**
