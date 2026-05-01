@@ -52,10 +52,15 @@ where:
 - Jaccard_sem = |concepts(A) ∩ concepts(B)| / |concepts(A) ∪ concepts(B)|
 - Cosine = embedding similarity
 
-Interpretation:
-- Δdiv < 0.3 → low drift
-- 0.3–0.6 → medium drift
-- >0.7 → high drift
+## Δdiv / drift Interpretation (canonical)
+
+| Range | Label | Recommended Action |
+|-------|-------|-------------------|
+| < 0.15 | Consensus | No further validation required |
+| 0.15–0.35 | Minor Deviation | Review context, document findings |
+| 0.35–0.50 | Significant Divergence | Trigger External Validation (P6) |
+| 0.50–0.70 | Source Asymmetry | Activate Power Layer Check (P6b) |
+| > 0.70 | Epistemic Blind Spot | F1-Trigger: DeepSeek Intervention + Operator Escalation |
 
 *case_study_frAIme: Δdiv 0.584–0.759*
 
