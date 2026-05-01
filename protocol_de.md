@@ -52,10 +52,15 @@ wobei:
 - Jaccard_sem = |Konzepte(A) ∩ Konzepte(B)| / |Konzepte(A) ∪ Konzepte(B)|
 - Cosine = Embedding-Ähnlichkeit
 
-Interpretation:
-- Δdiv < 0,3 → niedriger drift
-- 0,3–0,6 → mittlerer drift
-- >0,7 → hoher drift
+## Δdiv / drift Interpretation (canonical)
+
+| Wertebereich | Label | Handlungsempfehlung |
+|-------------|-------|-------------------|
+| < 0,15 | Konsens | Keine weitere Prüfung nötig |
+| 0,15–0,35 | Leichte Abweichung | Kontext prüfen, dokumentieren |
+| 0,35–0,50 | Signifikante Divergenz | Externe Validierung (P6) anstoßen |
+| 0,50–0,70 | Quellenasymmetrie | Power Layer Check (P6b) aktivieren |
+| > 0,70 | Epistemischer blinder Fleck | F1-Trigger: DeepSeek-Intervention + Operator-Eskalation |
 
 *case_study_frAIme: Δdiv 0,584–0,759*
 
