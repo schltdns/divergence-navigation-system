@@ -12,11 +12,15 @@ Question: How do six heterogeneous LLMs (NotebookLM, Qwen, DeepSeek, Gemini, Met
 ## P2 — Thresholds
 **File:** `02_thresholds.md`
 
-From hypothesis:
-- < 0.15 → Consensus
-- 0.15–0.35 → slight deviation
-- > 0.35 → significant divergence
-- > 0.50 → source asymmetry
+## Δdiv / drift Interpretation (canonical)
+
+| Range | Label | Recommended Action |
+|-------|-------|-------------------|
+| < 0.15 | Consensus | No further validation required |
+| 0.15–0.35 | Minor Deviation | Review context, document findings |
+| 0.35–0.50 | Significant Divergence | Trigger External Validation (P6) |
+| 0.50–0.70 | Source Asymmetry | Activate Power Layer Check (P6b) |
+| > 0.70 | Epistemic Blind Spot | F1-Trigger: DeepSeek Intervention + Operator Escalation |
 
 ## P3 — Outputs
 **Folder:** `03_outputs/`
