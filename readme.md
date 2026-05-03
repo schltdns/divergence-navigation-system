@@ -113,3 +113,4 @@ frAIme adaptiert und erweitert etablierte Verfahren zur Analyse epistemischer Un
 - Anders als Konsensmethoden kartiert frAIme Divergenz als Signal (P4).
 - Neu sind: (1) graphbasierte Informationsfluss-Analyse (X/Y-Plot), (2) Power Layer Check (P6b).
 - Reproduzierbarkeit durch versionierte Artefakte (P8).
+- Vergleich mit etablierten Verfahren: [DE](docs/methodology/landscape_de.md) | [EN](docs/methodology/landscape_en.md)
