@@ -8,5 +8,4 @@
   "quellen_validiert": ["Harvard RCT 2025", "Türkei UPenn 2024", "Kulik & Fletcher 2016"],
   "formal_dissent": ["NotebookLM 30-50%", "Mistral Harvard 2020"],
   "schluss": "Hohe Δdiv = Quellenasymmetrie, nicht Falschheit"
-}
- {"type": "landscape_comparison", "path": "docs/methodology/landscape_de.md", "lang": "de"}
+  "type": "landscape_comparison", "path": "docs/methodology/landscape_de.md", "lang": "de"}
