@@ -113,3 +113,4 @@ frAIme adapts and extends established methods for analyzing epistemic uncertaint
 - Unlike consensus methods, frAIme maps divergence as signal (P4).
 - New: (1) graph-based information flow analysis (X/Y plot), (2) Power Layer check (P6b).
 - Reproducibility through versioned artifacts (P8).
+- Comparison with established methods: [DE](docs/methodology/landscape_de.md) | [EN](docs/methodology/landscape_en.md)
