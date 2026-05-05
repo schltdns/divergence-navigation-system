@@ -45,7 +45,7 @@ Kein Account. Keine API. Funktioniert auf Papier.
 **Setup**: 6 Modelle, identischer Prompt: *„Ist KI-basiertes Lernen effizienter als Frontalunterricht?"*
 
 **Vier-Fragen-Check**: 
-- Alle Modelle 🟢 „On topic"
+- Alle Modelle 🟢 „Thema getroffen"
 - Alle Modelle 👍 „Verständlich"
 - → *Scheinbarer Konsens auf Oberflächenebene*
 
