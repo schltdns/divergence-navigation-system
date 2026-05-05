@@ -26,7 +26,7 @@ Für Forschung: messbare Divergenz (drift), auditierbar.
 **Die Vier-Fragen-Methode**
 Prüfe jede LLM-Antwort:
 
-1. On topic? 🟢 / 🔴
+1. Thema getroffen? 🟢 / 🔴
 2. Neue Idee? 🟢 / 🟡 / 🔴
 3. Verifizierbar? (Zahl, Datum, Ort, wenn-dann) 🟢 / 🔴
 4. Verständlich? 👍 / 👎
