@@ -33,9 +33,6 @@
 
 </p>
 
-<p align="center">
-<a href="https://doi.org/10.5281/zenodo.19793185">https://doi.org/10.5281/zenodo.19793185</a>
-</p>
 
 **frAIme macht Unsicherheit sichtbar – es schafft den Rahmen für verlässliche KI-Nutzung.**  
 frAIme ist Governance by Design, nicht Ethik per Deklaration.
@@ -149,3 +146,6 @@ Vergleich mit etablierten Verfahren:
 - Neu: (1) graphbasierte Informationsfluss-Analyse (X/Y-Plot), (2) Power Layer Check (P6b).  
 - Reproduzierbarkeit durch versionierte Artefakte (P8).  
 - Vergleich: [DE](docs/methodology/landscape_de.md) | [EN](docs/methodology/landscape_en.md)
+<p align="center">
+<a href="https://doi.org/10.5281/zenodo.19793185">https://doi.org/10.5281/zenodo.19793185</a>
+</p>
