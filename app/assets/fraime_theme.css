@@ -1,1 +1,88 @@
+/* frAIme Design Tokens – extrahiert aus Logo-SVG */
+:root {
+  --fraime-blue: #185FA5;
+  --fraime-green: #1D9E75;
+  --fraime-amber: #EF9F27;
+  --fraime-red: #E24B4A;
+  --fraime-bg: #0F1419;
+  --fraime-surface: #1A1F26;
+  --fraime-text: #FAF9F5;
+  --fraime-muted: #C2C0B6;
+  --fraime-line: rgba(222, 220, 209, 0.15);
+  --radius-lg: 8px;
+  --radius-sm: 1px;
+}
 
+/* Global */
+body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: var(--fraime-bg);
+  color: var(--fraime-text);
+}
+
+/* Wordmark-Style Headings */
+h1, h2, h3 {
+  font-family: ui-monospace, monospace;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+h1 span.ai { color: var(--fraime-blue); }
+
+/* Subtitles */
+.subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  color: var(--fraime-muted);
+  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* Vier-Fragen-Ampel */
+.ampel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--fraime-line);
+}
+.ampel-label {
+  color: var(--fraime-muted);
+  font-size: 0.9rem;
+}
+.ampel-status { display: flex; gap: 4px; }
+.ampel-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--fraime-muted);
+  opacity: 0.2;
+}
+.ampel-dot.active { opacity: 1; }
+.ampel-dot.green { background: var(--fraime-green); }
+.ampel-dot.amber { background: var(--fraime-amber); }
+.ampel-dot.red { background: var(--fraime-red); }
+.ampel-dot.blue { background: var(--fraime-blue); }
+
+/* Container */
+.fraime-card {
+  background: var(--fraime-surface);
+  border: 2px solid var(--fraime-blue);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin: 12px 0;
+}
+
+/* Δdiv Badge */
+.drift-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--fraime-surface);
+  border: 1px solid var(--fraime-line);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+.drift-badge.low { border-left: 3px solid var(--fraime-green); }
+.drift-badge.medium { border-left: 3px solid var(--fraime-amber); }
+.drift-badge.high { border-left: 3px solid var(--fraime-red); }
