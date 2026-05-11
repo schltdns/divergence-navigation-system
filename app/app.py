@@ -2,21 +2,24 @@ import streamlit as st
 import spacy
 import numpy as np
 import pandas as pd
-import os
-os.system("python -m spacy download de_core_news_sm")
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
+import subprocess
+import sys
 
-# ── 🧠 Modelle cachen (lädt nur einmal) ─────────────────────────────────────
-@st.cache_resource
-def load_nlp():
-    return spacy.load("de_core_news_sm")
+# 🔍 Prüft, ob Modell bereits installiert ist. Lädt es nur, falls nötig.
+try:
+    nlp = spacy.load("de_core_news_sm")
+except OSError:
+    st.info("⬇️ Lade spaCy-Modell herunter (einmalig)...")
+    subprocess.check_call([sys.executable, "-m", "spacy", "download", "de_core_news_sm"])
+    nlp = spacy.load("de_core_news_sm")
 
+# 🧠 Embedding-Modell cachen → lädt nur einmal pro Session, nicht bei jedem Re-Run
 @st.cache_resource
 def load_embed_model():
     return SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
 
-nlp = load_nlp()
 embed_model = load_embed_model()
 
 # ── 📐 Δdiv-Backend ─────────────────────────────────────────────────────────
