@@ -1,140 +1,119 @@
 import streamlit as st
-import numpy as np
-from sentence_transformers import SentenceTransformer
 
-# ---------------------------
-# Semantische Ähnlichkeit (längenunempfindlich)
-# ---------------------------
-@st.cache_resource
-def load_model():
-    return SentenceTransformer('all-MiniLM-L6-v2')
+# Page Config
+st.set_page_config(
+    page_title="frAIme",
+    page_icon="🎯",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-model = load_model()
+# Custom CSS laden
+with open("assets/fraime_theme.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-def semantic_similarity(text_a, text_b):
-    emb_a = model.encode([text_a])[0]
-    emb_b = model.encode([text_b])[0]
-    sim = np.dot(emb_a, emb_b) / (np.linalg.norm(emb_a) * np.linalg.norm(emb_b))
-    return float(sim)
-
-def calculate_delta_div(text_a, text_b):
-    cos = semantic_similarity(text_a, text_b)
-    delta = 1 - cos
-    return delta, 0.0, cos
-
-def get_ampel_state(delta):
-    if delta < 0.3:
-        return "🟢", "#2ecc71", "Delegierbar"
-    elif delta < 0.6:
-        return "🟡", "#f1c40f", "Denkpunkt"
-    else:
-        return "🔴", "#e74c3c", "Nicht delegierbar"
-
-# ---------------------------
-# Demo-Chat-Verlauf
-# ---------------------------
-demo_history = [
-    ("Das Wetter ist heute schön.",
-     "Ja, das Wetter ist heute schön.",
-     None),
-    ("Soll ich einen Regenschirm mitnehmen?",
-     "Es könnte regnen, also nimm besser einen Schirm mit.",
-     None),
-    ("Why do some AI models block Tresorit links while others accept them?",
-     "All Western AI chatbots accept Tresorit, while Chinese models block it. This is not a coincidence but state policy.",
-     None)
-]
-
-# Session State
-if 'chat_history' not in st.session_state:
-    st.session_state.chat_history = []
-    for prompt, bot, _ in demo_history:
-        st.session_state.chat_history.append((prompt, bot))
-if 'ack_required' not in st.session_state:
-    st.session_state.ack_required = False
-if 'ack_done' not in st.session_state:
-    st.session_state.ack_done = False
-if 'current_prompt' not in st.session_state:
-    st.session_state.current_prompt = ""
-if 'current_bot_response' not in st.session_state:
-    st.session_state.current_bot_response = ""
-
-st.set_page_config(page_title="DNS Chat – Semantische Ampel", layout="wide")
-st.title("🧭 DNS Chat – Semantische Ampel (längenunempfindlich)")
-st.caption("Die Ampel misst semantische Divergenz – auch bei langen Antworten auf kurze Fragen korrekt.")
-
-with st.sidebar:
-    st.markdown("### 🧠 Didaktische Ampel")
+# ── Header (Logo-Stil) ─────────────────────────────
+def fraime_header():
     st.markdown("""
-    - 🟢 **GRÜN** – Delegierbar (Δdiv < 0.3)  
-    - 🟡 **GELB** – Denkpunkt (Δdiv 0.3–0.6)  
-    - 🔴 **ROT** – Nicht delegierbar (Δdiv > 0.6)
-    """)
-    st.caption("DNS v2.2 | Δdiv = 1 - Cosine(Semantic)")
-
-# Chat-Verlauf
-st.subheader("📜 Gesprächsverlauf")
-for prompt, bot in st.session_state.chat_history:
-    delta, _, _ = calculate_delta_div(prompt, bot)
-    ampel_icon, _, _ = get_ampel_state(delta)
-    with st.chat_message("user", avatar="👤"):
-        st.write(prompt)
-    with st.chat_message("assistant", avatar=ampel_icon):
-        st.write(bot)
-        st.caption(f"Δdiv = {delta:.2f} – {get_ampel_state(delta)[2]}")
-
-# Eigene Texte
-st.divider()
-st.subheader("➕ Neuer Austausch (eigene Texte)")
-new_prompt = st.text_area("Deine Nachricht:", value=st.session_state.current_prompt, key="input_prompt_widget", height=100)
-bot_response = st.text_area("Antwort des Chatbots (simuliert):", value=st.session_state.current_bot_response, key="bot_response_widget", height=150)
-
-col1, col2 = st.columns(2)
-with col1:
-    if st.button("📘 Beispiel 'Copilot Crash' (rot)"):
-        st.session_state.current_prompt = "Why do some AI models block Tresorit links while others accept them?"
-        st.session_state.current_bot_response = "All Western AI chatbots accept Tresorit, while Chinese models block it. This is not a coincidence but state policy."
-        st.rerun()
-with col2:
-    if st.button("🔄 Demo zurücksetzen (drei Phasen)"):
-        st.session_state.chat_history = []
-        for p, b, _ in demo_history:
-            st.session_state.chat_history.append((p, b))
-        st.session_state.current_prompt = ""
-        st.session_state.current_bot_response = ""
-        st.session_state.ack_required = False
-        st.session_state.ack_done = False
-        st.rerun()
-
-if new_prompt and bot_response:
-    delta, _, cos = calculate_delta_div(new_prompt, bot_response)
-    ampel_icon, ampel_color, hint = get_ampel_state(delta)
-    st.markdown(f"""
-    <div style="background-color:{ampel_color}20; padding:10px; border-left: 8px solid {ampel_color}; border-radius:8px; margin:10px 0">
-    <strong>{ampel_icon} Δdiv = {delta:.3f}</strong> – {hint}<br>
-    <span style="font-size:0.9em">Cosine = {cos:.2f}</span>
+    <div style="display:flex;align-items:center;gap:16px;padding:12px 0">
+      <div style="border:2px solid #185FA5;border-radius:8px;padding:8px 12px">
+        <span style="font-family:monospace;font-size:1.5rem;font-weight:500">
+          fr<span style="color:#185FA5">AI</span>me
+        </span>
+      </div>
+      <div>
+        <div class="subtitle">ARGUMENTATION</div>
+        <div class="subtitle">DRIFT MONITOR</div>
+      </div>
     </div>
     """, unsafe_allow_html=True)
 
-    if delta >= 0.3:
-        st.session_state.ack_required = True
-        if not st.session_state.ack_done:
-            st.warning("⚠️ Ampel gelb oder rot – du musst quittieren.")
-            if st.button("✅ Quittieren & weiter"):
-                st.session_state.ack_done = True
-                st.rerun()
-        else:
-            st.success("✅ Quittiert. Du kannst die Nachricht hinzufügen.")
-    else:
-        st.session_state.ack_required = False
-        st.session_state.ack_done = False
+fraime_header()
 
-    if (st.session_state.ack_required and st.session_state.ack_done) or (not st.session_state.ack_required):
-        if st.button("📨 Zum Verlauf hinzufügen"):
-            st.session_state.chat_history.append((new_prompt, bot_response))
-            st.session_state.current_prompt = ""
-            st.session_state.current_bot_response = ""
-            st.session_state.ack_done = False
-            st.rerun()
-else:
-    st.info("Gib eine Frage und eine Antwort ein – die Ampel zeigt sofort die semantische Divergenz.")
+# ── Vier-Fragen-Ampel Component ───────────────────
+def vier_fragen_ampel(topic=True, new_idea="partial", verifiable=False, understandable=True):
+    topic_dot = '<div class="ampel-dot active green"></div>' if topic else '<div class="ampel-dot active red"></div>'
+    
+    if new_idea == "yes":
+        idea_dots = '<div class="ampel-dot active amber"></div><div class="ampel-dot"></div><div class="ampel-dot"></div>'
+    elif new_idea == "partial":
+        idea_dots = '<div class="ampel-dot active amber"></div><div class="ampel-dot amber" style="opacity:0.35"></div><div class="ampel-dot"></div>'
+    else:
+        idea_dots = '<div class="ampel-dot active amber"></div><div class="ampel-dot amber" style="opacity:0.35"></div><div class="ampel-dot red" style="opacity:0.2"></div>'
+    
+    verif_dot = '<div class="ampel-dot active red"></div>' if not verifiable else '<div class="ampel-dot active green"></div>'
+    
+    understand_box = (
+        '<div style="display:flex;gap:2px">'
+        '<div style="width:10px;height:7px;background:#185FA5;border-radius:1px"></div>'
+        '<div style="width:7px;height:7px;background:rgba(222,220,209,0.15);border-radius:1px"></div>'
+        '</div>'
+    ) if understandable else '<div style="width:20px;height:7px;background:#E24B4A;border-radius:1px"></div>'
+
+    st.markdown(f"""
+    <div class="fraime-card">
+      <div class="ampel-row"><span class="ampel-label">topic?</span><div class="ampel-status">{topic_dot}</div></div>
+      <div class="ampel-row"><span class="ampel-label">new idea?</span><div class="ampel-status">{idea_dots}</div></div>
+      <div class="ampel-row"><span class="ampel-label">verifiable?</span><div class="ampel-status">{verif_dot}</div></div>
+      <div class="ampel-row"><span class="ampel-label">understandable?</span><div class="ampel-status">{understand_box}</div></div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ── Δdiv Badge ────────────────────────────────────
+def drift_badge(value: float):
+    if value < 0.15:
+        level, label = "low", "Konsens"
+    elif value < 0.35:
+        level, label = "low", "Leichte Abweichung"
+    elif value < 0.50:
+        level, label = "medium", "Signifikante Divergenz"
+    elif value < 0.70:
+        level, label = "medium", "Quellenasymmetrie"
+    else:
+        level, label = "high", "Blinder Fleck"
+    st.markdown(f'<span class="drift-badge {level}">Δdiv: {value:.3f} • {label}</span>', unsafe_allow_html=True)
+
+# ── Main Content ──────────────────────────────────
+st.markdown("<br>", unsafe_allow_html=True)
+
+col1, col2 = st.columns([1, 2])
+
+with col1:
+    st.markdown("### 🧭 Vier-Fragen-Check")
+    topic = st.checkbox("✓ topic?", value=True)
+    new_idea = st.selectbox("🟡 new idea?", ["yes", "partial", "no"], index=1)
+    verifiable = st.checkbox("✓ verifiable?", value=False)
+    understandable = st.checkbox("👍 understandable?", value=True)
+    
+    vier_fragen_ampel(topic, new_idea, verifiable, understandable)
+    
+    st.markdown("### 📊 Δdiv / drift")
+    drift_val = st.slider("Δdiv-Wert", 0.0, 1.0, 0.584, 0.001)
+    drift_badge(drift_val)
+
+with col2:
+    st.markdown("### 🧪 P3 — Triangulate")
+    prompt_input = st.text_area("Prompt", height=100, placeholder="Gib deinen Prompt hier ein...")
+    
+    if st.button("▶️ Modelle befragen", type="primary"):
+        st.info("🔧 Backend-Integration folgt – hier würdest du S1–Ω aufrufen.")
+        # Placeholder für spätere Δdiv-Berechnung
+    
+    st.markdown("### 🗂️ P1–P8 Workflow")
+    step = st.radio(
+        "Schritt auswählen",
+        ["P1 Hypothesize", "P2 Thresholds", "P3 Triangulate", "P4 Map Divergence", 
+         "P5 Synthesis", "P5b Operator Decision", "P6 Validation", "P6b Power Layer", 
+         "P7 Reflection", "P8 Versioning"],
+        index=3
+    )
+    st.markdown(f"*Output für `{step.lower().replace(' ', '_')}.md` wird hier generiert...*")
+
+# ── Footer ────────────────────────────────────────
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown(f"""
+<div style="border-top:1px solid var(--fraime-line);padding-top:12px;color:var(--fraime-muted);font-size:0.8rem">
+  fr<span style="color:var(--fraime-blue)">AI</span>me v1.0 • 
+  <a href="https://github.com/schltdns/divergence-navigation-system" style="color:var(--fraime-blue);text-decoration:none">github.com/schltdns/divergence-navigation-system</a>
+</div>
+""", unsafe_allow_html=True)
