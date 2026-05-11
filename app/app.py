@@ -2,6 +2,8 @@ import streamlit as st
 import spacy
 import numpy as np
 import pandas as pd
+import os
+os.system("python -m spacy download de_core_news_sm")
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 
